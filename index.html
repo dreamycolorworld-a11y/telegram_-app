@@ -523,7 +523,7 @@
       box-shadow: 0 0 10px rgba(155, 81, 224, 0.5);
     }
 
-    /* БУТИК: СКРОЛЛ И СЕТКА */
+        /* БУТИК: СПИСОК ВО ВСЮ ШИРИНУ И СКРОЛЛ (КАК В ГАРДЕРОБЕ) */
     .shop-main-card {
       max-height: calc(100vh - 100px);
       display: flex;
@@ -537,96 +537,176 @@
       text-align: center;
     }
 
-    .shop-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .shop-list-column {
+      display: flex;
+      flex-direction: column;
       gap: 12px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding-right: 2px;
       padding-bottom: 30px;
+      flex: 1;
+      min-height: 0;
     }
 
-    .shop-grid::-webkit-scrollbar {
+    .shop-list-column::-webkit-scrollbar {
       width: 4px;
     }
 
-    .shop-grid::-webkit-scrollbar-thumb {
+    .shop-list-column::-webkit-scrollbar-thumb {
       background: rgba(230, 57, 86, 0.4);
       border-radius: 4px;
     }
 
-    .product-card {
+    /* КАРТОЧКА БУТИКА ВО ВСЮ ШИРИНУ (ПОЛНАЯ РАМКА) */
+    .shop-card-row {
+      width: 100%;
+      min-height: 108px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
       background: var(--bg-card-row);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
       overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
 
-    .product-card:active {
-      transform: scale(0.97);
+    .shop-card-row:active {
+      transform: scale(0.985);
       border-color: var(--accent-pink);
     }
 
-    .product-img-holder {
+    .shop-img-wrap {
+      width: 105px;
       position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1.15;
-      margin-bottom: 8px;
+      flex-shrink: 0;
     }
 
-    .product-main-img {
+    .shop-row-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 12px;
+      display: block;
     }
 
-    .product-peppers-tag {
+    .shop-peppers-tag {
       position: absolute;
       top: 6px;
-      right: 6px;
-      background: rgba(0, 0, 0, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      left: 6px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       backdrop-filter: blur(4px);
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 6px;
+      font-size: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
     }
 
-    .product-title {
-      font-size: 12px;
-      font-weight: 700;
+    .shop-row-info {
+      flex: 1;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .shop-row-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .shop-row-title {
       color: #fff;
+      font-size: 13px;
+      font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .product-card-bottom {
+    .shop-price-badge {
+      font-size: 11px;
+      font-weight: 900;
+      color: #FFB703;
+      white-space: nowrap;
+      background: rgba(255, 183, 3, 0.12);
+      border: 1px solid rgba(255, 183, 3, 0.3);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .shop-row-desc {
+      color: var(--text-muted);
+      font-size: 10.5px;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .shop-row-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-top: 6px;
     }
 
-    .product-price-tag {
-      font-size: 11px;
-      font-weight: 800;
-      color: #FFB703;
-    }
-
-    .product-view-hint {
-      font-size: 9.5px;
+    .shop-row-cat {
       color: var(--accent-pink);
-      font-weight: 700;
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
     }
 
-    /* СТРАНИЦА ТОВАРА (ДЕТАЛИ) */
+    .shop-view-action-btn {
+      border: 1px solid rgba(230, 57, 86, 0.4);
+      background: rgba(230, 57, 86, 0.14);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .shop-view-action-btn:active {
+      background: var(--accent-pink);
+    }
+
+    .shop-status-pill {
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .shop-status-pill.bought {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .shop-status-pill.owned {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+/* СТРАНИЦА ТОВАРА (ДЕТАЛИ) */
     .product-detail-card {
       display: flex;
       flex-direction: column;
@@ -1051,7 +1131,7 @@
             <button class="chip-btn" onclick="setShopCategory('Игрушки', this)">🧸 Игрушки</button>
           </div>
 
-          <div id="shop-products-list" class="shop-grid"></div>
+          <div id="shop-products-list" class="shop-list-column"></div>
         </div>
       </section>
 
@@ -1129,10 +1209,9 @@
 
     </main>
 
-    <!-- LIGHTBOX -->
+    <!-- LIGHTBOX (ЗАКРЫТИЕ В ОДИН ТАП В ЛЮБОЕ МЕСТО) -->
     <div id="fullscreen-photo-modal" class="fullscreen-modal" onclick="closeFullscreenPhoto()">
-      <div class="fullscreen-close-btn" onclick="closeFullscreenPhoto()">✕</div>
-      <img id="fullscreen-photo-elem" class="fullscreen-img" src="" alt="Fullscreen Image" onclick="event.stopPropagation()">
+      <img id="fullscreen-photo-elem" class="fullscreen-img" src="" alt="Fullscreen Image">
     </div>
 
     <!-- МОДАЛКА ДОБАВЛЕНИЯ НА СТОЛ -->
@@ -1217,11 +1296,11 @@
     let malePts = parseInt(localStorage.getItem('pact_male_pts') || '3450');
 
     // Авто-сброс кэша под механику рангов страсти
-    if (localStorage.getItem('pact_single_ver') !== 'v9_scrollable_shop') {
+    if (localStorage.getItem('pact_single_ver') !== 'v11_shop_full_frame') {
       localStorage.removeItem('boutique_items');
       localStorage.removeItem('wardrobe_items');
       localStorage.removeItem('pact_selected_wardrobe_ids');
-      localStorage.setItem('pact_single_ver', 'v9_scrollable_shop');
+      localStorage.setItem('pact_single_ver', 'v11_shop_full_frame');
     }
 
     /* ХЕЛПЕРЫ: ПЕРЧИНКИ И ЗВАНИЯ */
@@ -1578,25 +1657,44 @@
 
       if (filtered.length === 0) {
         bCont.innerHTML = `
-          <div style="grid-column: span 2; text-align: center; color: var(--text-muted); font-size: 11.5px; padding: 40px 10px;">
+          <div style="text-align: center; color: var(--text-muted); font-size: 11.5px; padding: 40px 10px;">
             В этой категории пока нет товаров.
           </div>`;
         return;
       }
 
-      bCont.innerHTML = filtered.map(p => `
-        <div class="product-card" onclick="openProductDetail(${p.id})">
-          <div class="product-img-holder">
-            <img class="product-main-img" src="${p.mainImg}" alt="${p.title}" loading="lazy">
-            <div class="product-peppers-tag">${renderPeppers(p.peppers)}</div>
+      bCont.innerHTML = filtered.map(p => {
+        let actionBtnHtml = '';
+        if (p.status === 'available') {
+          actionBtnHtml = `<button class="shop-view-action-btn">Смотреть →</button>`;
+        } else if (p.status === 'bought') {
+          actionBtnHtml = `<span class="shop-status-pill bought">📦 Ожидает</span>`;
+        } else {
+          actionBtnHtml = `<span class="shop-status-pill owned">✓ В гардеробе</span>`;
+        }
+
+        return `
+          <div class="shop-card-row" onclick="openProductDetail(${p.id})">
+            <div class="shop-img-wrap" onclick="event.stopPropagation(); openFullscreenPhoto('${p.mainImg}')">
+              <img class="shop-row-img" src="${p.mainImg}" alt="${p.title}" loading="lazy">
+              <div class="shop-peppers-tag">${renderPeppers(p.peppers || 1)}</div>
+            </div>
+            <div class="shop-row-info">
+              <div>
+                <div class="shop-row-title-bar">
+                  <div class="shop-row-title">${p.title}</div>
+                  <div class="shop-price-badge">🔥 ${p.pricePts} PTS</div>
+                </div>
+                <div class="shop-row-desc">${p.desc || ''}</div>
+              </div>
+              <div class="shop-row-footer">
+                <span class="shop-row-cat">${p.category}</span>
+                ${actionBtnHtml}
+              </div>
+            </div>
           </div>
-          <div class="product-title">${p.title}</div>
-          <div class="product-card-bottom">
-            <span class="product-price-tag">🔥 ${p.pricePts} PTS</span>
-            <span class="product-view-hint">Смотреть →</span>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     function openProductDetail(id) {
