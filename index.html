@@ -1660,7 +1660,6 @@
           <!-- Внутренние вкладки Казны -->
           <div class="category-chips" style="margin-bottom: 12px;">
             <button class="chip-btn active" onclick="setBankSubTab('operations', this)">⚖️ Операции</button>
-            <button class="chip-btn" id="tab-bank-btn-transfer" onclick="setBankSubTab('transfer', this)">💌 Перевод ❤️</button>
             <button class="chip-btn" onclick="setBankSubTab('converter', this)">🔄 Обмен</button>
             <button class="chip-btn" onclick="setBankSubTab('history', this)">📜 История</button>
           </div>
@@ -1719,62 +1718,6 @@
             <button class="bank-submit-btn reward" id="bank-execute-btn" onclick="executeBankTransaction()">
               ➕ Начислить 50 очков
             </button>
-          </div>
-
-                    <!-- ПОДВКЛАДКА: ПЕРЕВОД СЕКС-ОЧКОВ ❤️ МЕЖДУ ПАРТНЕРАМИ -->
-          <div id="bank-sub-transfer" class="bank-sub-content">
-            <div class="converter-card-box">
-              <div class="converter-rate-badge" style="border-color: rgba(230, 57, 86, 0.4); background: rgba(230, 57, 86, 0.1);">
-                💌 <b>Прямой перевод ❤️ между партнерами</b>
-              </div>
-
-              <!-- Балансы ❤️ обеих сторон -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px; text-align: center;">
-                  <div style="font-size: 10px; color: var(--text-muted); font-weight: 800;">Нижняя 🗝️</div>
-                  <div style="font-size: 16px; font-weight: 900; color: #FF8599; margin-top: 2px;">❤️ <span id="transfer-f-stc">0</span></div>
-                </div>
-                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px; text-align: center;">
-                  <div style="font-size: 10px; color: var(--text-muted); font-weight: 800;">Верхний 👑</div>
-                  <div style="font-size: 16px; font-weight: 900; color: #FF8599; margin-top: 2px;">❤️ <span id="transfer-m-stc">0</span></div>
-                </div>
-              </div>
-
-              <!-- Направление перевода -->
-              <div class="conv-row-group">
-                <label>Направление перевода:</label>
-                <div class="bank-target-selector">
-                  <button class="bank-target-btn active" id="btn-transfer-f2m" onclick="setTransferDirection('f2m')">
-                    🗝️ Нижняя ➔ 👑 Верхний
-                  </button>
-                  <button class="bank-target-btn" id="btn-transfer-m2f" onclick="setTransferDirection('m2f')">
-                    👑 Верхний ➔ 🗝️ Нижняя
-                  </button>
-                </div>
-              </div>
-
-              <!-- Сумма перевода -->
-              <div class="conv-row-group">
-                <label>Количество ❤️ для отправки:</label>
-                <input type="number" id="transfer-amount-input" class="bank-amount-input" value="50" min="1" step="5" oninput="updateTransferBtnText()">
-                <div class="quick-chips-row">
-                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(25)">25</button>
-                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(50)">50</button>
-                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(100)">100</button>
-                  <button class="quick-chip-btn" onclick="setQuickTransferAmount('all')">Все ❤️</button>
-                </div>
-              </div>
-
-              <!-- Послание / Комментарий -->
-              <div class="conv-row-group">
-                <label>Послание к переводу (опционально):</label>
-                <input type="text" id="transfer-note-input" class="bank-reason-input" placeholder="Дань Верхнему 💋 / На новую игрушку 🔥">
-              </div>
-
-              <button class="shop-buy-btn" id="transfer-submit-btn" style="margin-top: 6px;" onclick="executeSexTokensTransfer()">
-                💌 Перевести 50 ❤️ Верхнему
-              </button>
-            </div>
           </div>
 
           <!-- ПОДВКЛАДКА 2: ОБМЕН (КОНВЕРТЕР) -->
@@ -2139,13 +2082,13 @@
     };
 
     // Авто-сброс кэша под механику мульти-валют
-    if (localStorage.getItem('pact_single_ver') !== 'v18_sex_points_transfer_and_upper_shop') {
+    if (localStorage.getItem('pact_single_ver') !== 'v17_shop_balance_and_modal') {
       localStorage.removeItem('boutique_items');
       localStorage.removeItem('wardrobe_items');
       localStorage.removeItem('pact_selected_wardrobe_ids');
       localStorage.removeItem('pact_female_balances');
       localStorage.removeItem('pact_male_balances');
-      localStorage.setItem('pact_single_ver', 'v18_sex_points_transfer_and_upper_shop');
+      localStorage.setItem('pact_single_ver', 'v17_shop_balance_and_modal');
     }
 
     /* ХЕЛПЕРЫ: ПЕРЧИНКИ И ЗВАНИЯ */
@@ -2667,17 +2610,10 @@
 
       const actionSlot = document.getElementById('detail-action-slot');
       if (item.status === 'available') {
-        if (item.category === 'Белье') {
-          if (currentRole === 'female') {
-            actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">Приобрести комплект • 💜 ${item.pricePtc} + 🖤 ${item.priceOtc}</button>`;
-          } else {
-            actionSlot.innerHTML = `<button class="shop-buy-btn" style="background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.2); color: var(--text-muted); box-shadow: none; cursor: default;" onclick="alert('Бельё выбирает и приобретает Нижняя за 💜 и 🖤.')">👙 Бельё выбирает Нижняя</button>`;
-          }
-        } else {
-          // Секс-шоп: доступен обоим за ❤️
-          const buyerRoleLabel = currentRole === 'female' ? '' : ' (Верхний)';
-          actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">Купить девайс${buyerRoleLabel} • ❤️ ${item.priceStc}</button>`;
-        }
+        let buyBtnText = item.category === 'Белье' 
+          ? `Приобрести за 💜 ${item.pricePtc} + 🖤 ${item.priceOtc}`
+          : `Приобрести за ❤️ ${item.priceStc}`;
+        actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">${buyBtnText}</button>`;
       } else if (item.status === 'bought') {
         actionSlot.innerHTML = `<button class="shop-receive-btn" onclick="receiveBoutiqueItem(${item.id})">📦 Подтвердить получение!</button>`;
       } else {
@@ -2711,18 +2647,18 @@
       tg?.HapticFeedback?.impactOccurred?.('light');
     }
 
-    /* ПОКУПКА: СПИСАНИЕ ОЧКОВ (РАЗРЕШЕНА ПОКУПКА В СЕКС-ШОПЕ ВЕРХНЕМУ) */
+    /* ПОКУПКА: СПИСАНИЕ ОЧКОВ И КРАСИВАЯ МОДАЛКА НЕДОСТАЧИ */
     function buyBoutiqueItem(id) {
       const item = boutiqueItems.find(p => p.id === id);
       if (!item || item.status !== 'available') return;
 
-      // 1. Покупка белья (доступна только Нижней за 💜 + 🖤)
-      if (item.category === 'Белье') {
-        if (currentRole !== 'female') {
-          alert('Бельё за 💜 и 🖤 выбирает и приобретает Нижняя. Ты можешь покупать девайсы в Секс-шопе за ❤️!');
-          return;
-        }
+      if (currentRole !== 'female') {
+        alert('Приобретать наряды и девайсы может только Нижняя за свои очки.');
+        return;
+      }
 
+      // Проверка на покупку белья (💜 + 🖤)
+      if (item.category === 'Белье') {
         const deficits = [];
         if (femaleBalances.ptc < item.pricePtc) {
           deficits.push({ heart: '💜', amount: item.pricePtc - femaleBalances.ptc });
@@ -2738,44 +2674,21 @@
 
         femaleBalances.ptc -= item.pricePtc;
         femaleBalances.otc -= item.priceOtc;
-        localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
       } 
-      // 2. Покупка в Секс-шопе (❤️ доступна И Нижней, И Верхнему!)
+      // Проверка на покупку в секс-шопе (❤️)
       else {
-        const activeBalance = currentRole === 'female' ? femaleBalances.stc : maleBalances.stc;
-        if (activeBalance < item.priceStc) {
-          const deficits = [{ heart: '❤️', amount: item.priceStc - activeBalance }];
+        if (femaleBalances.stc < item.priceStc) {
+          const deficits = [{ heart: '❤️', amount: item.priceStc - femaleBalances.stc }];
           showInsufficientFundsModal(item, deficits);
           return;
         }
 
-        if (currentRole === 'female') {
-          femaleBalances.stc -= item.priceStc;
-          localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
-        } else {
-          maleBalances.stc -= item.priceStc;
-          localStorage.setItem('pact_male_balances', JSON.stringify(maleBalances));
-        }
+        femaleBalances.stc -= item.priceStc;
       }
 
       item.status = 'bought';
-      item.boughtBy = currentRole;
+      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
       localStorage.setItem('boutique_items', JSON.stringify(boutiqueItems));
-
-      // Логируем в историю операций
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
-      const buyerName = currentRole === 'female' ? 'Нижняя' : 'Верхний';
-      transactionsLog.unshift({
-        id: Date.now(),
-        time: timeStr,
-        type: 'penalty',
-        recipient: currentRole,
-        currency: item.category === 'Белье' ? '💜+🖤' : '❤️',
-        amount: item.category === 'Белье' ? `${item.pricePtc}+${item.priceOtc}` : item.priceStc,
-        reason: `${buyerName}: покупка ${item.title} 🛍️`
-      });
-      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
 
       updateRoleUI();
       renderShopBalance();
@@ -2803,15 +2716,6 @@
         </div>
       `;
 
-      const storyElem = document.querySelector('.insufficient-story-text');
-      if (storyElem) {
-        if (currentRole === 'male') {
-          storyElem.innerText = 'Недостаточно ❤️ на балансе Верхнего. Получи перевод от Нижней или начисли очки в Казне.';
-        } else {
-          storyElem.innerText = 'Этот наряд требует большей страсти и покорности... Заслужи одобрение Верхнего или используй накопленные ресурсы.';
-        }
-      }
-
       modal.classList.add('active');
     }
 
@@ -2827,12 +2731,7 @@
 
     function goToExchangeCurrency() {
       closeInsufficientFundsModal();
-      if (currentRole === 'male') {
-        switchTab('tab-bank');
-        setBankSubTab('transfer', document.getElementById('tab-bank-btn-transfer'));
-      } else {
-        openConverterModal();
-      }
+      openConverterModal();
     }
 
     function receiveBoutiqueItem(id) {
@@ -3387,106 +3286,6 @@
       { id: 3, time: 'Вчера, 19:10', type: 'reward', recipient: 'male', currency: 'ATC', amount: 40, reason: 'Внимание и романтический жест 💙' }
     ];
 
-    
-    /* ========================================================
-       ПЕРЕВОД СЕКС-ОЧКОВ ❤️ МЕЖДУ ПАРТНЕРАМИ
-       ======================================================== */
-    let transferDirection = 'f2m'; // 'f2m': Нижняя -> Верхний, 'm2f': Верхний -> Нижняя
-
-    function setTransferDirection(dir) {
-      transferDirection = dir;
-      document.getElementById('btn-transfer-f2m')?.classList.toggle('active', dir === 'f2m');
-      document.getElementById('btn-transfer-m2f')?.classList.toggle('active', dir === 'm2f');
-      updateTransferBtnText();
-      tg?.HapticFeedback?.selectionChanged?.();
-    }
-
-    function setQuickTransferAmount(amt) {
-      const input = document.getElementById('transfer-amount-input');
-      if (!input) return;
-
-      if (amt === 'all') {
-        const available = transferDirection === 'f2m' ? femaleBalances.stc : maleBalances.stc;
-        input.value = Math.max(available, 0);
-      } else {
-        input.value = amt;
-      }
-      updateTransferBtnText();
-      tg?.HapticFeedback?.selectionChanged?.();
-    }
-
-    function updateTransferBtnText() {
-      const btn = document.getElementById('transfer-submit-btn');
-      const input = document.getElementById('transfer-amount-input');
-      if (!btn || !input) return;
-      const amt = parseInt(input.value) || 0;
-      if (transferDirection === 'f2m') {
-        btn.innerText = `💌 Перевести ${amt} ❤️ Верхнему`;
-      } else {
-        btn.innerText = `💌 Отправить ${amt} ❤️ Нижней`;
-      }
-    }
-
-    function executeSexTokensTransfer() {
-      const input = document.getElementById('transfer-amount-input');
-      const noteInput = document.getElementById('transfer-note-input');
-      const amount = parseInt(input?.value) || 0;
-      let note = noteInput?.value.trim();
-
-      if (amount <= 0) {
-        alert('Введите корректное число ❤️ для перевода.');
-        return;
-      }
-
-      if (transferDirection === 'f2m') {
-        if (femaleBalances.stc < amount) {
-          tg?.HapticFeedback?.notificationOccurred?.('error');
-          alert(`У Нижней недостаточно ❤️! Доступно: ${femaleBalances.stc}`);
-          return;
-        }
-
-        femaleBalances.stc -= amount;
-        maleBalances.stc += amount;
-        if (!note) note = 'Дань Верхнему 💋';
-      } else {
-        if (maleBalances.stc < amount) {
-          tg?.HapticFeedback?.notificationOccurred?.('error');
-          alert(`У Верхнего недостаточно ❤️! Доступно: ${maleBalances.stc}`);
-          return;
-        }
-
-        maleBalances.stc -= amount;
-        femaleBalances.stc += amount;
-        if (!note) note = 'Подарок Нижней на желания 🔥';
-      }
-
-      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
-      localStorage.setItem('pact_male_balances', JSON.stringify(maleBalances));
-
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
-      const dirText = transferDirection === 'f2m' ? 'Нижняя ➔ Верхний' : 'Верхний ➔ Нижняя';
-
-      transactionsLog.unshift({
-        id: Date.now(),
-        time: timeStr,
-        type: 'reward',
-        recipient: transferDirection === 'f2m' ? 'male' : 'female',
-        currency: 'STC',
-        amount: amount,
-        reason: `Перевод (${dirText}): ${note} 💌`
-      });
-      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
-
-      tg?.HapticFeedback?.notificationOccurred?.('success');
-      if (noteInput) noteInput.value = '';
-      updateRoleUI();
-      renderDesktop();
-      renderBankScreen();
-      renderShopBalance();
-      alert(`✨ Успешно переведено ${amount} ❤️ (${dirText})!`);
-    }
-
     function setBankSubTab(tab, btn) {
       bankSubTab = tab;
       document.querySelectorAll('#tab-bank .category-chips .chip-btn').forEach(b => b.classList.remove('active'));
@@ -3494,7 +3293,6 @@
       document.querySelectorAll('.bank-sub-content').forEach(c => c.classList.remove('active'));
       document.getElementById('bank-sub-' + tab)?.classList.add('active');
       tg?.HapticFeedback?.selectionChanged?.();
-      if (tab === 'transfer') renderBankScreen();
       if (tab === 'history') renderBankHistory();
       if (tab === 'converter') calculateBankConversion();
     }
@@ -3791,12 +3589,6 @@
       if (mAtc) mAtc.innerText = maleBalances.atc;
       if (mCtc) mCtc.innerText = maleBalances.ctc;
       if (mStc) mStc.innerText = maleBalances.stc;
-
-      const tfStc = document.getElementById('transfer-f-stc');
-      const tmStc = document.getElementById('transfer-m-stc');
-      if (tfStc) tfStc.innerText = femaleBalances.stc;
-      if (tmStc) tmStc.innerText = maleBalances.stc;
-      updateTransferBtnText();
 
       renderBankCurrencySelector();
       renderQuickReasons();
