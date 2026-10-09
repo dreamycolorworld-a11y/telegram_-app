@@ -680,6 +680,218 @@
       border: 1px solid var(--border-subtle);
     }
 
+    
+    /* БАЛАНС АККАУНТА В МАГАЗИНЕ */
+    .shop-account-balance-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(26, 14, 34, 0.9) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 9px 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .shop-bal-label {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .shop-bal-chips-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .shop-bal-action-btn {
+      background: rgba(230, 57, 86, 0.18);
+      border: 1px solid rgba(230, 57, 86, 0.4);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .shop-bal-action-btn:active {
+      background: var(--accent-pink);
+    }
+
+    /* МОДАЛКА: НЕДОСТАТОЧНО ВАЛЮТЫ (БУДУАРНАЯ ПОДАЧА) */
+    .insufficient-card {
+      border-top: 1px solid rgba(230, 57, 86, 0.6);
+      box-shadow: 0 -10px 32px rgba(230, 57, 86, 0.25);
+      background: linear-gradient(180deg, #1C0F22 0%, #0F0814 100%);
+    }
+
+    .insufficient-modal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 4px 0 10px;
+    }
+
+    .insufficient-item-preview {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 10px;
+    }
+
+    .insufficient-item-img {
+      width: 58px;
+      height: 68px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(230, 57, 86, 0.4);
+      flex-shrink: 0;
+    }
+
+    .insufficient-item-meta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow: hidden;
+    }
+
+    .insufficient-item-meta .title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .insufficient-deficits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .deficit-chip {
+      background: rgba(230, 57, 86, 0.18);
+      border: 1px solid rgba(230, 57, 86, 0.45);
+      color: #FF8599;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+
+    .insufficient-story-text {
+      font-size: 11px;
+      line-height: 1.45;
+      color: #D1C8DB;
+      font-style: italic;
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    .insufficient-choice-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .insufficient-option-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .insufficient-option-card:active {
+      transform: scale(0.98);
+      border-color: var(--accent-pink);
+    }
+
+    .insufficient-option-card .opt-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .insufficient-option-card .opt-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .insufficient-option-card .opt-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .insufficient-option-card .opt-desc {
+      font-size: 9.5px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .opt-action-btn {
+      border: none;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .opt-action-btn.earn {
+      background: linear-gradient(135deg, #10B981, #059669);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    }
+
+    .opt-action-btn.exchange {
+      background: linear-gradient(135deg, #9B51E0, #6D28D9);
+      box-shadow: 0 2px 8px rgba(155, 81, 224, 0.3);
+    }
+
+    .insufficient-dismiss-btn {
+      background: transparent;
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 8px 0;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-top: 2px;
+    }
+
+    .insufficient-dismiss-btn:active {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
     /* СТРАНИЦА ТОВАРА (ДЕТАЛИ) */
     .product-detail-card {
       display: flex;
@@ -888,6 +1100,306 @@
     @keyframes zoomInModal {
       from { transform: scale(0.92); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
+    }
+
+    
+    /* КАЗНА И УПРАВЛЕНИЕ ОЧКАМИ */
+    .bank-main-card {
+      max-height: calc(100vh - 100px);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 24px;
+    }
+
+    .bank-balances-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .bank-side-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bank-side-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .bank-side-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bank-sub-content {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bank-sub-content.active {
+      display: flex;
+    }
+
+    .bank-mode-selector, .bank-target-selector {
+      display: flex;
+      gap: 8px;
+    }
+
+    .bank-mode-btn, .bank-target-btn {
+      flex: 1;
+      padding: 9px 0;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .bank-mode-btn.reward.active {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #10B981;
+      color: #6EE7B7;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .bank-mode-btn.penalty.active {
+      background: rgba(230, 57, 86, 0.2);
+      border-color: var(--accent-pink);
+      color: #FF8599;
+      box-shadow: 0 0 12px rgba(230, 57, 86, 0.3);
+    }
+
+    .bank-target-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+
+    .bank-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bank-field-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .bank-currency-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bank-curr-pill {
+      flex: 1;
+      padding: 8px 6px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+      color: #dedede;
+      text-align: center;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .bank-curr-pill.active {
+      border-color: var(--accent-pink);
+      background: rgba(230, 57, 86, 0.2);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(230, 57, 86, 0.3);
+    }
+
+    .bank-amount-input, .bank-reason-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 12px;
+      outline: none;
+    }
+
+    .quick-chips-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .quick-chip-btn {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 5px 0;
+      font-size: 10px;
+      font-weight: 800;
+      color: #dedede;
+      cursor: pointer;
+    }
+
+    .quick-chip-btn:active {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .quick-reasons-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      margin-top: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .quick-reason-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 5px 8px;
+      font-size: 10px;
+      color: #c4bcd0;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .quick-reason-tag:active {
+      background: rgba(230, 57, 86, 0.2);
+      color: #fff;
+    }
+
+    .bank-submit-btn {
+      width: 100%;
+      padding: 12px 0;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      color: #fff;
+      margin-top: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .bank-submit-btn.reward {
+      background: linear-gradient(135deg, #10B981, #059669);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    .bank-submit-btn.penalty {
+      background: linear-gradient(135deg, #E63956, #9F1239);
+      box-shadow: 0 4px 14px rgba(230, 57, 86, 0.4);
+    }
+
+    .bank-history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .bank-history-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 8px 10px;
+      gap: 8px;
+    }
+
+    .bank-hist-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+    }
+
+    .bank-hist-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .bank-hist-badge.reward {
+      background: rgba(16, 185, 129, 0.2);
+      color: #10B981;
+    }
+
+    .bank-hist-badge.penalty {
+      background: rgba(230, 57, 86, 0.2);
+      color: var(--accent-pink);
+    }
+
+    .bank-hist-reason {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bank-hist-meta {
+      font-size: 9px;
+      color: var(--text-muted);
+    }
+
+    .bank-hist-val {
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .bank-hist-val.reward {
+      color: #10B981;
+    }
+
+    .bank-hist-val.penalty {
+      color: var(--accent-pink);
+    }
+
+    .clear-history-btn {
+      background: transparent;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 8px 0;
+      font-size: 10.5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 6px;
     }
 
     /* КОНВЕРТЕР ВАЛЮТ */
@@ -1099,9 +1611,9 @@
       <div class="app-brand">PACT & PASSION</div>
 
       <!-- Валюты роли + Кнопка Конвертера -->
-      <div class="header-currencies-wrap">
+      <div class="header-currencies-wrap" onclick="switchTab('tab-bank')" title="Открыть казну">
         <div id="header-currencies-container" style="display: flex; gap: 4px;"></div>
-        <button class="converter-trigger-btn" onclick="openConverterModal()" title="Конвертер валют">🔄</button>
+        <button class="converter-trigger-btn" onclick="event.stopPropagation(); switchTab('tab-bank')" title="Казна & Обмен">⚖️</button>
       </div>
     </header>
 
@@ -1115,6 +1627,202 @@
           <button class="add-tile-btn" onclick="openAddWidgetModal()">+ Добавить на стол</button>
         </div>
       </section>
+
+      <!-- ЭКРАН 2: КАЗНА & ОЧКИ (НАЧИСЛЕНИЯ, ШТРАФЫ, ОБМЕН) -->
+      <section id="tab-bank" class="tab-content">
+        <div class="card bank-main-card">
+          <div class="sub-screen-header">
+            <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
+            <div class="screen-title">КАЗНА & ОЧКИ</div>
+            <div style="width: 48px;"></div>
+          </div>
+
+          <!-- Сводка балансов обеих сторон -->
+          <div class="bank-balances-summary">
+            <div class="bank-side-box">
+              <div class="bank-side-title">🗝️ Нижняя</div>
+              <div class="bank-side-chips">
+                <span class="curr-chip ptc">💜 <b id="bank-f-ptc">0</b></span>
+                <span class="curr-chip otc">🖤 <b id="bank-f-otc">0</b></span>
+                <span class="curr-chip stc">❤️ <b id="bank-f-stc">0</b></span>
+              </div>
+            </div>
+            <div class="bank-side-box">
+              <div class="bank-side-title">👑 Верхний</div>
+              <div class="bank-side-chips">
+                <span class="curr-chip att">💙 <b id="bank-m-atc">0</b></span>
+                <span class="curr-chip care">💚 <b id="bank-m-ctc">0</b></span>
+                <span class="curr-chip stc">❤️ <b id="bank-m-stc">0</b></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Внутренние вкладки Казны -->
+          <div class="category-chips" style="margin-bottom: 12px;">
+            <button class="chip-btn active" onclick="setBankSubTab('operations', this)">⚖️ Операции</button>
+            <button class="chip-btn" id="tab-bank-btn-transfer" onclick="setBankSubTab('transfer', this)">💌 Перевод ❤️</button>
+            <button class="chip-btn" onclick="setBankSubTab('converter', this)">🔄 Обмен</button>
+            <button class="chip-btn" onclick="setBankSubTab('history', this)">📜 История</button>
+          </div>
+
+          <!-- ПОДВКЛАДКА 1: ОПЕРАЦИИ (НАЧИСЛЕНИЕ / ШТРАФ) -->
+          <div id="bank-sub-operations" class="bank-sub-content active">
+            <!-- Выбор режима: Начислить или Оштрафовать -->
+            <div class="bank-mode-selector">
+              <button class="bank-mode-btn reward active" id="btn-mode-reward" onclick="setBankOperationMode('reward')">
+                ➕ Начислить
+              </button>
+              <button class="bank-mode-btn penalty" id="btn-mode-penalty" onclick="setBankOperationMode('penalty')">
+                ➖ Штраф / Снять
+              </button>
+            </div>
+
+            <!-- Кому: Выбор получателя -->
+            <div class="bank-field-group">
+              <label class="bank-field-label">Кому:</label>
+              <div class="bank-target-selector">
+                <button class="bank-target-btn active" id="btn-target-female" onclick="setBankTarget('female')">
+                  🗝️ Нижней
+                </button>
+                <button class="bank-target-btn" id="btn-target-male" onclick="setBankTarget('male')">
+                  👑 Верхнему
+                </button>
+              </div>
+            </div>
+
+            <!-- Какая валюта -->
+            <div class="bank-field-group">
+              <label class="bank-field-label">Валюта:</label>
+              <div class="bank-currency-pills" id="bank-currency-selector-slot"></div>
+            </div>
+
+            <!-- Сумма -->
+            <div class="bank-field-group">
+              <label class="bank-field-label">Количество очков:</label>
+              <input type="number" id="bank-op-amount" class="bank-amount-input" value="50" min="1" step="5" oninput="updateBankSubmitBtnText()">
+              <div class="quick-chips-row">
+                <button class="quick-chip-btn" onclick="setQuickAmount(10)">+10</button>
+                <button class="quick-chip-btn" onclick="setQuickAmount(25)">+25</button>
+                <button class="quick-chip-btn" onclick="setQuickAmount(50)">+50</button>
+                <button class="quick-chip-btn" onclick="setQuickAmount(100)">+100</button>
+                <button class="quick-chip-btn" onclick="setQuickAmount(250)">+250</button>
+              </div>
+            </div>
+
+            <!-- Причина / Задача -->
+            <div class="bank-field-group">
+              <label class="bank-field-label">Причина / Внеигровая задача:</label>
+              <input type="text" id="bank-op-reason" class="bank-reason-input" placeholder="Например: кофе в постель, помощь, послушание...">
+              <div class="quick-reasons-strip" id="bank-quick-reasons-slot"></div>
+            </div>
+
+            <button class="bank-submit-btn reward" id="bank-execute-btn" onclick="executeBankTransaction()">
+              ➕ Начислить 50 очков
+            </button>
+          </div>
+
+                    <!-- ПОДВКЛАДКА: ПЕРЕВОД СЕКС-ОЧКОВ ❤️ МЕЖДУ ПАРТНЕРАМИ -->
+          <div id="bank-sub-transfer" class="bank-sub-content">
+            <div class="converter-card-box">
+              <div class="converter-rate-badge" style="border-color: rgba(230, 57, 86, 0.4); background: rgba(230, 57, 86, 0.1);">
+                💌 <b>Прямой перевод ❤️ между партнерами</b>
+              </div>
+
+              <!-- Балансы ❤️ обеих сторон -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px; text-align: center;">
+                  <div style="font-size: 10px; color: var(--text-muted); font-weight: 800;">Нижняя 🗝️</div>
+                  <div style="font-size: 16px; font-weight: 900; color: #FF8599; margin-top: 2px;">❤️ <span id="transfer-f-stc">0</span></div>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px; text-align: center;">
+                  <div style="font-size: 10px; color: var(--text-muted); font-weight: 800;">Верхний 👑</div>
+                  <div style="font-size: 16px; font-weight: 900; color: #FF8599; margin-top: 2px;">❤️ <span id="transfer-m-stc">0</span></div>
+                </div>
+              </div>
+
+              <!-- Направление перевода -->
+              <div class="conv-row-group">
+                <label>Направление перевода:</label>
+                <div class="bank-target-selector">
+                  <button class="bank-target-btn active" id="btn-transfer-f2m" onclick="setTransferDirection('f2m')">
+                    🗝️ Нижняя ➔ 👑 Верхний
+                  </button>
+                  <button class="bank-target-btn" id="btn-transfer-m2f" onclick="setTransferDirection('m2f')">
+                    👑 Верхний ➔ 🗝️ Нижняя
+                  </button>
+                </div>
+              </div>
+
+              <!-- Сумма перевода -->
+              <div class="conv-row-group">
+                <label>Количество ❤️ для отправки:</label>
+                <input type="number" id="transfer-amount-input" class="bank-amount-input" value="50" min="1" step="5" oninput="updateTransferBtnText()">
+                <div class="quick-chips-row">
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(25)">25</button>
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(50)">50</button>
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(100)">100</button>
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount('all')">Все ❤️</button>
+                </div>
+              </div>
+
+              <!-- Послание / Комментарий -->
+              <div class="conv-row-group">
+                <label>Послание к переводу (опционально):</label>
+                <input type="text" id="transfer-note-input" class="bank-reason-input" placeholder="Дань Верхнему 💋 / На новую игрушку 🔥">
+              </div>
+
+              <button class="shop-buy-btn" id="transfer-submit-btn" style="margin-top: 6px;" onclick="executeSexTokensTransfer()">
+                💌 Перевести 50 ❤️ Верхнему
+              </button>
+            </div>
+          </div>
+
+          <!-- ПОДВКЛАДКА 2: ОБМЕН (КОНВЕРТЕР) -->
+          <div id="bank-sub-converter" class="bank-sub-content">
+            <div class="converter-card-box">
+              <div class="converter-rate-badge">
+                Курс обмена Нижней: <b>2 💜 / 2 🖤 = 1 ❤️</b>
+              </div>
+
+              <div class="conv-row-group">
+                <label>Отдать:</label>
+                <div class="conv-input-row">
+                  <input type="number" id="bank-conv-from-amount" value="50" min="2" step="2" oninput="calculateBankConversion()">
+                  <select id="bank-conv-from-currency" onchange="calculateBankConversion()">
+                    <option value="PTC">💜</option>
+                    <option value="OTC">🖤</option>
+                    <option value="STC">❤️</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="conv-row-group">
+                <label>Получить:</label>
+                <div class="conv-input-row">
+                  <input type="text" id="bank-conv-to-amount" readonly value="25">
+                  <select id="bank-conv-to-currency" onchange="calculateBankConversion()">
+                    <option value="STC">❤️</option>
+                    <option value="PTC">💜</option>
+                    <option value="OTC">🖤</option>
+                  </select>
+                </div>
+              </div>
+
+              <button class="shop-buy-btn" style="margin-top: 8px;" onclick="executeBankCurrencyExchange()">
+                Совершить обмен 🔄
+              </button>
+            </div>
+          </div>
+
+          <!-- ПОДВКЛАДКА 3: ИСТОРИЯ ОПЕРАЦИЙ -->
+          <div id="bank-sub-history" class="bank-sub-content">
+            <div class="bank-history-list" id="bank-history-items-slot"></div>
+            <button class="clear-history-btn" onclick="clearBankHistory()">Очистить историю</button>
+          </div>
+
+        </div>
+      </section>
+
 
       <!-- ГАРДЕРОБ -->
       <section id="tab-wardrobe" class="tab-content">
@@ -1145,7 +1853,8 @@
             <div class="screen-title">БУТИК & СЕКС-ШОП</div>
             <div style="width: 48px;"></div>
           </div>
-          <div class="shop-notice">👙 Белье: 💜 PTC + 🖤 OTC | 💋 Секс-шоп: ❤️ STC</div>
+                    <!-- Баланс аккаунта в магазине -->
+          <div class="shop-account-balance-bar" id="shop-account-balance-slot"></div>
 
           <!-- Фильтры категорий Бутика -->
           <div class="category-chips">
@@ -1237,6 +1946,51 @@
       <img id="fullscreen-photo-elem" class="fullscreen-img" src="" alt="Fullscreen Image">
     </div>
 
+        <!-- МОДАЛКА: НЕ ХВАТАЕТ ВАЛЮТЫ (КРАСИВАЯ ПОДАЧА) -->
+    <div id="insufficient-funds-modal" class="modal-overlay">
+      <div class="modal-card insufficient-card">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 16px;">💔</span>
+            <h3 style="color: #FF8599; font-weight: 800;">Недостаточно сердец</h3>
+          </div>
+          <span class="modal-close-btn" onclick="closeInsufficientFundsModal()">✕</span>
+        </div>
+
+        <div class="insufficient-modal-body">
+          <div class="insufficient-item-preview" id="insufficient-item-info"></div>
+
+          <div class="insufficient-story-text">
+            Этот наряд требует большей страсти и покорности... Заслужи одобрение Верхнего или используй накопленные ресурсы.
+          </div>
+
+          <div class="insufficient-choice-grid">
+            <div class="insufficient-option-card" onclick="goToEarnFromMaster()">
+              <div class="opt-icon">⚖️</div>
+              <div class="opt-info">
+                <div class="opt-title">Заслужить у Верхнего</div>
+                <div class="opt-desc">Выполни внеигровую задачу, прояви заботу или попроси награду в Казне</div>
+              </div>
+              <button class="opt-action-btn earn">В Казну →</button>
+            </div>
+
+            <div class="insufficient-option-card" onclick="goToExchangeCurrency()">
+              <div class="opt-icon">🔄</div>
+              <div class="opt-info">
+                <div class="opt-title">Обменять в Конвертере</div>
+                <div class="opt-desc">Конвертируй другие сердца по курсу казны прямо сейчас</div>
+              </div>
+              <button class="opt-action-btn exchange">Обменять →</button>
+            </div>
+          </div>
+
+          <button class="insufficient-dismiss-btn" onclick="closeInsufficientFundsModal()">
+            Позже, я поняла
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- МОДАЛКА: КОНВЕРТЕР ВАЛЮТ -->
     <div id="currency-converter-modal" class="modal-overlay">
       <div class="modal-card">
@@ -1246,7 +2000,7 @@
         </div>
         <div class="converter-card-box">
           <div class="converter-rate-badge">
-            Курс обмена: <b>2 💜 PTC / 2 🖤 OTC = 1 ❤️ STC</b>
+            Курс обмена: <b>2 💜 / 2 🖤 = 1 ❤️</b>
           </div>
 
           <div class="conv-balances-overview" id="converter-balances-view"></div>
@@ -1256,9 +2010,9 @@
             <div class="conv-input-row">
               <input type="number" id="conv-from-amount" value="50" min="2" step="2" oninput="calculateConversion()">
               <select id="conv-from-currency" onchange="calculateConversion()">
-                <option value="PTC">💜 PTC (Страсть)</option>
-                <option value="OTC">🖤 OTC (Покорность)</option>
-                <option value="STC">❤️ STC (Секс-валюта)</option>
+                <option value="PTC">💜</option>
+                <option value="OTC">🖤</option>
+                <option value="STC">❤️</option>
               </select>
             </div>
           </div>
@@ -1268,9 +2022,9 @@
             <div class="conv-input-row">
               <input type="text" id="conv-to-amount" readonly value="25">
               <select id="conv-to-currency" onchange="calculateConversion()">
-                <option value="STC">❤️ STC (Секс-валюта)</option>
-                <option value="PTC">💜 PTC (Страсть)</option>
-                <option value="OTC">🖤 OTC (Покорность)</option>
+                <option value="STC">❤️</option>
+                <option value="PTC">💜</option>
+                <option value="OTC">🖤</option>
               </select>
             </div>
           </div>
@@ -1313,6 +2067,15 @@
             <div class="cat-info">
               <div class="title">Обет Дня (Вся строка)</div>
               <div class="sub">Действующий контракт</div>
+            </div>
+            <button class="small-btn">+</button>
+          </div>
+
+                    <div class="widget-catalog-card" onclick="createTileOnDesktop('Казна', '⚖️', 'tab-bank')">
+            <div class="cat-icon">⚖️</div>
+            <div class="cat-info">
+              <div class="title">Плитка Казны</div>
+              <div class="sub">Начисления, штрафы и обмен</div>
             </div>
             <button class="small-btn">+</button>
           </div>
@@ -1368,21 +2131,21 @@
       stc: 240  // ❤️ Секс-валюта
     };
 
-    // ВАЛЮТЫ ВЕРХНЕГО (💙 Внимание, 💚 Забота, ❤️ STC)
+    // ВАЛЮТЫ ВЕРХНЕГО (💙 ATC - Внимание, 💚 CTC - Забота, ❤️ STC - Секс-валюта)
     let maleBalances = JSON.parse(localStorage.getItem('pact_male_balances')) || {
-      attention: 850, // 💙 Внимание
-      care: 720,      // 💚 Забота
-      stc: 400        // ❤️ Секс-валюта
+      atc: 850,   // 💙 ATC (Внимание)
+      ctc: 720,  // 💚 CTC (Забота)
+      stc: 400    // ❤️ STC (Секс-валюта)
     };
 
     // Авто-сброс кэша под механику мульти-валют
-    if (localStorage.getItem('pact_single_ver') !== 'v12_hearts_economy') {
+    if (localStorage.getItem('pact_single_ver') !== 'v18_sex_points_transfer_and_upper_shop') {
       localStorage.removeItem('boutique_items');
       localStorage.removeItem('wardrobe_items');
       localStorage.removeItem('pact_selected_wardrobe_ids');
       localStorage.removeItem('pact_female_balances');
       localStorage.removeItem('pact_male_balances');
-      localStorage.setItem('pact_single_ver', 'v12_hearts_economy');
+      localStorage.setItem('pact_single_ver', 'v18_sex_points_transfer_and_upper_shop');
     }
 
     /* ХЕЛПЕРЫ: ПЕРЧИНКИ И ЗВАНИЯ */
@@ -1442,6 +2205,7 @@
     let desktopItems = JSON.parse(localStorage.getItem('pact_desktop_items')) || [
       { id: 'w-passion', type: 'widget', widgetKey: 'widget-passion', span: 4 },
       { id: 'w-balance', type: 'widget', widgetKey: 'widget-balance', span: 4 },
+      { id: 't-bank', type: 'tile', title: 'Казна', icon: '⚖️', target: 'tab-bank' },
       { id: 't-wardrobe', type: 'tile', title: 'Гардероб', icon: '🩱', target: 'tab-wardrobe' },
       { id: 't-shop', type: 'tile', title: 'Бутик', icon: '🛍️', target: 'tab-shop' },
       { id: 't-cycle', type: 'tile', title: 'Календарь', icon: '🌸', target: 'tab-cycle' },
@@ -1627,8 +2391,8 @@
         roleName.innerText = 'Верхний';
         roleIcon.innerText = '👑';
         currContainer.innerHTML = `
-          <div class="curr-chip att" title="Внимание">💙 ${maleBalances.attention}</div>
-          <div class="curr-chip care" title="Забота">💚 ${maleBalances.care}</div>
+          <div class="curr-chip att" title="Внимание">💙 ${maleBalances.atc}</div>
+          <div class="curr-chip care" title="Забота">💚 ${maleBalances.ctc}</div>
           <div class="curr-chip stc" title="Секс-валюта">❤️ ${maleBalances.stc}</div>
         `;
       } else {
@@ -1663,6 +2427,7 @@
       }
 
       if (tabId === 'tab-desktop') renderDesktop();
+      if (tabId === 'tab-bank') renderBankScreen();
       if (tabId === 'tab-wardrobe') renderWardrobe();
       if (tabId === 'tab-shop') renderProducts();
     }
@@ -1708,23 +2473,23 @@
             let balanceHtml = '';
             if (currentRole === 'female') {
               balanceHtml = `
-                <div class="curr-chip ptc">💜 ${femaleBalances.ptc} PTC</div>
-                <div class="curr-chip otc">🖤 ${femaleBalances.otc} OTC</div>
-                <div class="curr-chip stc">❤️ ${femaleBalances.stc} STC</div>
+                <div class="curr-chip ptc">💜 ${femaleBalances.ptc}</div>
+                <div class="curr-chip otc">🖤 ${femaleBalances.otc}</div>
+                <div class="curr-chip stc">❤️ ${femaleBalances.stc}</div>
               `;
             } else {
               balanceHtml = `
-                <div class="curr-chip att">💙 ${maleBalances.attention} Внимание</div>
-                <div class="curr-chip care">💚 ${maleBalances.care} Забота</div>
-                <div class="curr-chip stc">❤️ ${maleBalances.stc} STC</div>
+                <div class="curr-chip att">💙 ${maleBalances.atc}</div>
+                <div class="curr-chip care">💚 ${maleBalances.ctc}</div>
+                <div class="curr-chip stc">❤️ ${maleBalances.stc}</div>
               `;
             }
 
             return `
-              <div class="desktop-widget widget-span-4" onclick="openConverterModal()">
+              <div class="desktop-widget widget-span-4" onclick="switchTab('tab-bank')">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <div class="widget-title-lbl" style="margin: 0;">💎 Баланс Очков & Валют</div>
-                  <div style="font-size: 10px; color: var(--accent-pink); font-weight: 700;">Обмен 🔄</div>
+                  <div style="font-size: 10px; color: var(--accent-pink); font-weight: 700;">Казна & Штрафы ⚖️</div>
                 </div>
                 <div class="widget-balance-grid">
                   ${balanceHtml}
@@ -1757,7 +2522,45 @@
       renderProducts();
     }
 
+    
+    /* ОТРИСОВКА БАЛАНСА В МАГАЗИНЕ */
+    function renderShopBalance() {
+      const slot = document.getElementById('shop-account-balance-slot');
+      if (!slot) return;
+
+      if (currentRole === 'female') {
+        slot.innerHTML = `
+          <div>
+            <div class="shop-bal-label">Твой баланс</div>
+            <div class="shop-bal-chips-group">
+              <span class="curr-chip ptc">💜 <b>${femaleBalances.ptc}</b></span>
+              <span class="curr-chip otc">🖤 <b>${femaleBalances.otc}</b></span>
+              <span class="curr-chip stc">❤️ <b>${femaleBalances.stc}</b></span>
+            </div>
+          </div>
+          <button class="shop-bal-action-btn" onclick="openConverterModal()" title="Обменять валюту">
+            <span>🔄</span> Обмен
+          </button>
+        `;
+      } else {
+        slot.innerHTML = `
+          <div>
+            <div class="shop-bal-label">Баланс Верхнего</div>
+            <div class="shop-bal-chips-group">
+              <span class="curr-chip att">💙 <b>${maleBalances.atc}</b></span>
+              <span class="curr-chip care">💚 <b>${maleBalances.ctc}</b></span>
+              <span class="curr-chip stc">❤️ <b>${maleBalances.stc}</b></span>
+            </div>
+          </div>
+          <button class="shop-bal-action-btn" onclick="switchTab('tab-bank')" title="Открыть казну">
+            <span>⚖️</span> Казна
+          </button>
+        `;
+      }
+    }
+
     function renderProducts() {
+      renderShopBalance();
       const bCont = document.getElementById('shop-products-list');
       if (!bCont) return;
 
@@ -1789,7 +2592,7 @@
         if (p.category === 'Белье') {
           priceHtml = `<div class="shop-price-badge dual">💜 ${p.pricePtc} + 🖤 ${p.priceOtc}</div>`;
         } else {
-          priceHtml = `<div class="shop-price-badge stc">❤️ ${p.priceStc} STC</div>`;
+          priceHtml = `<div class="shop-price-badge stc">❤️ ${p.priceStc}</div>`;
         }
 
         return `
@@ -1834,9 +2637,9 @@
       
       const priceElem = document.getElementById('detail-price-elem');
       if (item.category === 'Белье') {
-        priceElem.innerHTML = `💜 ${item.pricePtc} PTC + 🖤 ${item.priceOtc} OTC`;
+        priceElem.innerHTML = `💜 ${item.pricePtc} + 🖤 ${item.priceOtc}`;
       } else {
-        priceElem.innerHTML = `❤️ ${item.priceStc} STC`;
+        priceElem.innerHTML = `❤️ ${item.priceStc}`;
       }
 
       document.getElementById('detail-desc-elem').innerText = item.desc;
@@ -1864,10 +2667,17 @@
 
       const actionSlot = document.getElementById('detail-action-slot');
       if (item.status === 'available') {
-        let buyBtnText = item.category === 'Белье' 
-          ? `Приобрести за 💜 ${item.pricePtc} + 🖤 ${item.priceOtc}`
-          : `Приобрести за ❤️ ${item.priceStc} STC`;
-        actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">${buyBtnText}</button>`;
+        if (item.category === 'Белье') {
+          if (currentRole === 'female') {
+            actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">Приобрести комплект • 💜 ${item.pricePtc} + 🖤 ${item.priceOtc}</button>`;
+          } else {
+            actionSlot.innerHTML = `<button class="shop-buy-btn" style="background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.2); color: var(--text-muted); box-shadow: none; cursor: default;" onclick="alert('Бельё выбирает и приобретает Нижняя за 💜 и 🖤.')">👙 Бельё выбирает Нижняя</button>`;
+          }
+        } else {
+          // Секс-шоп: доступен обоим за ❤️
+          const buyerRoleLabel = currentRole === 'female' ? '' : ' (Верхний)';
+          actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">Купить девайс${buyerRoleLabel} • ❤️ ${item.priceStc}</button>`;
+        }
       } else if (item.status === 'bought') {
         actionSlot.innerHTML = `<button class="shop-receive-btn" onclick="receiveBoutiqueItem(${item.id})">📦 Подтвердить получение!</button>`;
       } else {
@@ -1901,49 +2711,128 @@
       tg?.HapticFeedback?.impactOccurred?.('light');
     }
 
-    /* ПОКУПКА: СПИСАНИЕ ОЧКОВ */
+    /* ПОКУПКА: СПИСАНИЕ ОЧКОВ (РАЗРЕШЕНА ПОКУПКА В СЕКС-ШОПЕ ВЕРХНЕМУ) */
     function buyBoutiqueItem(id) {
       const item = boutiqueItems.find(p => p.id === id);
       if (!item || item.status !== 'available') return;
 
-      if (currentRole !== 'female') {
-        alert('Приобретать наряды и девайсы может только Нижняя за свои очки.');
-        return;
-      }
-
-      // Проверка на покупку белья (PTC + OTC)
+      // 1. Покупка белья (доступна только Нижней за 💜 + 🖤)
       if (item.category === 'Белье') {
-        if (femaleBalances.ptc < item.pricePtc || femaleBalances.otc < item.priceOtc) {
-          tg?.HapticFeedback?.notificationOccurred?.('error');
-          let missingMsg = 'Недостаточно очков для этого комплекта!\n';
-          if (femaleBalances.ptc < item.pricePtc) missingMsg += `Нужно: ${item.pricePtc} 💜 PTC (у тебя: ${femaleBalances.ptc})\n`;
-          if (femaleBalances.otc < item.priceOtc) missingMsg += `Нужно: ${item.priceOtc} 🖤 OTC (у тебя: ${femaleBalances.otc})\n`;
-          alert(missingMsg);
+        if (currentRole !== 'female') {
+          alert('Бельё за 💜 и 🖤 выбирает и приобретает Нижняя. Ты можешь покупать девайсы в Секс-шопе за ❤️!');
           return;
         }
 
-        // Списание очков
+        const deficits = [];
+        if (femaleBalances.ptc < item.pricePtc) {
+          deficits.push({ heart: '💜', amount: item.pricePtc - femaleBalances.ptc });
+        }
+        if (femaleBalances.otc < item.priceOtc) {
+          deficits.push({ heart: '🖤', amount: item.priceOtc - femaleBalances.otc });
+        }
+
+        if (deficits.length > 0) {
+          showInsufficientFundsModal(item, deficits);
+          return;
+        }
+
         femaleBalances.ptc -= item.pricePtc;
         femaleBalances.otc -= item.priceOtc;
+        localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
       } 
-      // Проверка на покупку в секс-шопе (STC)
+      // 2. Покупка в Секс-шопе (❤️ доступна И Нижней, И Верхнему!)
       else {
-        if (femaleBalances.stc < item.priceStc) {
-          tg?.HapticFeedback?.notificationOccurred?.('error');
-          alert(`Недостаточно секс-валюты! Нужно: ${item.priceStc} ❤️ STC (у тебя: ${femaleBalances.stc}).\nОбменяй PTC/OTC на STC в конвертере 🔄`);
+        const activeBalance = currentRole === 'female' ? femaleBalances.stc : maleBalances.stc;
+        if (activeBalance < item.priceStc) {
+          const deficits = [{ heart: '❤️', amount: item.priceStc - activeBalance }];
+          showInsufficientFundsModal(item, deficits);
           return;
         }
 
-        femaleBalances.stc -= item.priceStc;
+        if (currentRole === 'female') {
+          femaleBalances.stc -= item.priceStc;
+          localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+        } else {
+          maleBalances.stc -= item.priceStc;
+          localStorage.setItem('pact_male_balances', JSON.stringify(maleBalances));
+        }
       }
 
       item.status = 'bought';
-      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+      item.boughtBy = currentRole;
       localStorage.setItem('boutique_items', JSON.stringify(boutiqueItems));
 
+      // Логируем в историю операций
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
+      const buyerName = currentRole === 'female' ? 'Нижняя' : 'Верхний';
+      transactionsLog.unshift({
+        id: Date.now(),
+        time: timeStr,
+        type: 'penalty',
+        recipient: currentRole,
+        currency: item.category === 'Белье' ? '💜+🖤' : '❤️',
+        amount: item.category === 'Белье' ? `${item.pricePtc}+${item.priceOtc}` : item.priceStc,
+        reason: `${buyerName}: покупка ${item.title} 🛍️`
+      });
+      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
+
       updateRoleUI();
+      renderShopBalance();
       renderProductDetail(item);
       tg?.HapticFeedback?.notificationOccurred?.('success');
+    }
+
+    /* ФУНКЦИИ МОДАЛКИ НЕДОСТАЧИ */
+    function showInsufficientFundsModal(item, deficits) {
+      const modal = document.getElementById('insufficient-funds-modal');
+      const previewSlot = document.getElementById('insufficient-item-info');
+      if (!modal || !previewSlot) return;
+
+      tg?.HapticFeedback?.notificationOccurred?.('error');
+
+      const chipsHtml = deficits.map(d => `<span class="deficit-chip">Не хватает: ${d.amount} ${d.heart}</span>`).join('');
+      const priceText = item.category === 'Белье' ? `💜 ${item.pricePtc} + 🖤 ${item.priceOtc}` : `❤️ ${item.priceStc}`;
+
+      previewSlot.innerHTML = `
+        <img class="insufficient-item-img" src="${item.mainImg}" alt="${item.title}">
+        <div class="insufficient-item-meta">
+          <div class="title">${item.title}</div>
+          <div style="font-size: 10px; color: var(--text-muted);">Стоимость: ${priceText}</div>
+          <div class="insufficient-deficits">${chipsHtml}</div>
+        </div>
+      `;
+
+      const storyElem = document.querySelector('.insufficient-story-text');
+      if (storyElem) {
+        if (currentRole === 'male') {
+          storyElem.innerText = 'Недостаточно ❤️ на балансе Верхнего. Получи перевод от Нижней или начисли очки в Казне.';
+        } else {
+          storyElem.innerText = 'Этот наряд требует большей страсти и покорности... Заслужи одобрение Верхнего или используй накопленные ресурсы.';
+        }
+      }
+
+      modal.classList.add('active');
+    }
+
+    function closeInsufficientFundsModal() {
+      document.getElementById('insufficient-funds-modal')?.classList.remove('active');
+    }
+
+    function goToEarnFromMaster() {
+      closeInsufficientFundsModal();
+      switchTab('tab-bank');
+      setBankSubTab('operations', document.querySelector('#tab-bank .category-chips .chip-btn:first-child'));
+    }
+
+    function goToExchangeCurrency() {
+      closeInsufficientFundsModal();
+      if (currentRole === 'male') {
+        switchTab('tab-bank');
+        setBankSubTab('transfer', document.getElementById('tab-bank-btn-transfer'));
+      } else {
+        openConverterModal();
+      }
     }
 
     function receiveBoutiqueItem(id) {
@@ -1971,6 +2860,306 @@
       alert(`✨ Товар ${item.title} доставлен и добавлен в твой Гардероб!`);
     }
 
+    
+    /* КАЗНА И УПРАВЛЕНИЕ ОЧКАМИ */
+    .bank-main-card {
+      max-height: calc(100vh - 100px);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 24px;
+    }
+
+    .bank-balances-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .bank-side-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bank-side-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .bank-side-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bank-sub-content {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bank-sub-content.active {
+      display: flex;
+    }
+
+    .bank-mode-selector, .bank-target-selector {
+      display: flex;
+      gap: 8px;
+    }
+
+    .bank-mode-btn, .bank-target-btn {
+      flex: 1;
+      padding: 9px 0;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .bank-mode-btn.reward.active {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #10B981;
+      color: #6EE7B7;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .bank-mode-btn.penalty.active {
+      background: rgba(230, 57, 86, 0.2);
+      border-color: var(--accent-pink);
+      color: #FF8599;
+      box-shadow: 0 0 12px rgba(230, 57, 86, 0.3);
+    }
+
+    .bank-target-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+
+    .bank-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bank-field-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .bank-currency-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bank-curr-pill {
+      flex: 1;
+      padding: 8px 6px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+      color: #dedede;
+      text-align: center;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .bank-curr-pill.active {
+      border-color: var(--accent-pink);
+      background: rgba(230, 57, 86, 0.2);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(230, 57, 86, 0.3);
+    }
+
+    .bank-amount-input, .bank-reason-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 12px;
+      outline: none;
+    }
+
+    .quick-chips-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .quick-chip-btn {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 5px 0;
+      font-size: 10px;
+      font-weight: 800;
+      color: #dedede;
+      cursor: pointer;
+    }
+
+    .quick-chip-btn:active {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .quick-reasons-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      margin-top: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .quick-reason-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 5px 8px;
+      font-size: 10px;
+      color: #c4bcd0;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .quick-reason-tag:active {
+      background: rgba(230, 57, 86, 0.2);
+      color: #fff;
+    }
+
+    .bank-submit-btn {
+      width: 100%;
+      padding: 12px 0;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      color: #fff;
+      margin-top: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .bank-submit-btn.reward {
+      background: linear-gradient(135deg, #10B981, #059669);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    .bank-submit-btn.penalty {
+      background: linear-gradient(135deg, #E63956, #9F1239);
+      box-shadow: 0 4px 14px rgba(230, 57, 86, 0.4);
+    }
+
+    .bank-history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .bank-history-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 8px 10px;
+      gap: 8px;
+    }
+
+    .bank-hist-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+    }
+
+    .bank-hist-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .bank-hist-badge.reward {
+      background: rgba(16, 185, 129, 0.2);
+      color: #10B981;
+    }
+
+    .bank-hist-badge.penalty {
+      background: rgba(230, 57, 86, 0.2);
+      color: var(--accent-pink);
+    }
+
+    .bank-hist-reason {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bank-hist-meta {
+      font-size: 9px;
+      color: var(--text-muted);
+    }
+
+    .bank-hist-val {
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .bank-hist-val.reward {
+      color: #10B981;
+    }
+
+    .bank-hist-val.penalty {
+      color: var(--accent-pink);
+    }
+
+    .clear-history-btn {
+      background: transparent;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 8px 0;
+      font-size: 10.5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
     /* КОНВЕРТЕР ВАЛЮТ */
     function openConverterModal() {
       updateConverterUI();
@@ -1985,15 +3174,15 @@
       const bView = document.getElementById('converter-balances-view');
       if (currentRole === 'female') {
         bView.innerHTML = `
-          <span>💜 <b>${femaleBalances.ptc}</b> PTC</span>
-          <span>🖤 <b>${femaleBalances.otc}</b> OTC</span>
-          <span>❤️ <b>${femaleBalances.stc}</b> STC</span>
+          <span>💜 <b>${femaleBalances.ptc}</b></span>
+          <span>🖤 <b>${femaleBalances.otc}</b></span>
+          <span>❤️ <b>${femaleBalances.stc}</b></span>
         `;
       } else {
         bView.innerHTML = `
-          <span>💙 <b>${maleBalances.attention}</b> Внимание</span>
-          <span>💚 <b>${maleBalances.care}</b> Забота</span>
-          <span>❤️ <b>${maleBalances.stc}</b> STC</span>
+          <span>💙 <b>${maleBalances.atc}</b></span>
+          <span>💚 <b>${maleBalances.ctc}</b></span>
+          <span>❤️ <b>${maleBalances.stc}</b></span>
         `;
       }
       calculateConversion();
@@ -2047,7 +3236,7 @@
 
       if (femaleBalances[fromKey] < fromAmount) {
         tg?.HapticFeedback?.notificationOccurred?.('error');
-        alert(`Недостаточно средств на балансе ${fromCurr}! У вас: ${femaleBalances[fromKey]}`);
+        alert(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`);
         return;
       }
 
@@ -2060,7 +3249,7 @@
       updateRoleUI();
       updateConverterUI();
       renderDesktop();
-      alert(`Успешно обменяно ${fromAmount} ${fromCurr} на ${toAmount} ${toCurr}!`);
+      alert(`Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`);
     }
 
     /* ГАРДЕРОБ */
@@ -2110,8 +3299,8 @@
 
       if (filtered.length === 0) {
         const emptyMsg = wardrobeFilterCat === 'Белье' 
-          ? 'В гардеробе пока нет белья.<br>Выбери желанный комплект в <b>Бутике</b> за 💜 PTC и 🖤 OTC 🛍️' 
-          : 'В гардеробе пока нет девайсов.<br>Загляни в <b>Секс-шоп</b> за ❤️ STC 💋';
+          ? 'В гардеробе пока нет белья.<br>Выбери желанный комплект в <b>Бутике</b> за 💜 и 🖤 🛍️' 
+          : 'В гардеробе пока нет девайсов.<br>Загляни в <b>Секс-шоп</b> за ❤️ 💋';
         container.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 11.5px; padding: 45px 15px; line-height: 1.5;">${emptyMsg}</div>`;
         return;
       }
@@ -2173,6 +3362,449 @@
     }
 
     /* СТАРТ */
+    
+    /* ========================================================
+       КАЗНА, НАЧИСЛЕНИЯ, ШТРАФЫ И ОБМЕН
+       ======================================================== */
+    
+    function getHeartByCurrency(curr) {
+      if (curr === 'PTC') return '💜';
+      if (curr === 'OTC') return '🖤';
+      if (curr === 'STC') return '❤️';
+      if (curr === 'ATC') return '💙';
+      if (curr === 'CTC') return '💚';
+      return curr;
+    }
+
+    let bankSubTab = 'operations';
+    let bankOpMode = 'reward';
+    let bankTarget = 'female';
+    let bankSelectedCurrency = 'PTC';
+
+    let transactionsLog = JSON.parse(localStorage.getItem('pact_transactions_log')) || [
+      { id: 1, time: 'Сегодня, 14:20', type: 'reward', recipient: 'female', currency: 'PTC', amount: 50, reason: 'Кофе в постель ☕' },
+      { id: 2, time: 'Сегодня, 16:45', type: 'penalty', recipient: 'female', currency: 'OTC', amount: 30, reason: 'Дерзкий тон без разрешения ⚡' },
+      { id: 3, time: 'Вчера, 19:10', type: 'reward', recipient: 'male', currency: 'ATC', amount: 40, reason: 'Внимание и романтический жест 💙' }
+    ];
+
+    
+    /* ========================================================
+       ПЕРЕВОД СЕКС-ОЧКОВ ❤️ МЕЖДУ ПАРТНЕРАМИ
+       ======================================================== */
+    let transferDirection = 'f2m'; // 'f2m': Нижняя -> Верхний, 'm2f': Верхний -> Нижняя
+
+    function setTransferDirection(dir) {
+      transferDirection = dir;
+      document.getElementById('btn-transfer-f2m')?.classList.toggle('active', dir === 'f2m');
+      document.getElementById('btn-transfer-m2f')?.classList.toggle('active', dir === 'm2f');
+      updateTransferBtnText();
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function setQuickTransferAmount(amt) {
+      const input = document.getElementById('transfer-amount-input');
+      if (!input) return;
+
+      if (amt === 'all') {
+        const available = transferDirection === 'f2m' ? femaleBalances.stc : maleBalances.stc;
+        input.value = Math.max(available, 0);
+      } else {
+        input.value = amt;
+      }
+      updateTransferBtnText();
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function updateTransferBtnText() {
+      const btn = document.getElementById('transfer-submit-btn');
+      const input = document.getElementById('transfer-amount-input');
+      if (!btn || !input) return;
+      const amt = parseInt(input.value) || 0;
+      if (transferDirection === 'f2m') {
+        btn.innerText = `💌 Перевести ${amt} ❤️ Верхнему`;
+      } else {
+        btn.innerText = `💌 Отправить ${amt} ❤️ Нижней`;
+      }
+    }
+
+    function executeSexTokensTransfer() {
+      const input = document.getElementById('transfer-amount-input');
+      const noteInput = document.getElementById('transfer-note-input');
+      const amount = parseInt(input?.value) || 0;
+      let note = noteInput?.value.trim();
+
+      if (amount <= 0) {
+        alert('Введите корректное число ❤️ для перевода.');
+        return;
+      }
+
+      if (transferDirection === 'f2m') {
+        if (femaleBalances.stc < amount) {
+          tg?.HapticFeedback?.notificationOccurred?.('error');
+          alert(`У Нижней недостаточно ❤️! Доступно: ${femaleBalances.stc}`);
+          return;
+        }
+
+        femaleBalances.stc -= amount;
+        maleBalances.stc += amount;
+        if (!note) note = 'Дань Верхнему 💋';
+      } else {
+        if (maleBalances.stc < amount) {
+          tg?.HapticFeedback?.notificationOccurred?.('error');
+          alert(`У Верхнего недостаточно ❤️! Доступно: ${maleBalances.stc}`);
+          return;
+        }
+
+        maleBalances.stc -= amount;
+        femaleBalances.stc += amount;
+        if (!note) note = 'Подарок Нижней на желания 🔥';
+      }
+
+      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+      localStorage.setItem('pact_male_balances', JSON.stringify(maleBalances));
+
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
+      const dirText = transferDirection === 'f2m' ? 'Нижняя ➔ Верхний' : 'Верхний ➔ Нижняя';
+
+      transactionsLog.unshift({
+        id: Date.now(),
+        time: timeStr,
+        type: 'reward',
+        recipient: transferDirection === 'f2m' ? 'male' : 'female',
+        currency: 'STC',
+        amount: amount,
+        reason: `Перевод (${dirText}): ${note} 💌`
+      });
+      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
+
+      tg?.HapticFeedback?.notificationOccurred?.('success');
+      if (noteInput) noteInput.value = '';
+      updateRoleUI();
+      renderDesktop();
+      renderBankScreen();
+      renderShopBalance();
+      alert(`✨ Успешно переведено ${amount} ❤️ (${dirText})!`);
+    }
+
+    function setBankSubTab(tab, btn) {
+      bankSubTab = tab;
+      document.querySelectorAll('#tab-bank .category-chips .chip-btn').forEach(b => b.classList.remove('active'));
+      btn?.classList.add('active');
+      document.querySelectorAll('.bank-sub-content').forEach(c => c.classList.remove('active'));
+      document.getElementById('bank-sub-' + tab)?.classList.add('active');
+      tg?.HapticFeedback?.selectionChanged?.();
+      if (tab === 'transfer') renderBankScreen();
+      if (tab === 'history') renderBankHistory();
+      if (tab === 'converter') calculateBankConversion();
+    }
+
+    function setBankOperationMode(mode) {
+      bankOpMode = mode;
+      document.getElementById('btn-mode-reward')?.classList.toggle('active', mode === 'reward');
+      document.getElementById('btn-mode-penalty')?.classList.toggle('active', mode === 'penalty');
+      
+      const submitBtn = document.getElementById('bank-execute-btn');
+      if (submitBtn) {
+        submitBtn.className = 'bank-submit-btn ' + mode;
+        updateBankSubmitBtnText();
+      }
+      renderQuickReasons();
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function setBankTarget(target) {
+      bankTarget = target;
+      document.getElementById('btn-target-female')?.classList.toggle('active', target === 'female');
+      document.getElementById('btn-target-male')?.classList.toggle('active', target === 'male');
+      
+      if (target === 'female') {
+        bankSelectedCurrency = 'PTC';
+      } else {
+        bankSelectedCurrency = 'ATC';
+      }
+      renderBankCurrencySelector();
+      renderQuickReasons();
+      updateBankSubmitBtnText();
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function renderBankCurrencySelector() {
+      const slot = document.getElementById('bank-currency-selector-slot');
+      if (!slot) return;
+      
+      let currencies = [];
+      if (bankTarget === 'female') {
+        currencies = [
+          { code: 'PTC', label: '💜' },
+          { code: 'OTC', label: '🖤' },
+          { code: 'STC', label: '❤️' }
+        ];
+      } else {
+        currencies = [
+          { code: 'ATC', label: '💙' },
+          { code: 'CTC', label: '💚' },
+          { code: 'STC', label: '❤️' }
+        ];
+      }
+      
+      slot.innerHTML = currencies.map(c => `
+        <button class="bank-curr-pill ${c.code === bankSelectedCurrency ? 'active' : ''}" 
+                onclick="selectBankCurrency('${c.code}')">
+          ${c.label}
+        </button>
+      `).join('');
+    }
+
+    function selectBankCurrency(curr) {
+      bankSelectedCurrency = curr;
+      renderBankCurrencySelector();
+      updateBankSubmitBtnText();
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function setQuickAmount(amt) {
+      const input = document.getElementById('bank-op-amount');
+      if (input) {
+        input.value = amt;
+        updateBankSubmitBtnText();
+      }
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function renderQuickReasons() {
+      const slot = document.getElementById('bank-quick-reasons-slot');
+      if (!slot) return;
+
+      let reasons = [];
+      if (bankOpMode === 'reward') {
+        reasons = [
+          'Кофе в постель ☕',
+          'Идеальное послушание ✨',
+          'Комплимент / Ласка 💖',
+          'Бытовая помощь 🧹',
+          'Вкусный ужин 🍷',
+          'Массаж 💆',
+          'Сюрприз 🎁'
+        ];
+      } else {
+        reasons = [
+          'Опоздание ⏱️',
+          'Непослушание ⚡',
+          'Дерзкий тон 🤐',
+          'Забытое правило 📜',
+          'Нарушение контракта ❌',
+          'Каприз без повода 😤'
+        ];
+      }
+
+      slot.innerHTML = reasons.map(r => `
+        <div class="quick-reason-tag" onclick="setQuickReason('${r}')">${r}</div>
+      `).join('');
+    }
+
+    function setQuickReason(text) {
+      const input = document.getElementById('bank-op-reason');
+      if (input) input.value = text;
+      tg?.HapticFeedback?.impactOccurred?.('light');
+    }
+
+    function updateBankSubmitBtnText() {
+      const submitBtn = document.getElementById('bank-execute-btn');
+      const amount = document.getElementById('bank-op-amount')?.value || 0;
+      if (!submitBtn) return;
+      const prefix = bankOpMode === 'reward' ? '➕ Начислить' : '➖ Списать штраф';
+      submitBtn.innerText = `${prefix} ${amount} ${getHeartByCurrency(bankSelectedCurrency)}`;
+    }
+
+    function executeBankTransaction() {
+      const amount = parseInt(document.getElementById('bank-op-amount')?.value) || 0;
+      const reasonInput = document.getElementById('bank-op-reason');
+      let reason = reasonInput?.value.trim() || (bankOpMode === 'reward' ? 'Награда за задачу' : 'Штраф');
+
+      if (amount <= 0) {
+        alert('Введите количество очков больше 0.');
+        return;
+      }
+
+      const currKey = bankSelectedCurrency.toLowerCase();
+
+      if (bankTarget === 'female') {
+        if (bankOpMode === 'reward') {
+          femaleBalances[currKey] = (femaleBalances[currKey] || 0) + amount;
+        } else {
+          femaleBalances[currKey] = (femaleBalances[currKey] || 0) - amount;
+        }
+        localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+      } else {
+        if (bankOpMode === 'reward') {
+          maleBalances[currKey] = (maleBalances[currKey] || 0) + amount;
+        } else {
+          maleBalances[currKey] = (maleBalances[currKey] || 0) - amount;
+        }
+        localStorage.setItem('pact_male_balances', JSON.stringify(maleBalances));
+      }
+
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
+      transactionsLog.unshift({
+        id: Date.now(),
+        time: timeStr,
+        type: bankOpMode,
+        recipient: bankTarget,
+        currency: bankSelectedCurrency,
+        amount: amount,
+        reason: reason
+      });
+      if (transactionsLog.length > 50) transactionsLog.pop();
+      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
+
+      if (bankOpMode === 'reward') {
+        tg?.HapticFeedback?.notificationOccurred?.('success');
+        alert(`✨ Успешно начислено ${amount} ${getHeartByCurrency(bankSelectedCurrency)} (${reason})!`);
+      } else {
+        tg?.HapticFeedback?.notificationOccurred?.('warning');
+        alert(`⚡ Списан штраф: ${amount} ${getHeartByCurrency(bankSelectedCurrency)} (${reason})!`);
+      }
+
+      if (reasonInput) reasonInput.value = '';
+      updateRoleUI();
+      renderDesktop();
+      renderBankScreen();
+    }
+
+    function renderBankHistory() {
+      const slot = document.getElementById('bank-history-items-slot');
+      if (!slot) return;
+
+      if (transactionsLog.length === 0) {
+        slot.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 11px; padding: 25px 10px;">История операций пуста.</div>`;
+        return;
+      }
+
+      slot.innerHTML = transactionsLog.map(t => {
+        const isReward = t.type === 'reward';
+        const sign = isReward ? '+' : '−';
+        const icon = isReward ? '➕' : '➖';
+        const targetName = t.recipient === 'female' ? 'Нижняя' : 'Верхний';
+        return `
+          <div class="bank-history-item">
+            <div class="bank-hist-left">
+              <div class="bank-hist-badge ${t.type}">${icon}</div>
+              <div style="overflow: hidden;">
+                <div class="bank-hist-reason">${t.reason}</div>
+                <div class="bank-hist-meta">${targetName} • ${t.time}</div>
+              </div>
+            </div>
+            <div class="bank-hist-val ${t.type}">${sign}${t.amount} ${getHeartByCurrency(t.currency)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function clearBankHistory() {
+      if (confirm('Очистить историю операций?')) {
+        transactionsLog = [];
+        localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
+        renderBankHistory();
+        tg?.HapticFeedback?.impactOccurred?.('light');
+      }
+    }
+
+    function calculateBankConversion() {
+      const fromCurr = document.getElementById('bank-conv-from-currency')?.value;
+      const toCurr = document.getElementById('bank-conv-to-currency')?.value;
+      const fromAmount = parseFloat(document.getElementById('bank-conv-from-amount')?.value) || 0;
+      const toInput = document.getElementById('bank-conv-to-amount');
+      if (!toInput) return;
+
+      if (fromCurr === toCurr) {
+        toInput.value = fromAmount;
+        return;
+      }
+
+      if ((fromCurr === 'PTC' || fromCurr === 'OTC') && toCurr === 'STC') {
+        toInput.value = Math.floor(fromAmount / 2);
+      } else if (fromCurr === 'STC' && (toCurr === 'PTC' || toCurr === 'OTC')) {
+        toInput.value = Math.floor(fromAmount * 2);
+      } else {
+        toInput.value = fromAmount;
+      }
+    }
+
+    function executeBankCurrencyExchange() {
+      const fromCurr = document.getElementById('bank-conv-from-currency').value;
+      const toCurr = document.getElementById('bank-conv-to-currency').value;
+      const fromAmount = parseInt(document.getElementById('bank-conv-from-amount').value) || 0;
+      const toAmount = parseInt(document.getElementById('bank-conv-to-amount').value) || 0;
+
+      if (fromAmount <= 0) {
+        alert('Введите корректную сумму для обмена.');
+        return;
+      }
+
+      const keyMap = { 'PTC': 'ptc', 'OTC': 'otc', 'STC': 'stc' };
+      const fromKey = keyMap[fromCurr];
+      const toKey = keyMap[toCurr];
+
+      if (femaleBalances[fromKey] < fromAmount) {
+        tg?.HapticFeedback?.notificationOccurred?.('error');
+        alert(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`);
+        return;
+      }
+
+      femaleBalances[fromKey] -= fromAmount;
+      femaleBalances[toKey] += toAmount;
+      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
+      transactionsLog.unshift({
+        id: Date.now(),
+        time: timeStr,
+        type: 'reward',
+        recipient: 'female',
+        currency: toCurr,
+        amount: toAmount,
+        reason: `Обмен ${fromAmount} ${getHeartByCurrency(fromCurr)} ➔ ${toAmount} ${getHeartByCurrency(toCurr)} 🔄`
+      });
+      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
+
+      tg?.HapticFeedback?.notificationOccurred?.('success');
+      updateRoleUI();
+      renderDesktop();
+      renderBankScreen();
+      alert(`Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`);
+    }
+
+    function renderBankScreen() {
+      const fPtc = document.getElementById('bank-f-ptc');
+      const fOtc = document.getElementById('bank-f-otc');
+      const fStc = document.getElementById('bank-f-stc');
+      const mAtc = document.getElementById('bank-m-atc');
+      const mCtc = document.getElementById('bank-m-ctc');
+      const mStc = document.getElementById('bank-m-stc');
+
+      if (fPtc) fPtc.innerText = femaleBalances.ptc;
+      if (fOtc) fOtc.innerText = femaleBalances.otc;
+      if (fStc) fStc.innerText = femaleBalances.stc;
+      if (mAtc) mAtc.innerText = maleBalances.atc;
+      if (mCtc) mCtc.innerText = maleBalances.ctc;
+      if (mStc) mStc.innerText = maleBalances.stc;
+
+      const tfStc = document.getElementById('transfer-f-stc');
+      const tmStc = document.getElementById('transfer-m-stc');
+      if (tfStc) tfStc.innerText = femaleBalances.stc;
+      if (tmStc) tmStc.innerText = maleBalances.stc;
+      updateTransferBtnText();
+
+      renderBankCurrencySelector();
+      renderQuickReasons();
+      updateBankSubmitBtnText();
+      renderBankHistory();
+      calculateBankConversion();
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       updateRoleUI();
       renderDesktop();
