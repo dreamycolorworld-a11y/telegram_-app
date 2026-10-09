@@ -523,11 +523,17 @@
       box-shadow: 0 0 10px rgba(155, 81, 224, 0.5);
     }
 
-    /* БУТИК */
+    /* БУТИК: СКРОЛЛ И СЕТКА */
+    .shop-main-card {
+      max-height: calc(100vh - 100px);
+      display: flex;
+      flex-direction: column;
+    }
+
     .shop-notice {
       font-size: 11px;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-align: center;
     }
 
@@ -535,6 +541,19 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 2px;
+      padding-bottom: 30px;
+    }
+
+    .shop-grid::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .shop-grid::-webkit-scrollbar-thumb {
+      background: rgba(230, 57, 86, 0.4);
+      border-radius: 4px;
     }
 
     .product-card {
@@ -1015,15 +1034,23 @@
         </div>
       </section>
 
-      <!-- БУТИК (ВИТРИНА КАРТОЧЕК) -->
+      <!-- БУТИК (ВИТРИНА КАРТОЧЕК С ФИЛЬТРОМ И СКРОЛЛОМ) -->
       <section id="tab-shop" class="tab-content">
-        <div class="card">
+        <div class="card shop-main-card">
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
             <div class="screen-title">БУТИК</div>
             <div style="width: 48px;"></div>
           </div>
           <div class="shop-notice">Шкала 🌶️ показывает уровень откровенности комплекта</div>
+
+          <!-- Фильтры категорий Бутика -->
+          <div class="category-chips">
+            <button class="chip-btn active" onclick="setShopCategory('Все', this)">✨ Все</button>
+            <button class="chip-btn" onclick="setShopCategory('Белье', this)">👙 Белье</button>
+            <button class="chip-btn" onclick="setShopCategory('Игрушки', this)">🧸 Игрушки</button>
+          </div>
+
           <div id="shop-products-list" class="shop-grid"></div>
         </div>
       </section>
@@ -1190,11 +1217,11 @@
     let malePts = parseInt(localStorage.getItem('pact_male_pts') || '3450');
 
     // Авто-сброс кэша под механику рангов страсти
-    if (localStorage.getItem('pact_single_ver') !== 'v7_passion_ranks') {
+    if (localStorage.getItem('pact_single_ver') !== 'v9_scrollable_shop') {
       localStorage.removeItem('boutique_items');
       localStorage.removeItem('wardrobe_items');
       localStorage.removeItem('pact_selected_wardrobe_ids');
-      localStorage.setItem('pact_single_ver', 'v7_passion_ranks');
+      localStorage.setItem('pact_single_ver', 'v9_scrollable_shop');
     }
 
     /* ХЕЛПЕРЫ: ПЕРЧИНКИ И ЗВАНИЯ */
@@ -1261,12 +1288,12 @@
       { id: 'w-contract', type: 'widget', widgetKey: 'widget-contract', span: 4 }
     ];
 
-    /* БАЗА БУТИКА С ПЕРЧИНКАМИ */
+    /* БАЗА БУТИКА С ПЕРЧИНКАМИ (РАСШИРЕННЫЙ КАТАЛОГ) */
     let boutiqueItems = JSON.parse(localStorage.getItem('boutique_items')) || [
       {
         id: 1,
-        title: '«Vintage Muse»',
-        category: 'Комплект',
+        title: '«Винтажная Муза»',
+        category: 'Белье',
         pricePts: 450,
         peppers: 1,
         mainImg: 'wardrobe/b1.webp',
@@ -1280,8 +1307,8 @@
       },
       {
         id: 2,
-        title: '«Dark Submission»',
-        category: 'Комплект',
+        title: '«Тёмная Покорность»',
+        category: 'Белье',
         pricePts: 600,
         peppers: 2,
         mainImg: 'wardrobe/b2.webp',
@@ -1295,8 +1322,8 @@
       },
       {
         id: 3,
-        title: '«Ivory Bloom»',
-        category: 'Комплект',
+        title: '«Цветение Айвори»',
+        category: 'Белье',
         pricePts: 500,
         peppers: 2,
         mainImg: 'wardrobe/b3.webp',
@@ -1309,8 +1336,8 @@
       },
       {
         id: 4,
-        title: '«Pure Temptation»',
-        category: 'Комплект',
+        title: '«Чистый Соблазн»',
+        category: 'Белье',
         pricePts: 400,
         peppers: 3,
         mainImg: 'wardrobe/b4.webp',
@@ -1320,6 +1347,59 @@
         ],
         desc: 'Экстремально откровенный белоснежный микро-сет с открытой линией груди, золотистыми соединительными кольцами и тонкими бретелями.',
         status: 'available'
+      },
+      {
+        id: 5,
+        title: '«Алая Одержимость»',
+        category: 'Белье',
+        pricePts: 550,
+        peppers: 2,
+        mainImg: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900',
+        gallery: [
+          'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900',
+          'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=900'
+        ],
+        desc: 'Глубокий рубиновый комплект из струящегося атласа с полупрозрачными вставками и открытой спиной.',
+        status: 'available'
+      },
+      {
+        id: 6,
+        title: '«Бархатный Ошейник»',
+        category: 'Игрушки',
+        pricePts: 320,
+        peppers: 2,
+        mainImg: 'https://images.unsplash.com/photo-1611042553365-9b101441c135?w=900',
+        gallery: [
+          'https://images.unsplash.com/photo-1611042553365-9b101441c135?w=900'
+        ],
+        desc: 'Чёрный бархатный ошейник с позолоченным кольцом и съёмным тонким поводком для ритуалов послушания.',
+        status: 'available'
+      },
+      {
+        id: 7,
+        title: '«Атласные Ленты & Повязка»',
+        category: 'Игрушки',
+        pricePts: 250,
+        peppers: 1,
+        mainImg: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600',
+        gallery: [
+          'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'
+        ],
+        desc: 'Шелковая повязка для глаз и нежные ленты для фиксации кистей во время чувственной сессии.',
+        status: 'available'
+      },
+      {
+        id: 8,
+        title: '«Кожаный Флоггер Покора»',
+        category: 'Игрушки',
+        pricePts: 480,
+        peppers: 3,
+        mainImg: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900',
+        gallery: [
+          'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900'
+        ],
+        desc: 'Мягкие замшевые хвосты на эргономичной рукояти. Идеальный инструмент для осязаемых наказаний и горячих следов.',
+        status: 'available'
       }
     ];
 
@@ -1327,7 +1407,7 @@
     let wardrobeItems = JSON.parse(localStorage.getItem('wardrobe_items')) || [
       {
         id: 1,
-        title: '«Vintage Muse»',
+        title: '«Винтажная Муза»',
         desc: 'Полупрозрачный будуарный корсетный топ цвета слоновой кости',
         category: 'Белье',
         peppers: 1,
@@ -1335,7 +1415,7 @@
       },
       {
         id: 2,
-        title: '«Dark Submission»',
+        title: '«Тёмная Покорность»',
         desc: 'Чёрное кружево, чокер, пояс с гартерами и портупея',
         category: 'Белье',
         peppers: 2,
@@ -1343,7 +1423,7 @@
       },
       {
         id: 3,
-        title: '«Ivory Bloom»',
+        title: '«Цветение Айвори»',
         desc: 'Цветочная вышивка, глубокий вырез и двойные бретели',
         category: 'Белье',
         peppers: 2,
@@ -1351,7 +1431,7 @@
       },
       {
         id: 4,
-        title: '«Pure Temptation»',
+        title: '«Чистый Соблазн»',
         desc: 'Белоснежный открытый бра с кольцами и микро-стринги',
         category: 'Белье',
         peppers: 3,
@@ -1476,12 +1556,35 @@
       }).join('');
     }
 
-    /* БУТИК */
+    /* БУТИК: ФИЛЬТРАЦИЯ И ОТРИСОВКА СКРОЛЛИРУЕМОЙ СЕТКИ */
+    let shopFilterCat = 'Все';
+
+    function setShopCategory(cat, btn) {
+      shopFilterCat = cat;
+      document.querySelectorAll('#tab-shop .chip-btn').forEach(b => b.classList.remove('active'));
+      btn?.classList.add('active');
+      tg?.HapticFeedback?.selectionChanged?.();
+      renderProducts();
+    }
+
     function renderProducts() {
       const bCont = document.getElementById('shop-products-list');
       if (!bCont) return;
 
-      bCont.innerHTML = boutiqueItems.map(p => `
+      const filtered = boutiqueItems.filter(p => {
+        if (shopFilterCat === 'Все') return true;
+        return p.category === shopFilterCat;
+      });
+
+      if (filtered.length === 0) {
+        bCont.innerHTML = `
+          <div style="grid-column: span 2; text-align: center; color: var(--text-muted); font-size: 11.5px; padding: 40px 10px;">
+            В этой категории пока нет товаров.
+          </div>`;
+        return;
+      }
+
+      bCont.innerHTML = filtered.map(p => `
         <div class="product-card" onclick="openProductDetail(${p.id})">
           <div class="product-img-holder">
             <img class="product-main-img" src="${p.mainImg}" alt="${p.title}" loading="lazy">
@@ -1604,7 +1707,7 @@
           id: item.id,
           title: item.title,
           desc: item.desc,
-          category: 'Белье',
+          category: item.category === 'Игрушки' ? 'Игрушки' : 'Белье',
           peppers: item.peppers || 1,
           mainImg: item.mainImg
         });
