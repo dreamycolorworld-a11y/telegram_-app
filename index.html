@@ -89,6 +89,7 @@
       display: flex;
       align-items: center;
       gap: 4px;
+      cursor: pointer;
     }
 
     .curr-chip {
@@ -105,35 +106,11 @@
       white-space: nowrap;
     }
 
-    .curr-chip.ptc {
-      border-color: rgba(155, 81, 224, 0.45);
-      color: #D6A4FF;
-      background: rgba(155, 81, 224, 0.14);
-    }
-
-    .curr-chip.otc {
-      border-color: rgba(200, 200, 200, 0.35);
-      color: #F0F0F0;
-      background: rgba(255, 255, 255, 0.09);
-    }
-
-    .curr-chip.stc {
-      border-color: rgba(230, 57, 86, 0.45);
-      color: #FF8599;
-      background: rgba(230, 57, 86, 0.16);
-    }
-
-    .curr-chip.att {
-      border-color: rgba(56, 189, 248, 0.4);
-      color: #7DD3FC;
-      background: rgba(56, 189, 248, 0.12);
-    }
-
-    .curr-chip.care {
-      border-color: rgba(52, 211, 153, 0.4);
-      color: #6EE7B7;
-      background: rgba(52, 211, 153, 0.12);
-    }
+    .curr-chip.ptc { border-color: rgba(155, 81, 224, 0.45); color: #D6A4FF; background: rgba(155, 81, 224, 0.14); }
+    .curr-chip.otc { border-color: rgba(200, 200, 200, 0.35); color: #F0F0F0; background: rgba(255, 255, 255, 0.09); }
+    .curr-chip.stc { border-color: rgba(230, 57, 86, 0.45); color: #FF8599; background: rgba(230, 57, 86, 0.16); }
+    .curr-chip.att { border-color: rgba(56, 189, 248, 0.4); color: #7DD3FC; background: rgba(56, 189, 248, 0.12); }
+    .curr-chip.care { border-color: rgba(52, 211, 153, 0.4); color: #6EE7B7; background: rgba(52, 211, 153, 0.12); }
 
     .converter-trigger-btn {
       background: rgba(255, 255, 255, 0.08);
@@ -143,29 +120,12 @@
       padding: 4px 7px;
       font-size: 11px;
       cursor: pointer;
-      transition: transform 0.15s ease;
-    }
-
-    .converter-trigger-btn:active {
-      transform: scale(0.92);
     }
 
     /* ВКЛАДКИ */
-    .app-main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tab-content {
-      display: none;
-      flex: 1;
-    }
-
-    .tab-content.active {
-      display: flex;
-      flex-direction: column;
-    }
+    .app-main { flex: 1; display: flex; flex-direction: column; }
+    .tab-content { display: none; flex: 1; }
+    .tab-content.active { display: flex; flex-direction: column; }
 
     .card {
       background: var(--bg-card);
@@ -174,7 +134,6 @@
       padding: 14px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
     }
 
     .sub-screen-header {
@@ -202,13 +161,11 @@
       text-transform: uppercase;
     }
 
-    /* ПЕРЧИНКИ */
     .peppers-indicator {
       display: inline-flex;
       align-items: center;
       gap: 2px;
       font-size: 11px;
-      filter: drop-shadow(0 0 5px rgba(255, 60, 60, 0.6));
     }
 
     .peppers-pill {
@@ -244,48 +201,23 @@
       justify-content: center;
       gap: 6px;
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
     }
 
-    .desktop-tile:active {
-      transform: scale(0.95);
-      border-color: var(--accent-pink);
-    }
+    .tile-icon { font-size: 24px; }
+    .tile-title { font-size: 10.5px; font-weight: 700; color: #fff; }
 
-    .tile-icon {
-      font-size: 24px;
-    }
-
-    .tile-title {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-    }
-
-    /* ВИДЖЕТЫ */
     .desktop-widget {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
       padding: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      cursor: pointer;
     }
 
-    .widget-span-2 {
-      grid-column: span 2;
-      min-height: 82px;
-    }
-
-    .widget-span-4 {
-      grid-column: span 4;
-      min-height: 72px;
-    }
-
+    .widget-span-4 { grid-column: span 4; min-height: 72px; }
     .widget-title-lbl {
       font-size: 9.5px;
       font-weight: 800;
@@ -303,37 +235,14 @@
       margin-top: 4px;
     }
 
-    /* СПЕЦИАЛЬНЫЙ ВИДЖЕТ: ГРАДУС СТРАСТИ */
     .widget-passion-box {
       background: linear-gradient(135deg, rgba(38, 12, 24, 0.95) 0%, rgba(22, 10, 20, 0.9) 100%);
       border: 1px solid rgba(255, 90, 54, 0.4);
       box-shadow: 0 0 18px rgba(255, 90, 54, 0.2);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
     }
 
-    .widget-passion-box:active {
-      transform: scale(0.99);
-    }
-
-    .passion-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .passion-rank-title {
-      font-size: 14px;
-      font-weight: 900;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      letter-spacing: 0.5px;
-    }
-
+    .passion-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .passion-rank-title { font-size: 14px; font-weight: 900; color: #fff; }
     .passion-peppers-badge {
       background: rgba(255, 90, 54, 0.2);
       border: 1px solid rgba(255, 90, 54, 0.5);
@@ -360,15 +269,8 @@
       transition: width 0.4s ease;
     }
 
-    .passion-status-desc {
-      font-size: 10px;
-      color: #c9bfd4;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .passion-status-desc { font-size: 10px; color: #c9bfd4; display: flex; justify-content: space-between; }
 
-    /* БАННЕР СТРАСТИ В ГАРДЕРОБЕ */
     .wardrobe-passion-banner {
       background: linear-gradient(135deg, rgba(38, 12, 24, 0.85) 0%, rgba(18, 11, 24, 0.95) 100%);
       border: 1px solid rgba(230, 57, 86, 0.35);
@@ -378,15 +280,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
     }
 
-    .desktop-action-bar {
-      margin-top: 14px;
-      display: flex;
-      justify-content: center;
-    }
-
+    .desktop-action-bar { margin-top: 14px; display: flex; justify-content: center; }
     .add-tile-btn {
       background: transparent;
       border: 1px dashed rgba(255, 255, 255, 0.2);
@@ -399,19 +295,14 @@
       width: 100%;
     }
 
-    /* ГАРДЕРОБ */
-    .wardrobe-main-card {
+    /* ГАРДЕРОБ И СПИСКИ */
+    .wardrobe-main-card, .shop-main-card, .bank-main-card {
       max-height: calc(100vh - 100px);
       display: flex;
       flex-direction: column;
     }
 
-    .category-chips {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
+    .category-chips { display: flex; gap: 8px; margin-bottom: 12px; }
     .chip-btn {
       flex: 1;
       background: rgba(255, 255, 255, 0.05);
@@ -422,82 +313,44 @@
       padding: 8px 0;
       border-radius: 12px;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
-
     .chip-btn.active {
       background: rgba(230, 57, 86, 0.2);
       border-color: var(--accent-pink);
       color: #fff;
     }
 
-    .wardrobe-list-column,
-    .shop-list-column {
+    .wardrobe-list-column, .shop-list-column {
       display: flex;
       flex-direction: column;
       gap: 12px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      padding-right: 2px;
       padding-bottom: 30px;
       flex: 1;
-      min-height: 0;
     }
 
-    .wardrobe-list-column::-webkit-scrollbar,
-    .shop-list-column::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .wardrobe-list-column::-webkit-scrollbar-thumb,
-    .shop-list-column::-webkit-scrollbar-thumb {
-      background: rgba(230, 57, 86, 0.4);
-      border-radius: 4px;
-    }
-
-    .wardrobe-card-row,
-    .shop-card-row {
+    .wardrobe-card-row, .shop-card-row {
       width: 100%;
       min-height: 108px;
       flex-shrink: 0;
       display: flex;
       flex-direction: row;
-      align-items: stretch;
       background: var(--bg-card-row);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       position: relative;
-    }
-
-    .wardrobe-card-row:active,
-    .shop-card-row:active {
-      transform: scale(0.985);
     }
 
     .wardrobe-card-row.is-selected {
       border-color: var(--accent-pink);
-      box-shadow: 0 0 16px rgba(230, 57, 86, 0.45);
       background: linear-gradient(135deg, rgba(38, 12, 24, 0.95) 0%, rgba(18, 11, 24, 0.9) 100%);
     }
 
-    .wardrobe-img-wrap,
-    .shop-img-wrap {
-      width: 105px;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .wardrobe-row-img,
-    .shop-row-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .wardrobe-img-wrap, .shop-img-wrap { width: 105px; position: relative; flex-shrink: 0; }
+    .wardrobe-row-img, .shop-row-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .selected-badge {
       position: absolute;
@@ -507,19 +360,12 @@
       color: #fff;
       font-size: 8px;
       font-weight: 800;
-      letter-spacing: 0.6px;
       padding: 3px 6px;
       border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
+    .selected-badge.badge-toy { background: rgba(155, 81, 224, 0.95); }
 
-    .selected-badge.badge-toy {
-      background: rgba(155, 81, 224, 0.95);
-      box-shadow: 0 2px 6px rgba(155, 81, 224, 0.6);
-    }
-
-    .wardrobe-row-info,
-    .shop-row-info {
+    .wardrobe-row-info, .shop-row-info {
       flex: 1;
       padding: 10px 12px;
       display: flex;
@@ -528,17 +374,14 @@
       overflow: hidden;
     }
 
-    .wardrobe-row-title-bar,
-    .shop-row-title-bar {
+    .wardrobe-row-title-bar, .shop-row-title-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 6px;
-      margin-bottom: 2px;
     }
 
-    .wardrobe-row-title,
-    .shop-row-title {
+    .wardrobe-row-title, .shop-row-title {
       color: #fff;
       font-size: 13px;
       font-weight: 700;
@@ -547,8 +390,7 @@
       text-overflow: ellipsis;
     }
 
-    .wardrobe-row-desc,
-    .shop-row-desc {
+    .wardrobe-row-desc, .shop-row-desc {
       color: var(--text-muted);
       font-size: 10.5px;
       line-height: 1.35;
@@ -558,24 +400,10 @@
       overflow: hidden;
     }
 
-    .wardrobe-row-footer,
-    .shop-row-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 6px;
-    }
+    .wardrobe-row-footer, .shop-row-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; }
+    .wardrobe-row-cat, .shop-row-cat { color: var(--accent-pink); font-size: 9.5px; font-weight: 800; text-transform: uppercase; }
 
-    .wardrobe-row-cat,
-    .shop-row-cat {
-      color: var(--accent-pink);
-      font-size: 9.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-
-    .wardrobe-select-btn {
+    .wardrobe-select-btn, .shop-view-action-btn {
       border: 1px solid rgba(230, 57, 86, 0.4);
       background: rgba(230, 57, 86, 0.12);
       color: #fff;
@@ -584,33 +412,32 @@
       padding: 5px 10px;
       border-radius: 8px;
       cursor: pointer;
-      white-space: nowrap;
     }
+    .wardrobe-select-btn.active-lingerie { background: var(--accent-pink); }
+    .wardrobe-select-btn.active-toy { background: var(--accent-purple); }
 
-    .wardrobe-select-btn.active-lingerie {
-      background: var(--accent-pink);
-      border-color: var(--accent-pink);
-      box-shadow: 0 0 10px rgba(230, 57, 86, 0.5);
-    }
-
-    .wardrobe-select-btn.active-toy {
-      background: var(--accent-purple);
-      border-color: var(--accent-purple);
-      box-shadow: 0 0 10px rgba(155, 81, 224, 0.5);
-    }
-
-    /* БУТИК */
-    .shop-main-card {
-      max-height: calc(100vh - 100px);
+    /* БАЛАНС В МАГАЗИНЕ */
+    .shop-account-balance-bar {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(26, 14, 34, 0.9) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 9px 12px;
+      margin-bottom: 12px;
     }
-
-    .shop-notice {
-      font-size: 10.5px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-      text-align: center;
+    .shop-bal-label { font-size: 9.5px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; }
+    .shop-bal-chips-group { display: flex; align-items: center; gap: 6px; margin-top: 3px; }
+    .shop-bal-action-btn {
+      background: rgba(230, 57, 86, 0.18);
+      border: 1px solid rgba(230, 57, 86, 0.4);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     .shop-peppers-tag {
@@ -619,7 +446,6 @@
       left: 6px;
       background: rgba(0, 0, 0, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(4px);
       padding: 2px 6px;
       border-radius: 6px;
       font-size: 10px;
@@ -633,493 +459,16 @@
       font-weight: 800;
       padding: 3px 6px;
       border-radius: 6px;
-      white-space: nowrap;
     }
+    .shop-price-badge.dual { background: rgba(0, 0, 0, 0.5); border: 1px solid var(--border-subtle); color: #fff; }
+    .shop-price-badge.stc { background: rgba(230, 57, 86, 0.15); border: 1px solid rgba(230, 57, 86, 0.4); color: #FF8599; }
 
-    .shop-price-badge.dual {
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--border-subtle);
-      color: #fff;
-    }
+    .shop-status-pill { font-size: 9.5px; font-weight: 800; padding: 4px 8px; border-radius: 6px; }
+    .shop-status-pill.bought { background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .shop-status-pill.owned { background: rgba(255, 255, 255, 0.06); color: var(--text-muted); border: 1px solid var(--border-subtle); }
 
-    .shop-price-badge.stc {
-      background: rgba(230, 57, 86, 0.15);
-      border: 1px solid rgba(230, 57, 86, 0.4);
-      color: #FF8599;
-    }
-
-    .shop-view-action-btn {
-      border: 1px solid rgba(230, 57, 86, 0.4);
-      background: rgba(230, 57, 86, 0.14);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .shop-status-pill {
-      font-size: 9.5px;
-      font-weight: 800;
-      padding: 4px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    .shop-status-pill.bought {
-      background: rgba(16, 185, 129, 0.15);
-      color: #10B981;
-      border: 1px solid rgba(16, 185, 129, 0.35);
-    }
-
-    .shop-status-pill.owned {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text-muted);
-      border: 1px solid var(--border-subtle);
-    }
-
-    
-    /* БАЛАНС АККАУНТА В МАГАЗИНЕ */
-    .shop-account-balance-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(26, 14, 34, 0.9) 100%);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 9px 12px;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-    }
-
-    .shop-bal-label {
-      font-size: 9.5px;
-      font-weight: 800;
-      color: var(--text-muted);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .shop-bal-chips-group {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .shop-bal-action-btn {
-      background: rgba(230, 57, 86, 0.18);
-      border: 1px solid rgba(230, 57, 86, 0.4);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 6px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .shop-bal-action-btn:active {
-      background: var(--accent-pink);
-    }
-
-    /* МОДАЛКА: НЕДОСТАТОЧНО ВАЛЮТЫ (БУДУАРНАЯ ПОДАЧА) */
-    .insufficient-card {
-      border-top: 1px solid rgba(230, 57, 86, 0.6);
-      box-shadow: 0 -10px 32px rgba(230, 57, 86, 0.25);
-      background: linear-gradient(180deg, #1C0F22 0%, #0F0814 100%);
-    }
-
-    .insufficient-modal-body {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      padding: 4px 0 10px;
-    }
-
-    .insufficient-item-preview {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 10px;
-    }
-
-    .insufficient-item-img {
-      width: 58px;
-      height: 68px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid rgba(230, 57, 86, 0.4);
-      flex-shrink: 0;
-    }
-
-    .insufficient-item-meta {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      overflow: hidden;
-    }
-
-    .insufficient-item-meta .title {
-      font-size: 13px;
-      font-weight: 800;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .insufficient-deficits {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 2px;
-    }
-
-    .deficit-chip {
-      background: rgba(230, 57, 86, 0.18);
-      border: 1px solid rgba(230, 57, 86, 0.45);
-      color: #FF8599;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 6px;
-    }
-
-    .insufficient-story-text {
-      font-size: 11px;
-      line-height: 1.45;
-      color: #D1C8DB;
-      font-style: italic;
-      text-align: center;
-      padding: 0 4px;
-    }
-
-    .insufficient-choice-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .insufficient-option-card {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 10px 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .insufficient-option-card:active {
-      transform: scale(0.98);
-      border-color: var(--accent-pink);
-    }
-
-    .insufficient-option-card .opt-icon {
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .insufficient-option-card .opt-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .insufficient-option-card .opt-title {
-      font-size: 12px;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .insufficient-option-card .opt-desc {
-      font-size: 9.5px;
-      color: var(--text-muted);
-      line-height: 1.3;
-    }
-
-    .opt-action-btn {
-      border: none;
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 6px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .opt-action-btn.earn {
-      background: linear-gradient(135deg, #10B981, #059669);
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
-    }
-
-    .opt-action-btn.exchange {
-      background: linear-gradient(135deg, #9B51E0, #6D28D9);
-      box-shadow: 0 2px 8px rgba(155, 81, 224, 0.3);
-    }
-
-    .insufficient-dismiss-btn {
-      background: transparent;
-      border: 1px dashed rgba(255, 255, 255, 0.18);
-      color: var(--text-muted);
-      border-radius: 10px;
-      padding: 8px 0;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      margin-top: 2px;
-    }
-
-    .insufficient-dismiss-btn:active {
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-    }
-
-    /* СТРАНИЦА ТОВАРА (ДЕТАЛИ) */
-    .product-detail-card {
-      display: flex;
-      flex-direction: column;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-      padding-bottom: 24px;
-    }
-
-    .detail-main-img-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--border-subtle);
-      margin-bottom: 12px;
-      cursor: pointer;
-    }
-
-    .detail-main-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .zoom-hint-badge {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(4px);
-      color: #fff;
-      font-size: 9.5px;
-      font-weight: 700;
-      padding: 5px 9px;
-      border-radius: 8px;
-    }
-
-    .detail-gallery-strip {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 14px;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .detail-thumb-img {
-      width: 64px;
-      height: 78px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid transparent;
-      opacity: 0.65;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.2s ease;
-    }
-
-    .detail-thumb-img.active {
-      border-color: var(--accent-pink);
-      opacity: 1;
-      transform: scale(1.03);
-      box-shadow: 0 0 10px rgba(230, 57, 86, 0.4);
-    }
-
-    .detail-info-block {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .detail-header-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .detail-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.3;
-    }
-
-    .detail-price-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-size: 11px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .detail-peppers-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(255, 90, 54, 0.08);
-      border: 1px solid rgba(255, 90, 54, 0.25);
-      padding: 8px 12px;
-      border-radius: 12px;
-    }
-
-    .detail-peppers-lbl {
-      font-size: 11px;
-      font-weight: 700;
-      color: #dedede;
-    }
-
-    .detail-desc {
-      font-size: 11.5px;
-      line-height: 1.55;
-      color: #d1c8db;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 12px;
-      margin-top: 2px;
-    }
-
-    .detail-action-container {
-      width: 100%;
-      margin-top: 14px;
-    }
-
-    .shop-buy-btn {
-      width: 100%;
-      background: linear-gradient(135deg, #E63956, #B81D3E);
-      border: none;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 12px 0;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(230, 57, 86, 0.4);
-      transition: all 0.2s ease;
-    }
-
-    .shop-buy-btn:active {
-      transform: scale(0.98);
-    }
-
-    .shop-receive-btn {
-      width: 100%;
-      background: #10B981;
-      border: none;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 12px 0;
-      border-radius: 12px;
-      cursor: pointer;
-      animation: pulseGreen 1.6s infinite;
-    }
-
-    @keyframes pulseGreen {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
-      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
-
-    .shop-owned-badge {
-      text-align: center;
-      font-size: 11.5px;
-      font-weight: 800;
-      color: #10B981;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 12px;
-      padding: 11px 0;
-    }
-
-    /* LIGHTBOX */
-    .fullscreen-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(8px);
-      padding: 16px;
-    }
-
-    .fullscreen-modal.active {
-      display: flex;
-    }
-
-    .fullscreen-img {
-      max-width: 100%;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 0 28px rgba(0, 0, 0, 0.9);
-      animation: zoomInModal 0.22s ease-out;
-    }
-
-    @keyframes zoomInModal {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    
-    /* КАЗНА И УПРАВЛЕНИЕ ОЧКАМИ */
-    .bank-main-card {
-      max-height: calc(100vh - 100px);
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 24px;
-    }
-
-    .bank-balances-summary {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
+    /* КАЗНА */
+    .bank-balances-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
     .bank-side-box {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-subtle);
@@ -1129,34 +478,12 @@
       flex-direction: column;
       gap: 6px;
     }
+    .bank-side-title { font-size: 11px; font-weight: 800; color: #fff; }
+    .bank-side-chips { display: flex; flex-direction: column; gap: 4px; }
+    .bank-sub-content { display: none; flex-direction: column; gap: 12px; overflow-y: auto; padding-bottom: 24px; }
+    .bank-sub-content.active { display: flex; }
 
-    .bank-side-title {
-      font-size: 11px;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .bank-side-chips {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .bank-sub-content {
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .bank-sub-content.active {
-      display: flex;
-    }
-
-    .bank-mode-selector, .bank-target-selector {
-      display: flex;
-      gap: 8px;
-    }
-
+    .bank-mode-selector, .bank-target-selector { display: flex; gap: 8px; }
     .bank-mode-btn, .bank-target-btn {
       flex: 1;
       padding: 9px 0;
@@ -1167,70 +494,27 @@
       border: 1px solid var(--border-subtle);
       background: rgba(255, 255, 255, 0.04);
       color: var(--text-muted);
-      transition: all 0.2s ease;
     }
+    .bank-mode-btn.reward.active { background: rgba(16, 185, 129, 0.2); border-color: #10B981; color: #6EE7B7; }
+    .bank-mode-btn.penalty.active { background: rgba(230, 57, 86, 0.2); border-color: var(--accent-pink); color: #FF8599; }
+    .bank-target-btn.active { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.4); color: #fff; }
 
-    .bank-mode-btn.reward.active {
-      background: rgba(16, 185, 129, 0.2);
-      border-color: #10B981;
-      color: #6EE7B7;
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
-    }
-
-    .bank-mode-btn.penalty.active {
-      background: rgba(230, 57, 86, 0.2);
-      border-color: var(--accent-pink);
-      color: #FF8599;
-      box-shadow: 0 0 12px rgba(230, 57, 86, 0.3);
-    }
-
-    .bank-target-btn.active {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.4);
-      color: #fff;
-    }
-
-    .bank-field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .bank-field-label {
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-    }
-
-    .bank-currency-pills {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
+    .bank-field-group { display: flex; flex-direction: column; gap: 6px; }
+    .bank-field-label { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--text-muted); }
+    .bank-currency-pills { display: flex; gap: 6px; }
     .bank-curr-pill {
       flex: 1;
       padding: 8px 6px;
       border-radius: 10px;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 800;
       cursor: pointer;
       border: 1px solid var(--border-subtle);
       background: rgba(255, 255, 255, 0.04);
       color: #dedede;
       text-align: center;
-      transition: all 0.15s ease;
-      white-space: nowrap;
     }
-
-    .bank-curr-pill.active {
-      border-color: var(--accent-pink);
-      background: rgba(230, 57, 86, 0.2);
-      color: #fff;
-      box-shadow: 0 0 10px rgba(230, 57, 86, 0.3);
-    }
+    .bank-curr-pill.active { border-color: var(--accent-pink); background: rgba(230, 57, 86, 0.2); color: #fff; }
 
     .bank-amount-input, .bank-reason-input {
       width: 100%;
@@ -1244,12 +528,7 @@
       outline: none;
     }
 
-    .quick-chips-row {
-      display: flex;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
+    .quick-chips-row { display: flex; gap: 6px; margin-top: 4px; }
     .quick-chip-btn {
       flex: 1;
       background: rgba(255, 255, 255, 0.05);
@@ -1262,19 +541,7 @@
       cursor: pointer;
     }
 
-    .quick-chip-btn:active {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .quick-reasons-strip {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      margin-top: 4px;
-      -webkit-overflow-scrolling: touch;
-    }
-
+    .quick-reasons-strip { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; margin-top: 4px; }
     .quick-reason-tag {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-subtle);
@@ -1286,12 +553,7 @@
       cursor: pointer;
     }
 
-    .quick-reason-tag:active {
-      background: rgba(230, 57, 86, 0.2);
-      color: #fff;
-    }
-
-    .bank-submit-btn {
+    .bank-submit-btn, .shop-buy-btn {
       width: 100%;
       padding: 12px 0;
       border-radius: 12px;
@@ -1300,28 +562,34 @@
       cursor: pointer;
       border: none;
       color: #fff;
-      margin-top: 6px;
-      transition: all 0.2s ease;
+    }
+    .bank-submit-btn.reward { background: linear-gradient(135deg, #10B981, #059669); }
+    .bank-submit-btn.penalty { background: linear-gradient(135deg, #E63956, #9F1239); }
+    .shop-buy-btn { background: linear-gradient(135deg, #E63956, #B81D3E); }
+
+    .shop-receive-btn {
+      width: 100%;
+      background: #10B981;
+      border: none;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 12px 0;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .shop-owned-badge {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 11px 0;
     }
 
-    .bank-submit-btn.reward {
-      background: linear-gradient(135deg, #10B981, #059669);
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
-    }
-
-    .bank-submit-btn.penalty {
-      background: linear-gradient(135deg, #E63956, #9F1239);
-      box-shadow: 0 4px 14px rgba(230, 57, 86, 0.4);
-    }
-
-    .bank-history-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-height: 280px;
-      overflow-y: auto;
-    }
-
+    .bank-history-list { display: flex; flex-direction: column; gap: 8px; max-height: 280px; overflow-y: auto; }
     .bank-history-item {
       display: flex;
       align-items: center;
@@ -1330,66 +598,18 @@
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 8px 10px;
-      gap: 8px;
     }
-
-    .bank-hist-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow: hidden;
-    }
-
+    .bank-hist-left { display: flex; align-items: center; gap: 8px; overflow: hidden; }
     .bank-hist-badge {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 900;
-      flex-shrink: 0;
+      width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900;
     }
-
-    .bank-hist-badge.reward {
-      background: rgba(16, 185, 129, 0.2);
-      color: #10B981;
-    }
-
-    .bank-hist-badge.penalty {
-      background: rgba(230, 57, 86, 0.2);
-      color: var(--accent-pink);
-    }
-
-    .bank-hist-reason {
-      font-size: 11px;
-      font-weight: 700;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .bank-hist-meta {
-      font-size: 9px;
-      color: var(--text-muted);
-    }
-
-    .bank-hist-val {
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .bank-hist-val.reward {
-      color: #10B981;
-    }
-
-    .bank-hist-val.penalty {
-      color: var(--accent-pink);
-    }
-
+    .bank-hist-badge.reward { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .bank-hist-badge.penalty { background: rgba(230, 57, 86, 0.2); color: var(--accent-pink); }
+    .bank-hist-reason { font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bank-hist-meta { font-size: 9px; color: var(--text-muted); }
+    .bank-hist-val { font-size: 12px; font-weight: 900; white-space: nowrap; }
+    .bank-hist-val.reward { color: #10B981; }
+    .bank-hist-val.penalty { color: var(--accent-pink); }
     .clear-history-btn {
       background: transparent;
       border: 1px dashed rgba(255, 255, 255, 0.15);
@@ -1397,211 +617,115 @@
       border-radius: 10px;
       padding: 8px 0;
       font-size: 10.5px;
-      font-weight: 700;
       cursor: pointer;
-      margin-top: 6px;
     }
 
-    /* КОНВЕРТЕР ВАЛЮТ */
-    .converter-card-box {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    /* ДЕТАЛИ ТОВАРА И МОДАЛКИ */
+    .product-detail-card { display: flex; flex-direction: column; max-height: calc(100vh - 100px); overflow-y: auto; padding-bottom: 24px; }
+    .detail-main-img-wrap { position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 18px; overflow: hidden; margin-bottom: 12px; cursor: pointer; }
+    .detail-main-img { width: 100%; height: 100%; object-fit: cover; }
+    .zoom-hint-badge {
+      position: absolute; bottom: 10px; right: 10px; background: rgba(0, 0, 0, 0.65); border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff; font-size: 9.5px; padding: 5px 9px; border-radius: 8px;
     }
-
-    .converter-rate-badge {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-size: 10.5px;
-      color: #dedede;
-      text-align: center;
+    .detail-gallery-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 14px; }
+    .detail-thumb-img { width: 64px; height: 78px; object-fit: cover; border-radius: 10px; opacity: 0.65; cursor: pointer; }
+    .detail-thumb-img.active { border: 2px solid var(--accent-pink); opacity: 1; }
+    .detail-info-block { display: flex; flex-direction: column; gap: 10px; }
+    .detail-header-row { display: flex; justify-content: space-between; align-items: flex-start; }
+    .detail-title { font-size: 16px; font-weight: 800; color: #fff; }
+    .detail-price-box { background: rgba(255, 255, 255, 0.05); padding: 6px 10px; border-radius: 10px; font-size: 11px; font-weight: 800; color: #fff; }
+    .detail-peppers-card {
+      display: flex; align-items: center; justify-content: space-between; background: rgba(255, 90, 54, 0.08);
+      border: 1px solid rgba(255, 90, 54, 0.25); padding: 8px 12px; border-radius: 12px;
     }
-
-    .conv-row-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .detail-peppers-lbl { font-size: 11px; font-weight: 700; color: #dedede; }
+    .detail-desc {
+      font-size: 11.5px; line-height: 1.55; color: #d1c8db; background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px;
     }
+    .detail-action-container { width: 100%; margin-top: 14px; }
 
-    .conv-row-group label {
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .conv-input-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .conv-input-row input {
-      flex: 1;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      padding: 8px 12px;
-      outline: none;
-    }
-
-    .conv-input-row select {
-      background: rgba(28, 16, 36, 0.9);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 8px 10px;
-      outline: none;
-    }
-
-    .conv-balances-overview {
-      display: flex;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-size: 10.5px;
-      color: #dedede;
-    }
-
-    /* ДОГОВОР И КАЛЕНДАРЬ */
-    .contract-body {
-      text-align: center;
-      padding: 18px 10px;
-    }
-
-    .contract-seal {
-      font-size: 14px;
-      letter-spacing: 4px;
-      color: var(--accent-gold);
-      margin-bottom: 12px;
-      font-weight: 800;
-    }
-
-    .contract-text {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #dedede;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .contract-status-box {
-      background: rgba(230, 57, 86, 0.15);
-      border: 1px solid var(--accent-pink);
-      padding: 8px;
-      border-radius: 10px;
-      font-size: 11px;
-    }
-
-    .cycle-placeholder {
-      text-align: center;
-      padding: 40px 10px;
-    }
-
-    /* МОДАЛКИ ОБЩИЕ */
     .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(6px);
-      z-index: 100;
-      align-items: flex-end;
-      justify-content: center;
+      display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(6px); z-index: 100; align-items: flex-end; justify-content: center;
     }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
+    .modal-overlay.active { display: flex; }
     .modal-card {
-      width: 100%;
-      max-width: 480px;
-      background: #140D1B;
-      border-top: 1px solid var(--border-highlight);
-      border-radius: 20px 20px 0 0;
-      padding: 16px;
+      width: 100%; max-width: 480px; background: #140D1B; border-top: 1px solid var(--border-highlight); border-radius: 20px 20px 0 0; padding: 16px;
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .modal-close-btn { font-size: 16px; cursor: pointer; color: var(--text-muted); }
+
+    .converter-card-box { display: flex; flex-direction: column; gap: 12px; }
+    .converter-rate-badge {
+      background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 8px 10px; font-size: 10.5px; text-align: center; color: #dedede;
+    }
+    .conv-row-group { display: flex; flex-direction: column; gap: 4px; }
+    .conv-row-group label { font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; }
+    .conv-input-row { display: flex; gap: 8px; }
+    .conv-input-row input {
+      flex: 1; background: rgba(0, 0, 0, 0.5); border: 1px solid var(--border-subtle); border-radius: 10px; color: #fff; font-size: 14px; font-weight: 800; padding: 8px 12px; outline: none;
+    }
+    .conv-input-row select {
+      background: rgba(28, 16, 36, 0.9); border: 1px solid var(--border-subtle); border-radius: 10px; color: #fff; font-size: 12px; font-weight: 700; padding: 8px 10px; outline: none;
+    }
+    .conv-balances-overview {
+      display: flex; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 8px 10px; font-size: 10.5px; color: #dedede;
     }
 
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
+    .insufficient-card {
+      border-top: 1px solid rgba(230, 57, 86, 0.6); box-shadow: 0 -10px 32px rgba(230, 57, 86, 0.25); background: linear-gradient(180deg, #1C0F22 0%, #0F0814 100%);
+    }
+    .insufficient-modal-body { display: flex; flex-direction: column; gap: 12px; padding: 4px 0 10px; }
+    .insufficient-item-preview {
+      display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 10px;
+    }
+    .insufficient-item-img { width: 58px; height: 68px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(230, 57, 86, 0.4); }
+    .insufficient-item-meta { flex: 1; display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+    .insufficient-item-meta .title { font-size: 13px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .insufficient-deficits { display: flex; flex-wrap: wrap; gap: 4px; }
+    .deficit-chip {
+      background: rgba(230, 57, 86, 0.18); border: 1px solid rgba(230, 57, 86, 0.45); color: #FF8599; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 6px;
+    }
+    .insufficient-story-text { font-size: 11px; line-height: 1.45; color: #D1C8DB; font-style: italic; text-align: center; }
+    .insufficient-choice-grid { display: flex; flex-direction: column; gap: 8px; }
+    .insufficient-option-card {
+      display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; cursor: pointer;
+    }
+    .insufficient-option-card .opt-icon { font-size: 22px; }
+    .insufficient-option-card .opt-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    .insufficient-option-card .opt-title { font-size: 12px; font-weight: 800; color: #fff; }
+    .insufficient-option-card .opt-desc { font-size: 9.5px; color: var(--text-muted); }
+    .opt-action-btn { border: none; color: #fff; font-size: 10px; font-weight: 800; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+    .opt-action-btn.earn { background: linear-gradient(135deg, #10B981, #059669); }
+    .opt-action-btn.exchange { background: linear-gradient(135deg, #9B51E0, #6D28D9); }
+    .insufficient-dismiss-btn {
+      background: transparent; border: 1px dashed rgba(255, 255, 255, 0.18); color: var(--text-muted); border-radius: 10px; padding: 8px 0; font-size: 11px; font-weight: 700; cursor: pointer;
     }
 
-    .modal-header h3 {
-      font-size: 13px;
-      color: #fff;
-      letter-spacing: 1px;
+    .fullscreen-modal {
+      display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 999; justify-content: center; align-items: center; backdrop-filter: blur(8px); padding: 16px;
     }
+    .fullscreen-modal.active { display: flex; }
+    .fullscreen-img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 10px; }
 
-    .modal-close-btn {
-      font-size: 16px;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .widget-catalog-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
+    .widget-catalog-list { display: flex; flex-direction: column; gap: 8px; }
     .widget-catalog-card {
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 10px;
-      gap: 12px;
-      cursor: pointer;
+      display: flex; align-items: center; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px; gap: 12px; cursor: pointer;
     }
-
-    .cat-icon {
-      font-size: 22px;
-    }
-
-    .cat-info {
-      flex: 1;
-    }
-
-    .cat-info .title {
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .cat-info .sub {
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
+    .cat-icon { font-size: 22px; }
+    .cat-info { flex: 1; }
+    .cat-info .title { font-size: 12px; font-weight: 700; color: #fff; }
+    .cat-info .sub { font-size: 10px; color: var(--text-muted); }
     .small-btn {
-      background: rgba(230, 57, 86, 0.2);
-      border: 1px solid var(--accent-pink);
-      color: #fff;
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      font-weight: 800;
-      cursor: pointer;
+      background: rgba(230, 57, 86, 0.2); border: 1px solid var(--accent-pink); color: #fff; width: 28px; height: 28px; border-radius: 8px; font-weight: 800; cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="app-container">
     
-    <!-- ШАПКА С РОЛЯМИ И ВАЛЮТАМИ -->
+    <!-- ШАПКА -->
     <header class="app-header">
       <button class="role-badge" id="role-toggle-btn" onclick="toggleRole()">
         <span id="role-icon">👑</span>
@@ -1610,7 +734,6 @@
 
       <div class="app-brand">PACT & PASSION</div>
 
-      <!-- Валюты роли + Кнопка Конвертера -->
       <div class="header-currencies-wrap" onclick="switchTab('tab-bank')" title="Открыть казну">
         <div id="header-currencies-container" style="display: flex; gap: 4px;"></div>
         <button class="converter-trigger-btn" onclick="event.stopPropagation(); switchTab('tab-bank')" title="Казна & Обмен">⚖️</button>
@@ -1628,7 +751,7 @@
         </div>
       </section>
 
-      <!-- ЭКРАН 2: КАЗНА & ОЧКИ (НАЧИСЛЕНИЯ, ШТРАФЫ, ОБМЕН) -->
+      <!-- КАЗНА & ОЧКИ -->
       <section id="tab-bank" class="tab-content">
         <div class="card bank-main-card">
           <div class="sub-screen-header">
@@ -1637,7 +760,6 @@
             <div style="width: 48px;"></div>
           </div>
 
-          <!-- Сводка балансов обеих сторон -->
           <div class="bank-balances-summary">
             <div class="bank-side-box">
               <div class="bank-side-title">🗝️ Нижняя</div>
@@ -1657,45 +779,33 @@
             </div>
           </div>
 
-          <!-- Внутренние вкладки Казны -->
           <div class="category-chips" style="margin-bottom: 12px;">
             <button class="chip-btn active" onclick="setBankSubTab('operations', this)">⚖️ Операции</button>
+            <button class="chip-btn" id="tab-bank-btn-transfer" onclick="setBankSubTab('transfer', this)">💌 Перевод ❤️</button>
             <button class="chip-btn" onclick="setBankSubTab('converter', this)">🔄 Обмен</button>
             <button class="chip-btn" onclick="setBankSubTab('history', this)">📜 История</button>
           </div>
 
-          <!-- ПОДВКЛАДКА 1: ОПЕРАЦИИ (НАЧИСЛЕНИЕ / ШТРАФ) -->
+          <!-- ОПЕРАЦИИ -->
           <div id="bank-sub-operations" class="bank-sub-content active">
-            <!-- Выбор режима: Начислить или Оштрафовать -->
             <div class="bank-mode-selector">
-              <button class="bank-mode-btn reward active" id="btn-mode-reward" onclick="setBankOperationMode('reward')">
-                ➕ Начислить
-              </button>
-              <button class="bank-mode-btn penalty" id="btn-mode-penalty" onclick="setBankOperationMode('penalty')">
-                ➖ Штраф / Снять
-              </button>
+              <button class="bank-mode-btn reward active" id="btn-mode-reward" onclick="setBankOperationMode('reward')">➕ Начислить</button>
+              <button class="bank-mode-btn penalty" id="btn-mode-penalty" onclick="setBankOperationMode('penalty')">➖ Штраф / Снять</button>
             </div>
 
-            <!-- Кому: Выбор получателя -->
             <div class="bank-field-group">
               <label class="bank-field-label">Кому:</label>
               <div class="bank-target-selector">
-                <button class="bank-target-btn active" id="btn-target-female" onclick="setBankTarget('female')">
-                  🗝️ Нижней
-                </button>
-                <button class="bank-target-btn" id="btn-target-male" onclick="setBankTarget('male')">
-                  👑 Верхнему
-                </button>
+                <button class="bank-target-btn active" id="btn-target-female" onclick="setBankTarget('female')">🗝️ Нижней</button>
+                <button class="bank-target-btn" id="btn-target-male" onclick="setBankTarget('male')">👑 Верхнему</button>
               </div>
             </div>
 
-            <!-- Какая валюта -->
             <div class="bank-field-group">
               <label class="bank-field-label">Валюта:</label>
               <div class="bank-currency-pills" id="bank-currency-selector-slot"></div>
             </div>
 
-            <!-- Сумма -->
             <div class="bank-field-group">
               <label class="bank-field-label">Количество очков:</label>
               <input type="number" id="bank-op-amount" class="bank-amount-input" value="50" min="1" step="5" oninput="updateBankSubmitBtnText()">
@@ -1708,24 +818,67 @@
               </div>
             </div>
 
-            <!-- Причина / Задача -->
             <div class="bank-field-group">
               <label class="bank-field-label">Причина / Внеигровая задача:</label>
               <input type="text" id="bank-op-reason" class="bank-reason-input" placeholder="Например: кофе в постель, помощь, послушание...">
               <div class="quick-reasons-strip" id="bank-quick-reasons-slot"></div>
             </div>
 
-            <button class="bank-submit-btn reward" id="bank-execute-btn" onclick="executeBankTransaction()">
-              ➕ Начислить 50 очков
-            </button>
+            <button class="bank-submit-btn reward" id="bank-execute-btn" onclick="executeBankTransaction()">➕ Начислить 50</button>
           </div>
 
-          <!-- ПОДВКЛАДКА 2: ОБМЕН (КОНВЕРТЕР) -->
+          <!-- ПЕРЕВОД ❤️ -->
+          <div id="bank-sub-transfer" class="bank-sub-content">
+            <div class="converter-card-box">
+              <div class="converter-rate-badge" style="border-color: rgba(230, 57, 86, 0.4); background: rgba(230, 57, 86, 0.1);">
+                💌 <b>Прямой перевод ❤️ между партнерами</b>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px; text-align: center;">
+                  <div style="font-size: 10px; color: var(--text-muted); font-weight: 800;">Нижняя 🗝️</div>
+                  <div style="font-size: 16px; font-weight: 900; color: #FF8599; margin-top: 2px;">❤️ <span id="transfer-f-stc">0</span></div>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px; text-align: center;">
+                  <div style="font-size: 10px; color: var(--text-muted); font-weight: 800;">Верхний 👑</div>
+                  <div style="font-size: 16px; font-weight: 900; color: #FF8599; margin-top: 2px;">❤️ <span id="transfer-m-stc">0</span></div>
+                </div>
+              </div>
+
+              <div class="conv-row-group">
+                <label>Направление перевода:</label>
+                <div class="bank-target-selector">
+                  <button class="bank-target-btn active" id="btn-transfer-f2m" onclick="setTransferDirection('f2m')">🗝️ Нижняя ➔ 👑 Верхний</button>
+                  <button class="bank-target-btn" id="btn-transfer-m2f" onclick="setTransferDirection('m2f')">👑 Верхний ➔ 🗝️ Нижняя</button>
+                </div>
+              </div>
+
+              <div class="conv-row-group">
+                <label>Количество ❤️ для отправки:</label>
+                <input type="number" id="transfer-amount-input" class="bank-amount-input" value="50" min="1" step="5" oninput="updateTransferBtnText()">
+                <div class="quick-chips-row">
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(25)">25</button>
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(50)">50</button>
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount(100)">100</button>
+                  <button class="quick-chip-btn" onclick="setQuickTransferAmount('all')">Все ❤️</button>
+                </div>
+              </div>
+
+              <div class="conv-row-group">
+                <label>Послание к переводу (опционально):</label>
+                <input type="text" id="transfer-note-input" class="bank-reason-input" placeholder="Дань Верхнему 💋 / На новую игрушку 🔥">
+              </div>
+
+              <button class="shop-buy-btn" id="transfer-submit-btn" style="margin-top: 6px;" onclick="executeSexTokensTransfer()">
+                💌 Перевести 50 ❤️ Верхнему
+              </button>
+            </div>
+          </div>
+
+          <!-- ОБМЕН В КАЗНЕ -->
           <div id="bank-sub-converter" class="bank-sub-content">
             <div class="converter-card-box">
-              <div class="converter-rate-badge">
-                Курс обмена Нижней: <b>2 💜 / 2 🖤 = 1 ❤️</b>
-              </div>
+              <div class="converter-rate-badge">Курс обмена Нижней: <b>2 💜 / 2 🖤 = 1 ❤️</b></div>
 
               <div class="conv-row-group">
                 <label>Отдать:</label>
@@ -1751,21 +904,17 @@
                 </div>
               </div>
 
-              <button class="shop-buy-btn" style="margin-top: 8px;" onclick="executeBankCurrencyExchange()">
-                Совершить обмен 🔄
-              </button>
+              <button class="shop-buy-btn" style="margin-top: 8px;" onclick="executeBankCurrencyExchange()">Совершить обмен 🔄</button>
             </div>
           </div>
 
-          <!-- ПОДВКЛАДКА 3: ИСТОРИЯ ОПЕРАЦИЙ -->
+          <!-- ИСТОРИЯ -->
           <div id="bank-sub-history" class="bank-sub-content">
             <div class="bank-history-list" id="bank-history-items-slot"></div>
             <button class="clear-history-btn" onclick="clearBankHistory()">Очистить историю</button>
           </div>
-
         </div>
       </section>
-
 
       <!-- ГАРДЕРОБ -->
       <section id="tab-wardrobe" class="tab-content">
@@ -1776,7 +925,6 @@
             <div style="width: 48px;"></div>
           </div>
 
-          <!-- Живой счетчик страсти вверху гардероба -->
           <div class="wardrobe-passion-banner" id="wardrobe-passion-summary"></div>
 
           <div class="category-chips">
@@ -1788,7 +936,7 @@
         </div>
       </section>
 
-      <!-- БУТИК (ВИТРИНА КАРТОЧЕК ВО ВСЮ ШИРИНУ СО СКРОЛЛОМ) -->
+      <!-- БУТИК & СЕКС-ШОП -->
       <section id="tab-shop" class="tab-content">
         <div class="card shop-main-card">
           <div class="sub-screen-header">
@@ -1796,10 +944,9 @@
             <div class="screen-title">БУТИК & СЕКС-ШОП</div>
             <div style="width: 48px;"></div>
           </div>
-                    <!-- Баланс аккаунта в магазине -->
+
           <div class="shop-account-balance-bar" id="shop-account-balance-slot"></div>
 
-          <!-- Фильтры категорий Бутика -->
           <div class="category-chips">
             <button class="chip-btn active" onclick="setShopCategory('Все', this)">✨ Все</button>
             <button class="chip-btn" onclick="setShopCategory('Белье', this)">👙 Белье</button>
@@ -1810,7 +957,7 @@
         </div>
       </section>
 
-      <!-- ДЕТАЛИ КОМПЛЕКТА ИЗ БУТИКА -->
+      <!-- ДЕТАЛИ ТОВАРА -->
       <section id="tab-product-detail" class="tab-content">
         <div class="card product-detail-card">
           <div class="sub-screen-header">
@@ -1846,18 +993,18 @@
 
       <!-- ДОГОВОР -->
       <section id="tab-contract" class="tab-content">
-        <div class="card contract-card">
+        <div class="card">
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
             <div class="screen-title">ДОГОВОР</div>
             <div style="width: 48px;"></div>
           </div>
-          <div class="contract-body">
-            <div class="contract-seal">✦ PACT ✦</div>
-            <div class="contract-text" id="contract-content-text">
+          <div style="text-align: center; padding: 20px 10px;">
+            <div style="font-size: 14px; letter-spacing: 4px; color: var(--accent-gold); margin-bottom: 12px; font-weight: 800;">✦ PACT ✦</div>
+            <div style="font-size: 12px; line-height: 1.6; color: #dedede; margin-bottom: 20px; font-style: italic;">
               Стороны соглашаются на добровольное подчинение, взаимное уважение и соблюдение установленных правил. Слово Верхнего — закон. Желание Нижней — священно.
             </div>
-            <div class="contract-status-box" id="contract-status-indicator">
+            <div style="background: rgba(230, 57, 86, 0.15); border: 1px solid var(--accent-pink); padding: 8px; border-radius: 10px; font-size: 11px;">
               Статус: <b>ДЕЙСТВУЕТ</b>
             </div>
           </div>
@@ -1872,7 +1019,7 @@
             <div class="screen-title">КАЛЕНДАРЬ</div>
             <div style="width: 48px;"></div>
           </div>
-          <div class="cycle-placeholder">
+          <div style="text-align: center; padding: 40px 10px;">
             <div style="font-size: 38px; margin-bottom: 8px;">🌸</div>
             <div style="font-weight: 700; color: #fff; margin-bottom: 6px;">Женский Цикл</div>
             <div style="font-size: 11.5px; color: #9a91a5; line-height: 1.5;">
@@ -1884,14 +1031,14 @@
 
     </main>
 
-    <!-- LIGHTBOX (ЗАКРЫТИЕ В ОДИН ТАП В ЛЮБОЕ МЕСТО) -->
+    <!-- LIGHTBOX -->
     <div id="fullscreen-photo-modal" class="fullscreen-modal" onclick="closeFullscreenPhoto()">
       <img id="fullscreen-photo-elem" class="fullscreen-img" src="" alt="Fullscreen Image">
     </div>
 
-        <!-- МОДАЛКА: НЕ ХВАТАЕТ ВАЛЮТЫ (КРАСИВАЯ ПОДАЧА) -->
-    <div id="insufficient-funds-modal" class="modal-overlay">
-      <div class="modal-card insufficient-card">
+    <!-- МОДАЛКА: НЕДОСТАТОЧНО СРЕДСТВ -->
+    <div id="insufficient-funds-modal" class="modal-overlay" onclick="closeInsufficientFundsModal()">
+      <div class="modal-card insufficient-card" onclick="event.stopPropagation()">
         <div class="modal-header">
           <div style="display: flex; align-items: center; gap: 6px;">
             <span style="font-size: 16px;">💔</span>
@@ -1904,7 +1051,7 @@
           <div class="insufficient-item-preview" id="insufficient-item-info"></div>
 
           <div class="insufficient-story-text">
-            Этот наряд требует большей страсти и покорности... Заслужи одобрение Верхнего или используй накопленные ресурсы.
+            Этот предмет требует большей страсти и ресурсов... Заслужи одобрение Верхнего или используй обмен.
           </div>
 
           <div class="insufficient-choice-grid">
@@ -1912,7 +1059,7 @@
               <div class="opt-icon">⚖️</div>
               <div class="opt-info">
                 <div class="opt-title">Заслужить у Верхнего</div>
-                <div class="opt-desc">Выполни внеигровую задачу, прояви заботу или попроси награду в Казне</div>
+                <div class="opt-desc">Выполни задачу, прояви заботу или получи перевод в Казне</div>
               </div>
               <button class="opt-action-btn earn">В Казну →</button>
             </div>
@@ -1934,18 +1081,15 @@
       </div>
     </div>
 
-    <!-- МОДАЛКА: КОНВЕРТЕР ВАЛЮТ -->
-    <div id="currency-converter-modal" class="modal-overlay">
-      <div class="modal-card">
+    <!-- МОДАЛКА: КОНВЕРТЕР -->
+    <div id="currency-converter-modal" class="modal-overlay" onclick="closeConverterModal()">
+      <div class="modal-card" onclick="event.stopPropagation()">
         <div class="modal-header">
           <h3>🔄 Конвертер Валют</h3>
           <span class="modal-close-btn" onclick="closeConverterModal()">✕</span>
         </div>
         <div class="converter-card-box">
-          <div class="converter-rate-badge">
-            Курс обмена: <b>2 💜 / 2 🖤 = 1 ❤️</b>
-          </div>
-
+          <div class="converter-rate-badge">Курс обмена: <b>2 💜 / 2 🖤 = 1 ❤️</b></div>
           <div class="conv-balances-overview" id="converter-balances-view"></div>
 
           <div class="conv-row-group">
@@ -1972,16 +1116,14 @@
             </div>
           </div>
 
-          <button class="shop-buy-btn" style="margin-top: 8px;" onclick="executeCurrencyExchange()">
-            Совершить обмен 🔄
-          </button>
+          <button class="shop-buy-btn" style="margin-top: 8px;" onclick="executeCurrencyExchange()">Совершить обмен 🔄</button>
         </div>
       </div>
     </div>
 
     <!-- МОДАЛКА: ДОБАВИТЬ НА СТОЛ -->
-    <div class="modal-overlay" id="add-widget-modal">
-      <div class="modal-card">
+    <div class="modal-overlay" id="add-widget-modal" onclick="closeAddWidgetModal()">
+      <div class="modal-card" onclick="event.stopPropagation()">
         <div class="modal-header">
           <h3>Добавить на стол</h3>
           <span class="modal-close-btn" onclick="closeAddWidgetModal()">✕</span>
@@ -1990,7 +1132,7 @@
           <div class="widget-catalog-card" onclick="createWidgetOnDesktop('widget-passion', 4)">
             <div class="cat-icon">🌶️</div>
             <div class="cat-info">
-              <div class="title">Градус Страсти & Звание (Вся строка)</div>
+              <div class="title">Градус Страсти & Звание</div>
               <div class="sub">Сумма перчинок и ранг на вечер</div>
             </div>
             <button class="small-btn">+</button>
@@ -1999,22 +1141,13 @@
           <div class="widget-catalog-card" onclick="createWidgetOnDesktop('widget-balance', 4)">
             <div class="cat-icon">💎</div>
             <div class="cat-info">
-              <div class="title">Баланс Очков (Вся строка)</div>
+              <div class="title">Баланс Очков</div>
               <div class="sub">Сердечные валюты и обмен</div>
             </div>
             <button class="small-btn">+</button>
           </div>
 
-          <div class="widget-catalog-card" onclick="createWidgetOnDesktop('widget-contract', 4)">
-            <div class="cat-icon">📜</div>
-            <div class="cat-info">
-              <div class="title">Обет Дня (Вся строка)</div>
-              <div class="sub">Действующий контракт</div>
-            </div>
-            <button class="small-btn">+</button>
-          </div>
-
-                    <div class="widget-catalog-card" onclick="createTileOnDesktop('Казна', '⚖️', 'tab-bank')">
+          <div class="widget-catalog-card" onclick="createTileOnDesktop('Казна', '⚖️', 'tab-bank')">
             <div class="cat-icon">⚖️</div>
             <div class="cat-info">
               <div class="title">Плитка Казны</div>
@@ -2054,10 +1187,9 @@
     </div>
 
   </div>
-
   <script>
     /* ========================================================
-       ИНИЦИАЛИЗАЦИЯ И ХРАНИЛИЩЕ ВАЛЮТ
+       1. ИНИЦИАЛИЗАЦИЯ И ХРАНИЛИЩЕ ВАЛЮТ
        ======================================================== */
     const tg = window.Telegram?.WebApp;
     if (tg) {
@@ -2067,31 +1199,51 @@
 
     let currentRole = localStorage.getItem('pact_user_role') || 'female';
 
-    // ВАЛЮТЫ НИЖНЕЙ (💜 PTC, 🖤 OTC, ❤️ STC)
+    // Балансы сердец Нижней (💜 Страсть, 🖤 Покорность, ❤️ Секс-валюта)
     let femaleBalances = JSON.parse(localStorage.getItem('pact_female_balances')) || {
-      ptc: 650, // 💜 Страсть
-      otc: 480, // 🖤 Покорность
-      stc: 240  // ❤️ Секс-валюта
+      ptc: 650,
+      otc: 480,
+      stc: 240
     };
 
-    // ВАЛЮТЫ ВЕРХНЕГО (💙 ATC - Внимание, 💚 CTC - Забота, ❤️ STC - Секс-валюта)
+    // Балансы сердец Верхнего (💙 Внимание, 💚 Забота, ❤️ Секс-валюта)
     let maleBalances = JSON.parse(localStorage.getItem('pact_male_balances')) || {
-      atc: 850,   // 💙 ATC (Внимание)
-      ctc: 720,  // 💚 CTC (Забота)
-      stc: 400    // ❤️ STC (Секс-валюта)
+      atc: 850,
+      ctc: 720,
+      stc: 400
     };
 
-    // Авто-сброс кэша под механику мульти-валют
-    if (localStorage.getItem('pact_single_ver') !== 'v17_shop_balance_and_modal') {
+    // Автоматический сброс устаревшего кэша
+    if (localStorage.getItem('pact_single_ver') !== 'v20_clean_stable') {
       localStorage.removeItem('boutique_items');
       localStorage.removeItem('wardrobe_items');
       localStorage.removeItem('pact_selected_wardrobe_ids');
       localStorage.removeItem('pact_female_balances');
       localStorage.removeItem('pact_male_balances');
-      localStorage.setItem('pact_single_ver', 'v17_shop_balance_and_modal');
+      localStorage.removeItem('pact_transactions_log');
+      localStorage.removeItem('pact_desktop_items');
+      localStorage.setItem('pact_single_ver', 'v20_clean_stable');
     }
 
-    /* ХЕЛПЕРЫ: ПЕРЧИНКИ И ЗВАНИЯ */
+    // Лог истории операций
+    let transactionsLog = JSON.parse(localStorage.getItem('pact_transactions_log')) || [
+      { id: 1, time: 'Сегодня, 14:20', type: 'reward', recipient: 'female', currency: 'PTC', amount: 50, reason: 'Кофе в постель ☕' },
+      { id: 2, time: 'Сегодня, 16:45', type: 'penalty', recipient: 'female', currency: 'OTC', amount: 30, reason: 'Дерзкий тон без разрешения ⚡' },
+      { id: 3, time: 'Вчера, 19:10', type: 'reward', recipient: 'male', currency: 'ATC', amount: 40, reason: 'Внимание и романтический жест 💙' }
+    ];
+
+    /* ========================================================
+       2. ХЕЛПЕРЫ: СЕРДЦА, ПЕРЧИНКИ И СТАТУСЫ СТРАСТИ
+       ======================================================== */
+    function getHeartByCurrency(curr) {
+      if (curr === 'PTC') return '💜';
+      if (curr === 'OTC') return '🖤';
+      if (curr === 'STC') return '❤️';
+      if (curr === 'ATC') return '💙';
+      if (curr === 'CTC') return '💚';
+      return curr;
+    }
+
     function renderPeppers(count = 1) {
       const peppers = '🌶️'.repeat(Math.min(Math.max(count, 1), 3));
       return `<span class="peppers-indicator" title="Степень откровенности: ${count}">${peppers}</span>`;
@@ -2117,7 +1269,7 @@
 
       let title = 'Невинный образ 🕊️';
       let desc = 'Ничего не надето';
-      let maxCap = 9;
+      const maxCap = 9;
 
       if (countItems === 0 || total === 0) {
         title = 'Невинный образ 🕊️';
@@ -2140,29 +1292,19 @@
       }
 
       const progressPercent = Math.min(Math.round((total / maxCap) * 100), 100);
-
       return { total, countItems, title, desc, progressPercent };
     }
 
-    /* РАБОЧИЙ СТОЛ */
-    let desktopItems = JSON.parse(localStorage.getItem('pact_desktop_items')) || [
-      { id: 'w-passion', type: 'widget', widgetKey: 'widget-passion', span: 4 },
-      { id: 'w-balance', type: 'widget', widgetKey: 'widget-balance', span: 4 },
-      { id: 't-bank', type: 'tile', title: 'Казна', icon: '⚖️', target: 'tab-bank' },
-      { id: 't-wardrobe', type: 'tile', title: 'Гардероб', icon: '🩱', target: 'tab-wardrobe' },
-      { id: 't-shop', type: 'tile', title: 'Бутик', icon: '🛍️', target: 'tab-shop' },
-      { id: 't-cycle', type: 'tile', title: 'Календарь', icon: '🌸', target: 'tab-cycle' },
-      { id: 'w-contract', type: 'widget', widgetKey: 'widget-contract', span: 4 }
-    ];
-
-    /* БАЗА БУТИКА И СЕКС-ШОПА */
+    /* ========================================================
+       3. БАЗА ТОВАРОВ И ГАРДЕРОБ
+       ======================================================== */
     let boutiqueItems = JSON.parse(localStorage.getItem('boutique_items')) || [
       {
         id: 1,
         title: '«Винтажная Муза»',
         category: 'Белье',
-        pricePtc: 220, // 💜 PTC
-        priceOtc: 80,  // 🖤 OTC
+        pricePtc: 220,
+        priceOtc: 80,
         peppers: 1,
         mainImg: 'wardrobe/b1.webp',
         gallery: [
@@ -2170,66 +1312,56 @@
           'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=900',
           'https://images.unsplash.com/photo-1582533561751-ef6f6ab93a2e?w=900'
         ],
-        desc: 'Полупрозрачный будуарный корсетный топ цвета слоновой кости с аккуратными пуговицами, французским кружевом и игривыми рюшами.',
+        desc: 'Полупрозрачный будуарный корсетный топ цвета слоновой кости с аккуратными пуговицами, кружевом и игривыми рюшами.',
         status: 'available'
       },
       {
         id: 2,
         title: '«Тёмная Покорность»',
         category: 'Белье',
-        pricePtc: 160, // 💜 PTC
-        priceOtc: 340, // 🖤 OTC (требует больше покорности!)
+        pricePtc: 160,
+        priceOtc: 340,
         peppers: 2,
         mainImg: 'wardrobe/b2.webp',
         gallery: [
           'wardrobe/b2.webp',
-          'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900',
-          'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=900'
+          'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900'
         ],
-        desc: 'Культовый комплект из глубокого чёрного кружева с акцентным бархатным чокером, золотой фурнитурой, поясом и съёмными гартерами.',
+        desc: 'Культовый комплект из глубокого чёрного кружева с акцентным чокером, золотой фурнитурой, поясом и гартерами.',
         status: 'available'
       },
       {
         id: 3,
         title: '«Цветение Айвори»',
         category: 'Белье',
-        pricePtc: 280, // 💜 PTC
-        priceOtc: 140, // 🖤 OTC
+        pricePtc: 280,
+        priceOtc: 140,
         peppers: 2,
         mainImg: 'wardrobe/b3.webp',
-        gallery: [
-          'wardrobe/b3.webp',
-          'https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=900'
-        ],
-        desc: 'Невесомый бралетт с фактурной цветочной вышивкой, глубоким декольте и двойными микро-стрепами, подчеркивающими тонкость талии.',
+        gallery: ['wardrobe/b3.webp'],
+        desc: 'Невесомый бралетт с фактурной цветочной вышивкой, глубоким декольте и двойными микро-стрепами.',
         status: 'available'
       },
       {
         id: 4,
         title: '«Чистый Соблазн»',
         category: 'Белье',
-        pricePtc: 380, // 💜 PTC
-        priceOtc: 300, // 🖤 OTC
+        pricePtc: 380,
+        priceOtc: 300,
         peppers: 3,
         mainImg: 'wardrobe/b4.webp',
-        gallery: [
-          'wardrobe/b4.webp',
-          'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=900'
-        ],
-        desc: 'Экстремально откровенный белоснежный микро-сет с открытой линией груди, золотистыми соединительными кольцами и тонкими бретелями.',
+        gallery: ['wardrobe/b4.webp'],
+        desc: 'Экстремально откровенный белоснежный микро-сет с открытой линией груди и золотистыми соединительными кольцами.',
         status: 'available'
       },
-      // СЕКС-ШОП (ПРОДАЕТСЯ ТОЛЬКО ЗА ❤️ STC)
       {
         id: 5,
         title: '«Бархатный Ошейник»',
         category: 'Игрушки',
-        priceStc: 180, // ❤️ STC
+        priceStc: 180,
         peppers: 2,
         mainImg: 'https://images.unsplash.com/photo-1611042553365-9b101441c135?w=900',
-        gallery: [
-          'https://images.unsplash.com/photo-1611042553365-9b101441c135?w=900'
-        ],
+        gallery: ['https://images.unsplash.com/photo-1611042553365-9b101441c135?w=900'],
         desc: 'Чёрный бархатный ошейник с позолоченным кольцом и съёмным тонким поводком для ритуалов послушания.',
         status: 'available'
       },
@@ -2237,12 +1369,10 @@
         id: 6,
         title: '«Атласные Ленты & Повязка»',
         category: 'Игрушки',
-        priceStc: 120, // ❤️ STC
+        priceStc: 120,
         peppers: 1,
         mainImg: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600',
-        gallery: [
-          'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'
-        ],
+        gallery: ['https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'],
         desc: 'Шелковая повязка для глаз и нежные ленты для фиксации кистей во время чувственной сессии.',
         status: 'available'
       },
@@ -2250,31 +1380,26 @@
         id: 7,
         title: '«Кожаный Флоггер Покора»',
         category: 'Игрушки',
-        priceStc: 260, // ❤️ STC
+        priceStc: 260,
         peppers: 3,
         mainImg: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900',
-        gallery: [
-          'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900'
-        ],
-        desc: 'Мягкие замшевые хвосты на эргономичной рукояти. Идеальный инструмент для осязаемых наказаний и горячих следов.',
+        gallery: ['https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900'],
+        desc: 'Мягкие замшевые хвосты на эргономичной рукояти. Идеальный инструмент для осязаемых поощрений и горячих следов.',
         status: 'available'
       },
       {
         id: 8,
         title: '«Вибратор Неоновый Пульс»',
         category: 'Игрушки',
-        priceStc: 350, // ❤️ STC
+        priceStc: 350,
         peppers: 3,
         mainImg: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=900',
-        gallery: [
-          'https://images.unsplash.com/photo-1544816155-12df9643f363?w=900'
-        ],
+        gallery: ['https://images.unsplash.com/photo-1544816155-12df9643f363?w=900'],
         desc: 'Эргономичный стимулятор с 10 режимами глубокой пульсации для доведения до пика удовольствия.',
         status: 'available'
       }
     ];
 
-    /* ГАРДЕРОБ */
     let wardrobeItems = JSON.parse(localStorage.getItem('wardrobe_items')) || [
       {
         id: 1,
@@ -2320,11 +1445,23 @@
 
     let wardrobeFilterCat = 'Белье';
     let selectedWardrobeIds = JSON.parse(localStorage.getItem('pact_selected_wardrobe_ids')) || [1, 2];
-
+    let shopFilterCat = 'Все';
     let currentDetailItem = null;
     let activeDetailPhotoSrc = '';
 
-    /* ОБНОВЛЕНИЕ ИНТЕРФЕЙСА РОЛЕЙ И ВАЛЮТ */
+    /* ========================================================
+       4. РАБОЧИЙ СТОЛ И НАВИГАЦИЯ
+       ======================================================== */
+    let desktopItems = JSON.parse(localStorage.getItem('pact_desktop_items')) || [
+      { id: 'w-passion', type: 'widget', widgetKey: 'widget-passion', span: 4 },
+      { id: 'w-balance', type: 'widget', widgetKey: 'widget-balance', span: 4 },
+      { id: 't-bank', type: 'tile', title: 'Казна', icon: '⚖️', target: 'tab-bank' },
+      { id: 't-wardrobe', type: 'tile', title: 'Гардероб', icon: '🩱', target: 'tab-wardrobe' },
+      { id: 't-shop', type: 'tile', title: 'Бутик', icon: '🛍️', target: 'tab-shop' },
+      { id: 't-cycle', type: 'tile', title: 'Календарь', icon: '🌸', target: 'tab-cycle' },
+      { id: 'w-contract', type: 'widget', widgetKey: 'widget-contract', span: 4 }
+    ];
+
     function updateRoleUI() {
       const roleName = document.getElementById('role-name');
       const roleIcon = document.getElementById('role-icon');
@@ -2355,12 +1492,12 @@
       tg?.HapticFeedback?.selectionChanged?.();
       updateRoleUI();
       renderDesktop();
+      renderShopBalance();
       if (document.getElementById('tab-product-detail').classList.contains('active')) {
         renderProductDetail(currentDetailItem);
       }
     }
 
-    /* НАВИГАЦИЯ */
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       const target = document.getElementById(tabId);
@@ -2375,7 +1512,6 @@
       if (tabId === 'tab-shop') renderProducts();
     }
 
-    /* ОТРИСОВКА СТОЛА */
     function renderDesktop() {
       const container = document.getElementById('desktop-grid-container');
       if (!container) return;
@@ -2445,7 +1581,7 @@
             return `
               <div class="desktop-widget widget-span-4" onclick="switchTab('tab-contract')">
                 <div class="widget-title-lbl">📜 Обет Дня</div>
-                <div class="widget-sub">Договор активен • Нажмите для просмотра</div>
+                <div style="font-size: 10.5px; color: var(--text-muted);">Договор активен • Нажмите для просмотра</div>
               </div>
             `;
           }
@@ -2454,9 +1590,9 @@
       }).join('');
     }
 
-    /* БУТИК: ФИЛЬТРАЦИЯ И СПИСОК ВО ВСЮ ШИРИНУ */
-    let shopFilterCat = 'Все';
-
+    /* ========================================================
+       5. БУТИК & СЕКС-ШОП
+       ======================================================== */
     function setShopCategory(cat, btn) {
       shopFilterCat = cat;
       document.querySelectorAll('#tab-shop .chip-btn').forEach(b => b.classList.remove('active'));
@@ -2465,8 +1601,6 @@
       renderProducts();
     }
 
-    
-    /* ОТРИСОВКА БАЛАНСА В МАГАЗИНЕ */
     function renderShopBalance() {
       const slot = document.getElementById('shop-account-balance-slot');
       if (!slot) return;
@@ -2481,7 +1615,7 @@
               <span class="curr-chip stc">❤️ <b>${femaleBalances.stc}</b></span>
             </div>
           </div>
-          <button class="shop-bal-action-btn" onclick="openConverterModal()" title="Обменять валюту">
+          <button class="shop-bal-action-btn" onclick="openConverterModal()">
             <span>🔄</span> Обмен
           </button>
         `;
@@ -2495,7 +1629,7 @@
               <span class="curr-chip stc">❤️ <b>${maleBalances.stc}</b></span>
             </div>
           </div>
-          <button class="shop-bal-action-btn" onclick="switchTab('tab-bank')" title="Открыть казну">
+          <button class="shop-bal-action-btn" onclick="switchTab('tab-bank')">
             <span>⚖️</span> Казна
           </button>
         `;
@@ -2513,10 +1647,7 @@
       });
 
       if (filtered.length === 0) {
-        bCont.innerHTML = `
-          <div style="text-align: center; color: var(--text-muted); font-size: 11.5px; padding: 40px 10px;">
-            В этой категории пока нет товаров.
-          </div>`;
+        bCont.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 11.5px; padding: 40px 10px;">В этой категории пока нет товаров.</div>`;
         return;
       }
 
@@ -2530,7 +1661,6 @@
           actionBtnHtml = `<span class="shop-status-pill owned">✓ В гардеробе</span>`;
         }
 
-        // Отрисовка цены
         let priceHtml = '';
         if (p.category === 'Белье') {
           priceHtml = `<div class="shop-price-badge dual">💜 ${p.pricePtc} + 🖤 ${p.priceOtc}</div>`;
@@ -2577,7 +1707,7 @@
 
       document.getElementById('detail-top-title').innerText = item.category === 'Белье' ? 'БУТИК' : 'СЕКС-ШОП';
       document.getElementById('detail-title-elem').innerText = item.title;
-      
+
       const priceElem = document.getElementById('detail-price-elem');
       if (item.category === 'Белье') {
         priceElem.innerHTML = `💜 ${item.pricePtc} + 🖤 ${item.priceOtc}`;
@@ -2595,13 +1725,10 @@
         </div>
       `;
 
-      const mainImgElem = document.getElementById('detail-main-img-elem');
-      mainImgElem.src = activeDetailPhotoSrc;
+      document.getElementById('detail-main-img-elem').src = activeDetailPhotoSrc;
 
       const gallery = item.gallery && item.gallery.length > 0 ? item.gallery : [item.mainImg];
-      const stripElem = document.getElementById('detail-gallery-strip');
-
-      stripElem.innerHTML = gallery.map(photoUrl => `
+      document.getElementById('detail-gallery-strip').innerHTML = gallery.map(photoUrl => `
         <img class="detail-thumb-img ${photoUrl === activeDetailPhotoSrc ? 'active' : ''}" 
              src="${photoUrl}" 
              alt="thumb" 
@@ -2610,10 +1737,16 @@
 
       const actionSlot = document.getElementById('detail-action-slot');
       if (item.status === 'available') {
-        let buyBtnText = item.category === 'Белье' 
-          ? `Приобрести за 💜 ${item.pricePtc} + 🖤 ${item.priceOtc}`
-          : `Приобрести за ❤️ ${item.priceStc}`;
-        actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">${buyBtnText}</button>`;
+        if (item.category === 'Белье') {
+          if (currentRole === 'female') {
+            actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">Приобрести комплект • 💜 ${item.pricePtc} + 🖤 ${item.priceOtc}</button>`;
+          } else {
+            actionSlot.innerHTML = `<button class="shop-buy-btn" style="background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.2); color: var(--text-muted); cursor: default;" onclick="alert('Бельё выбирает и приобретает Нижняя за 💜 и 🖤.')">👙 Бельё выбирает Нижняя</button>`;
+          }
+        } else {
+          const buyerRoleLabel = currentRole === 'female' ? '' : ' (Верхний)';
+          actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">Купить девайс${buyerRoleLabel} • ❤️ ${item.priceStc}</button>`;
+        }
       } else if (item.status === 'bought') {
         actionSlot.innerHTML = `<button class="shop-receive-btn" onclick="receiveBoutiqueItem(${item.id})">📦 Подтвердить получение!</button>`;
       } else {
@@ -2642,23 +1775,20 @@
     }
 
     function closeFullscreenPhoto() {
-      const modal = document.getElementById('fullscreen-photo-modal');
-      modal.classList.remove('active');
+      document.getElementById('fullscreen-photo-modal')?.classList.remove('active');
       tg?.HapticFeedback?.impactOccurred?.('light');
     }
 
-    /* ПОКУПКА: СПИСАНИЕ ОЧКОВ И КРАСИВАЯ МОДАЛКА НЕДОСТАЧИ */
     function buyBoutiqueItem(id) {
       const item = boutiqueItems.find(p => p.id === id);
       if (!item || item.status !== 'available') return;
 
-      if (currentRole !== 'female') {
-        alert('Приобретать наряды и девайсы может только Нижняя за свои очки.');
-        return;
-      }
-
-      // Проверка на покупку белья (💜 + 🖤)
       if (item.category === 'Белье') {
+        if (currentRole !== 'female') {
+          alert('Бельё за 💜 и 🖤 выбирает и приобретает Нижняя. Ты можешь покупать девайсы в Секс-шопе за ❤️!');
+          return;
+        }
+
         const deficits = [];
         if (femaleBalances.ptc < item.pricePtc) {
           deficits.push({ heart: '💜', amount: item.pricePtc - femaleBalances.ptc });
@@ -2674,21 +1804,41 @@
 
         femaleBalances.ptc -= item.pricePtc;
         femaleBalances.otc -= item.priceOtc;
-      } 
-      // Проверка на покупку в секс-шопе (❤️)
-      else {
-        if (femaleBalances.stc < item.priceStc) {
-          const deficits = [{ heart: '❤️', amount: item.priceStc - femaleBalances.stc }];
+        localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+      } else {
+        const activeBalance = currentRole === 'female' ? femaleBalances.stc : maleBalances.stc;
+        if (activeBalance < item.priceStc) {
+          const deficits = [{ heart: '❤️', amount: item.priceStc - activeBalance }];
           showInsufficientFundsModal(item, deficits);
           return;
         }
 
-        femaleBalances.stc -= item.priceStc;
+        if (currentRole === 'female') {
+          femaleBalances.stc -= item.priceStc;
+          localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+        } else {
+          maleBalances.stc -= item.priceStc;
+          localStorage.setItem('pact_male_balances', JSON.stringify(maleBalances));
+        }
       }
 
       item.status = 'bought';
-      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+      item.boughtBy = currentRole;
       localStorage.setItem('boutique_items', JSON.stringify(boutiqueItems));
+
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
+      const buyerName = currentRole === 'female' ? 'Нижняя' : 'Верхний';
+      transactionsLog.unshift({
+        id: Date.now(),
+        time: timeStr,
+        type: 'penalty',
+        recipient: currentRole,
+        currency: item.category === 'Белье' ? '💜+🖤' : '❤️',
+        amount: item.category === 'Белье' ? `${item.pricePtc}+${item.priceOtc}` : item.priceStc,
+        reason: `${buyerName}: покупка ${item.title} 🛍️`
+      });
+      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
 
       updateRoleUI();
       renderShopBalance();
@@ -2696,7 +1846,6 @@
       tg?.HapticFeedback?.notificationOccurred?.('success');
     }
 
-    /* ФУНКЦИИ МОДАЛКИ НЕДОСТАЧИ */
     function showInsufficientFundsModal(item, deficits) {
       const modal = document.getElementById('insufficient-funds-modal');
       const previewSlot = document.getElementById('insufficient-item-info');
@@ -2716,6 +1865,15 @@
         </div>
       `;
 
+      const storyElem = document.querySelector('.insufficient-story-text');
+      if (storyElem) {
+        if (currentRole === 'male') {
+          storyElem.innerText = 'Недостаточно ❤️ на балансе Верхнего. Получи перевод от Нижней или начисли очки в Казне.';
+        } else {
+          storyElem.innerText = 'Этот наряд требует большей страсти и покорности... Заслужи одобрение Верхнего или используй обмен.';
+        }
+      }
+
       modal.classList.add('active');
     }
 
@@ -2731,7 +1889,12 @@
 
     function goToExchangeCurrency() {
       closeInsufficientFundsModal();
-      openConverterModal();
+      if (currentRole === 'male') {
+        switchTab('tab-bank');
+        setBankSubTab('transfer', document.getElementById('tab-bank-btn-transfer'));
+      } else {
+        openConverterModal();
+      }
     }
 
     function receiveBoutiqueItem(id) {
@@ -2759,399 +1922,9 @@
       alert(`✨ Товар ${item.title} доставлен и добавлен в твой Гардероб!`);
     }
 
-    
-    /* КАЗНА И УПРАВЛЕНИЕ ОЧКАМИ */
-    .bank-main-card {
-      max-height: calc(100vh - 100px);
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 24px;
-    }
-
-    .bank-balances-summary {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .bank-side-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .bank-side-title {
-      font-size: 11px;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .bank-side-chips {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .bank-sub-content {
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .bank-sub-content.active {
-      display: flex;
-    }
-
-    .bank-mode-selector, .bank-target-selector {
-      display: flex;
-      gap: 8px;
-    }
-
-    .bank-mode-btn, .bank-target-btn {
-      flex: 1;
-      padding: 9px 0;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 800;
-      cursor: pointer;
-      border: 1px solid var(--border-subtle);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
-      transition: all 0.2s ease;
-    }
-
-    .bank-mode-btn.reward.active {
-      background: rgba(16, 185, 129, 0.2);
-      border-color: #10B981;
-      color: #6EE7B7;
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
-    }
-
-    .bank-mode-btn.penalty.active {
-      background: rgba(230, 57, 86, 0.2);
-      border-color: var(--accent-pink);
-      color: #FF8599;
-      box-shadow: 0 0 12px rgba(230, 57, 86, 0.3);
-    }
-
-    .bank-target-btn.active {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.4);
-      color: #fff;
-    }
-
-    .bank-field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .bank-field-label {
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-    }
-
-    .bank-currency-pills {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .bank-curr-pill {
-      flex: 1;
-      padding: 8px 6px;
-      border-radius: 10px;
-      font-size: 10px;
-      font-weight: 800;
-      cursor: pointer;
-      border: 1px solid var(--border-subtle);
-      background: rgba(255, 255, 255, 0.04);
-      color: #dedede;
-      text-align: center;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .bank-curr-pill.active {
-      border-color: var(--accent-pink);
-      background: rgba(230, 57, 86, 0.2);
-      color: #fff;
-      box-shadow: 0 0 10px rgba(230, 57, 86, 0.3);
-    }
-
-    .bank-amount-input, .bank-reason-input {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px 12px;
-      outline: none;
-    }
-
-    .quick-chips-row {
-      display: flex;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .quick-chip-btn {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 5px 0;
-      font-size: 10px;
-      font-weight: 800;
-      color: #dedede;
-      cursor: pointer;
-    }
-
-    .quick-chip-btn:active {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .quick-reasons-strip {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      margin-top: 4px;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .quick-reason-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 5px 8px;
-      font-size: 10px;
-      color: #c4bcd0;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .quick-reason-tag:active {
-      background: rgba(230, 57, 86, 0.2);
-      color: #fff;
-    }
-
-    .bank-submit-btn {
-      width: 100%;
-      padding: 12px 0;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 800;
-      cursor: pointer;
-      border: none;
-      color: #fff;
-      margin-top: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .bank-submit-btn.reward {
-      background: linear-gradient(135deg, #10B981, #059669);
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
-    }
-
-    .bank-submit-btn.penalty {
-      background: linear-gradient(135deg, #E63956, #9F1239);
-      box-shadow: 0 4px 14px rgba(230, 57, 86, 0.4);
-    }
-
-    .bank-history-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-height: 280px;
-      overflow-y: auto;
-    }
-
-    .bank-history-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 8px 10px;
-      gap: 8px;
-    }
-
-    .bank-hist-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow: hidden;
-    }
-
-    .bank-hist-badge {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-
-    .bank-hist-badge.reward {
-      background: rgba(16, 185, 129, 0.2);
-      color: #10B981;
-    }
-
-    .bank-hist-badge.penalty {
-      background: rgba(230, 57, 86, 0.2);
-      color: var(--accent-pink);
-    }
-
-    .bank-hist-reason {
-      font-size: 11px;
-      font-weight: 700;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .bank-hist-meta {
-      font-size: 9px;
-      color: var(--text-muted);
-    }
-
-    .bank-hist-val {
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .bank-hist-val.reward {
-      color: #10B981;
-    }
-
-    .bank-hist-val.penalty {
-      color: var(--accent-pink);
-    }
-
-    .clear-history-btn {
-      background: transparent;
-      border: 1px dashed rgba(255, 255, 255, 0.15);
-      color: var(--text-muted);
-      border-radius: 10px;
-      padding: 8px 0;
-      font-size: 10.5px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 6px;
-    }
-
-    /* КОНВЕРТЕР ВАЛЮТ */
-    function openConverterModal() {
-      updateConverterUI();
-      document.getElementById('currency-converter-modal')?.classList.add('active');
-    }
-
-    function closeConverterModal() {
-      document.getElementById('currency-converter-modal')?.classList.remove('active');
-    }
-
-    function updateConverterUI() {
-      const bView = document.getElementById('converter-balances-view');
-      if (currentRole === 'female') {
-        bView.innerHTML = `
-          <span>💜 <b>${femaleBalances.ptc}</b></span>
-          <span>🖤 <b>${femaleBalances.otc}</b></span>
-          <span>❤️ <b>${femaleBalances.stc}</b></span>
-        `;
-      } else {
-        bView.innerHTML = `
-          <span>💙 <b>${maleBalances.atc}</b></span>
-          <span>💚 <b>${maleBalances.ctc}</b></span>
-          <span>❤️ <b>${maleBalances.stc}</b></span>
-        `;
-      }
-      calculateConversion();
-    }
-
-    function calculateConversion() {
-      const fromCurr = document.getElementById('conv-from-currency').value;
-      const toCurr = document.getElementById('conv-to-currency').value;
-      const fromAmount = parseFloat(document.getElementById('conv-from-amount').value) || 0;
-      const toInput = document.getElementById('conv-to-amount');
-
-      if (fromCurr === toCurr) {
-        toInput.value = fromAmount;
-        return;
-      }
-
-      // Обмен PTC/OTC в STC (2 к 1)
-      if ((fromCurr === 'PTC' || fromCurr === 'OTC') && toCurr === 'STC') {
-        toInput.value = Math.floor(fromAmount / 2);
-      }
-      // Обмен STC в PTC/OTC (1 к 2)
-      else if (fromCurr === 'STC' && (toCurr === 'PTC' || toCurr === 'OTC')) {
-        toInput.value = Math.floor(fromAmount * 2);
-      }
-      // Обмен между PTC и OTC (1 к 1)
-      else {
-        toInput.value = fromAmount;
-      }
-    }
-
-    function executeCurrencyExchange() {
-      if (currentRole !== 'female') {
-        alert('Обмен очков страсти и покорности доступен для Нижней.');
-        return;
-      }
-
-      const fromCurr = document.getElementById('conv-from-currency').value;
-      const toCurr = document.getElementById('conv-to-currency').value;
-      const fromAmount = parseInt(document.getElementById('conv-from-amount').value) || 0;
-      const toAmount = parseInt(document.getElementById('conv-to-amount').value) || 0;
-
-      if (fromAmount <= 0) {
-        alert('Введите корректное число для обмена.');
-        return;
-      }
-
-      // Проверка баланса
-      const keyMap = { 'PTC': 'ptc', 'OTC': 'otc', 'STC': 'stc' };
-      const fromKey = keyMap[fromCurr];
-      const toKey = keyMap[toCurr];
-
-      if (femaleBalances[fromKey] < fromAmount) {
-        tg?.HapticFeedback?.notificationOccurred?.('error');
-        alert(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`);
-        return;
-      }
-
-      // Обмен
-      femaleBalances[fromKey] -= fromAmount;
-      femaleBalances[toKey] += toAmount;
-      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
-
-      tg?.HapticFeedback?.notificationOccurred?.('success');
-      updateRoleUI();
-      updateConverterUI();
-      renderDesktop();
-      alert(`Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`);
-    }
-
-    /* ГАРДЕРОБ */
+    /* ========================================================
+       6. ГАРДЕРОБ
+       ======================================================== */
     function setWardrobeCategory(cat, btn) {
       wardrobeFilterCat = cat;
       document.querySelectorAll('#tab-wardrobe .chip-btn').forEach(b => b.classList.remove('active'));
@@ -3181,7 +1954,7 @@
       if (banner) {
         banner.innerHTML = `
           <div>
-            <div style="font-size: 9px; font-weight: 800; color: #FF8566; text-transform: uppercase; letter-spacing: 1px;">Текущий образ:</div>
+            <div style="font-size: 9px; font-weight: 800; color: #FF8566; text-transform: uppercase;">Текущий образ:</div>
             <div style="font-size: 13px; font-weight: 800; color: #fff;">${passion.title}</div>
           </div>
           <div style="text-align: right;">
@@ -3207,7 +1980,6 @@
       container.innerHTML = filtered.map(item => {
         const isSelected = selectedWardrobeIds.includes(item.id);
         const isToy = (item.category === 'Игрушки');
-
         const badgeText = isToy ? 'БУДЕТ ИСПОЛЬЗОВАНО ⚡' : 'НАДЕТО ✨';
         const activeBtnText = isToy ? '✓ Будет использовано' : '✓ Надето';
 
@@ -3237,54 +2009,13 @@
       }).join('');
     }
 
-    /* МОДАЛКА СТОЛА */
-    function openAddWidgetModal() {
-      document.getElementById('add-widget-modal')?.classList.add('active');
-    }
-
-    function closeAddWidgetModal() {
-      document.getElementById('add-widget-modal')?.classList.remove('active');
-    }
-
-    function createWidgetOnDesktop(widgetKey, span) {
-      desktopItems.push({ id: 'w-' + Date.now(), type: 'widget', widgetKey, span });
-      localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
-      closeAddWidgetModal();
-      renderDesktop();
-    }
-
-    function createTileOnDesktop(title, icon, target) {
-      desktopItems.push({ id: 't-' + Date.now(), type: 'tile', title, icon, target });
-      localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
-      closeAddWidgetModal();
-      renderDesktop();
-    }
-
-    /* СТАРТ */
-    
     /* ========================================================
-       КАЗНА, НАЧИСЛЕНИЯ, ШТРАФЫ И ОБМЕН
+       7. КАЗНА: ОПЕРАЦИИ, ШТРАФЫ И ИСТОРИЯ
        ======================================================== */
-    
-    function getHeartByCurrency(curr) {
-      if (curr === 'PTC') return '💜';
-      if (curr === 'OTC') return '🖤';
-      if (curr === 'STC') return '❤️';
-      if (curr === 'ATC') return '💙';
-      if (curr === 'CTC') return '💚';
-      return curr;
-    }
-
     let bankSubTab = 'operations';
     let bankOpMode = 'reward';
     let bankTarget = 'female';
     let bankSelectedCurrency = 'PTC';
-
-    let transactionsLog = JSON.parse(localStorage.getItem('pact_transactions_log')) || [
-      { id: 1, time: 'Сегодня, 14:20', type: 'reward', recipient: 'female', currency: 'PTC', amount: 50, reason: 'Кофе в постель ☕' },
-      { id: 2, time: 'Сегодня, 16:45', type: 'penalty', recipient: 'female', currency: 'OTC', amount: 30, reason: 'Дерзкий тон без разрешения ⚡' },
-      { id: 3, time: 'Вчера, 19:10', type: 'reward', recipient: 'male', currency: 'ATC', amount: 40, reason: 'Внимание и романтический жест 💙' }
-    ];
 
     function setBankSubTab(tab, btn) {
       bankSubTab = tab;
@@ -3293,6 +2024,7 @@
       document.querySelectorAll('.bank-sub-content').forEach(c => c.classList.remove('active'));
       document.getElementById('bank-sub-' + tab)?.classList.add('active');
       tg?.HapticFeedback?.selectionChanged?.();
+      if (tab === 'transfer') renderBankScreen();
       if (tab === 'history') renderBankHistory();
       if (tab === 'converter') calculateBankConversion();
     }
@@ -3301,7 +2033,7 @@
       bankOpMode = mode;
       document.getElementById('btn-mode-reward')?.classList.toggle('active', mode === 'reward');
       document.getElementById('btn-mode-penalty')?.classList.toggle('active', mode === 'penalty');
-      
+
       const submitBtn = document.getElementById('bank-execute-btn');
       if (submitBtn) {
         submitBtn.className = 'bank-submit-btn ' + mode;
@@ -3315,12 +2047,8 @@
       bankTarget = target;
       document.getElementById('btn-target-female')?.classList.toggle('active', target === 'female');
       document.getElementById('btn-target-male')?.classList.toggle('active', target === 'male');
-      
-      if (target === 'female') {
-        bankSelectedCurrency = 'PTC';
-      } else {
-        bankSelectedCurrency = 'ATC';
-      }
+
+      bankSelectedCurrency = target === 'female' ? 'PTC' : 'ATC';
       renderBankCurrencySelector();
       renderQuickReasons();
       updateBankSubmitBtnText();
@@ -3330,22 +2058,11 @@
     function renderBankCurrencySelector() {
       const slot = document.getElementById('bank-currency-selector-slot');
       if (!slot) return;
-      
-      let currencies = [];
-      if (bankTarget === 'female') {
-        currencies = [
-          { code: 'PTC', label: '💜' },
-          { code: 'OTC', label: '🖤' },
-          { code: 'STC', label: '❤️' }
-        ];
-      } else {
-        currencies = [
-          { code: 'ATC', label: '💙' },
-          { code: 'CTC', label: '💚' },
-          { code: 'STC', label: '❤️' }
-        ];
-      }
-      
+
+      const currencies = bankTarget === 'female'
+        ? [{ code: 'PTC', label: '💜' }, { code: 'OTC', label: '🖤' }, { code: 'STC', label: '❤️' }]
+        : [{ code: 'ATC', label: '💙' }, { code: 'CTC', label: '💚' }, { code: 'STC', label: '❤️' }];
+
       slot.innerHTML = currencies.map(c => `
         <button class="bank-curr-pill ${c.code === bankSelectedCurrency ? 'active' : ''}" 
                 onclick="selectBankCurrency('${c.code}')">
@@ -3374,27 +2091,9 @@
       const slot = document.getElementById('bank-quick-reasons-slot');
       if (!slot) return;
 
-      let reasons = [];
-      if (bankOpMode === 'reward') {
-        reasons = [
-          'Кофе в постель ☕',
-          'Идеальное послушание ✨',
-          'Комплимент / Ласка 💖',
-          'Бытовая помощь 🧹',
-          'Вкусный ужин 🍷',
-          'Массаж 💆',
-          'Сюрприз 🎁'
-        ];
-      } else {
-        reasons = [
-          'Опоздание ⏱️',
-          'Непослушание ⚡',
-          'Дерзкий тон 🤐',
-          'Забытое правило 📜',
-          'Нарушение контракта ❌',
-          'Каприз без повода 😤'
-        ];
-      }
+      const reasons = bankOpMode === 'reward'
+        ? ['Кофе в постель ☕', 'Идеальное послушание ✨', 'Комплимент / Ласка 💖', 'Бытовая помощь 🧹', 'Вкусный ужин 🍷', 'Массаж 💆']
+        : ['Опоздание ⏱️', 'Непослушание ⚡', 'Дерзкий тон 🤐', 'Забытое правило 📜', 'Нарушение контракта ❌', 'Каприз без повода 😤'];
 
       slot.innerHTML = reasons.map(r => `
         <div class="quick-reason-tag" onclick="setQuickReason('${r}')">${r}</div>
@@ -3418,7 +2117,7 @@
     function executeBankTransaction() {
       const amount = parseInt(document.getElementById('bank-op-amount')?.value) || 0;
       const reasonInput = document.getElementById('bank-op-reason');
-      let reason = reasonInput?.value.trim() || (bankOpMode === 'reward' ? 'Награда за задачу' : 'Штраф');
+      const reason = reasonInput?.value.trim() || (bankOpMode === 'reward' ? 'Награда за задачу' : 'Штраф');
 
       if (amount <= 0) {
         alert('Введите количество очков больше 0.');
@@ -3469,6 +2168,7 @@
       updateRoleUI();
       renderDesktop();
       renderBankScreen();
+      renderShopBalance();
     }
 
     function renderBankHistory() {
@@ -3507,6 +2207,103 @@
         renderBankHistory();
         tg?.HapticFeedback?.impactOccurred?.('light');
       }
+    }
+
+    /* ========================================================
+       8. ПЕРЕВОД СЕКС-ОЧКОВ ❤️ И ОБМЕН
+       ======================================================== */
+    let transferDirection = 'f2m';
+
+    function setTransferDirection(dir) {
+      transferDirection = dir;
+      document.getElementById('btn-transfer-f2m')?.classList.toggle('active', dir === 'f2m');
+      document.getElementById('btn-transfer-m2f')?.classList.toggle('active', dir === 'm2f');
+      updateTransferBtnText();
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function setQuickTransferAmount(amt) {
+      const input = document.getElementById('transfer-amount-input');
+      if (!input) return;
+
+      if (amt === 'all') {
+        const available = transferDirection === 'f2m' ? femaleBalances.stc : maleBalances.stc;
+        input.value = Math.max(available, 0);
+      } else {
+        input.value = amt;
+      }
+      updateTransferBtnText();
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function updateTransferBtnText() {
+      const btn = document.getElementById('transfer-submit-btn');
+      const input = document.getElementById('transfer-amount-input');
+      if (!btn || !input) return;
+      const amt = parseInt(input.value) || 0;
+      btn.innerText = transferDirection === 'f2m' 
+        ? `💌 Перевести ${amt} ❤️ Верхнему`
+        : `💌 Отправить ${amt} ❤️ Нижней`;
+    }
+
+    function executeSexTokensTransfer() {
+      const input = document.getElementById('transfer-amount-input');
+      const noteInput = document.getElementById('transfer-note-input');
+      const amount = parseInt(input?.value) || 0;
+      let note = noteInput?.value.trim();
+
+      if (amount <= 0) {
+        alert('Введите корректное число ❤️ для перевода.');
+        return;
+      }
+
+      if (transferDirection === 'f2m') {
+        if (femaleBalances.stc < amount) {
+          tg?.HapticFeedback?.notificationOccurred?.('error');
+          alert(`У Нижней недостаточно ❤️! Доступно: ${femaleBalances.stc}`);
+          return;
+        }
+
+        femaleBalances.stc -= amount;
+        maleBalances.stc += amount;
+        if (!note) note = 'Дань Верхнему 💋';
+      } else {
+        if (maleBalances.stc < amount) {
+          tg?.HapticFeedback?.notificationOccurred?.('error');
+          alert(`У Верхнего недостаточно ❤️! Доступно: ${maleBalances.stc}`);
+          return;
+        }
+
+        maleBalances.stc -= amount;
+        femaleBalances.stc += amount;
+        if (!note) note = 'Подарок Нижней на желания 🔥';
+      }
+
+      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+      localStorage.setItem('pact_male_balances', JSON.stringify(maleBalances));
+
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}, ${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}`;
+      const dirText = transferDirection === 'f2m' ? 'Нижняя ➔ Верхний' : 'Верхний ➔ Нижняя';
+
+      transactionsLog.unshift({
+        id: Date.now(),
+        time: timeStr,
+        type: 'reward',
+        recipient: transferDirection === 'f2m' ? 'male' : 'female',
+        currency: 'STC',
+        amount: amount,
+        reason: `Перевод (${dirText}): ${note} 💌`
+      });
+      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
+
+      tg?.HapticFeedback?.notificationOccurred?.('success');
+      if (noteInput) noteInput.value = '';
+      updateRoleUI();
+      renderDesktop();
+      renderBankScreen();
+      renderShopBalance();
+      alert(`✨ Успешно переведено ${amount} ❤️ (${dirText})!`);
     }
 
     function calculateBankConversion() {
@@ -3572,6 +2369,7 @@
       updateRoleUI();
       renderDesktop();
       renderBankScreen();
+      renderShopBalance();
       alert(`Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`);
     }
 
@@ -3590,6 +2388,12 @@
       if (mCtc) mCtc.innerText = maleBalances.ctc;
       if (mStc) mStc.innerText = maleBalances.stc;
 
+      const tfStc = document.getElementById('transfer-f-stc');
+      const tmStc = document.getElementById('transfer-m-stc');
+      if (tfStc) tfStc.innerText = femaleBalances.stc;
+      if (tmStc) tmStc.innerText = maleBalances.stc;
+      updateTransferBtnText();
+
       renderBankCurrencySelector();
       renderQuickReasons();
       updateBankSubmitBtnText();
@@ -3597,6 +2401,117 @@
       calculateBankConversion();
     }
 
+    /* ========================================================
+       9. ОБЩИЙ КОНВЕРТЕР И МОДАЛКИ СТОЛА
+       ======================================================== */
+    function openConverterModal() {
+      updateConverterUI();
+      document.getElementById('currency-converter-modal')?.classList.add('active');
+    }
+
+    function closeConverterModal() {
+      document.getElementById('currency-converter-modal')?.classList.remove('active');
+    }
+
+    function updateConverterUI() {
+      const bView = document.getElementById('converter-balances-view');
+      if (currentRole === 'female') {
+        bView.innerHTML = `
+          <span>💜 <b>${femaleBalances.ptc}</b></span>
+          <span>🖤 <b>${femaleBalances.otc}</b></span>
+          <span>❤️ <b>${femaleBalances.stc}</b></span>
+        `;
+      } else {
+        bView.innerHTML = `
+          <span>💙 <b>${maleBalances.atc}</b></span>
+          <span>💚 <b>${maleBalances.ctc}</b></span>
+          <span>❤️ <b>${maleBalances.stc}</b></span>
+        `;
+      }
+      calculateConversion();
+    }
+
+    function calculateConversion() {
+      const fromCurr = document.getElementById('conv-from-currency').value;
+      const toCurr = document.getElementById('conv-to-currency').value;
+      const fromAmount = parseFloat(document.getElementById('conv-from-amount').value) || 0;
+      const toInput = document.getElementById('conv-to-amount');
+
+      if (fromCurr === toCurr) {
+        toInput.value = fromAmount;
+        return;
+      }
+
+      if ((fromCurr === 'PTC' || fromCurr === 'OTC') && toCurr === 'STC') {
+        toInput.value = Math.floor(fromAmount / 2);
+      } else if (fromCurr === 'STC' && (toCurr === 'PTC' || toCurr === 'OTC')) {
+        toInput.value = Math.floor(fromAmount * 2);
+      } else {
+        toInput.value = fromAmount;
+      }
+    }
+
+    function executeCurrencyExchange() {
+      if (currentRole !== 'female') {
+        alert('Обмен очков страсти и покорности доступен для Нижней.');
+        return;
+      }
+
+      const fromCurr = document.getElementById('conv-from-currency').value;
+      const toCurr = document.getElementById('conv-to-currency').value;
+      const fromAmount = parseInt(document.getElementById('conv-from-amount').value) || 0;
+      const toAmount = parseInt(document.getElementById('conv-to-amount').value) || 0;
+
+      if (fromAmount <= 0) {
+        alert('Введите корректное число для обмена.');
+        return;
+      }
+
+      const keyMap = { 'PTC': 'ptc', 'OTC': 'otc', 'STC': 'stc' };
+      const fromKey = keyMap[fromCurr];
+      const toKey = keyMap[toCurr];
+
+      if (femaleBalances[fromKey] < fromAmount) {
+        tg?.HapticFeedback?.notificationOccurred?.('error');
+        alert(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`);
+        return;
+      }
+
+      femaleBalances[fromKey] -= fromAmount;
+      femaleBalances[toKey] += toAmount;
+      localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
+
+      tg?.HapticFeedback?.notificationOccurred?.('success');
+      updateRoleUI();
+      updateConverterUI();
+      renderDesktop();
+      renderShopBalance();
+      alert(`Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`);
+    }
+
+    function openAddWidgetModal() {
+      document.getElementById('add-widget-modal')?.classList.add('active');
+    }
+
+    function closeAddWidgetModal() {
+      document.getElementById('add-widget-modal')?.classList.remove('active');
+    }
+
+    function createWidgetOnDesktop(widgetKey, span) {
+      desktopItems.push({ id: 'w-' + Date.now(), type: 'widget', widgetKey, span });
+      localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
+      closeAddWidgetModal();
+      renderDesktop();
+    }
+
+    function createTileOnDesktop(title, icon, target) {
+      desktopItems.push({ id: 't-' + Date.now(), type: 'tile', title, icon, target });
+      localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
+      closeAddWidgetModal();
+      renderDesktop();
+    }
+
+    /* СТАРТ ПРИЛОЖЕНИЯ */
     window.addEventListener('DOMContentLoaded', () => {
       updateRoleUI();
       renderDesktop();
