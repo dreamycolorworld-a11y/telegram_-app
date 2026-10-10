@@ -46,6 +46,62 @@
       padding: env(safe-area-inset-top, 10px) 14px env(safe-area-inset-bottom, 16px) 14px;
     }
 
+    /* ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ (TOASTS) */
+    .toast-container {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: calc(100% - 28px);
+      max-width: 440px;
+      pointer-events: none;
+    }
+
+    .app-toast {
+      background: rgba(24, 14, 32, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 14px;
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 700;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transform: translateY(-24px) scale(0.96);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: auto;
+    }
+
+    .app-toast.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .app-toast.toast-success {
+      border-color: rgba(16, 185, 129, 0.55);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+    }
+
+    .app-toast.toast-penalty, .app-toast.toast-error {
+      border-color: rgba(230, 57, 86, 0.6);
+      box-shadow: 0 0 20px rgba(230, 57, 86, 0.3);
+    }
+
+    .app-toast.toast-info {
+      border-color: rgba(155, 81, 224, 0.55);
+      box-shadow: 0 0 20px rgba(155, 81, 224, 0.25);
+    }
+
     /* ШАПКА */
     .app-header {
       display: flex;
@@ -195,6 +251,34 @@
       justify-content: center;
       gap: 6px;
       cursor: pointer;
+      position: relative;
+    }
+
+    /* БЕЙДЖ НОВИНОК (SMS) НА ПЛИТКЕ */
+    .tile-unread-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: linear-gradient(135deg, #FF3366, #E63956);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(230, 57, 86, 0.8);
+      animation: pulseBadge 1.8s infinite;
+      z-index: 5;
+    }
+
+    @keyframes pulseBadge {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 86, 0.8); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(230, 57, 86, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 86, 0); }
     }
 
     .tile-icon { font-size: 24px; }
@@ -359,6 +443,28 @@
     }
     .selected-badge.badge-toy { background: rgba(155, 81, 224, 0.95); }
 
+    /* ПЛАШКА NEW НА КАРТОЧКЕ */
+    .product-new-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: linear-gradient(135deg, #FF1E56, #E63956);
+      color: #fff;
+      font-size: 8.5px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      padding: 3px 6px;
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgba(255, 30, 86, 0.85);
+      animation: pulseNew 1.4s infinite alternate;
+      z-index: 3;
+    }
+
+    @keyframes pulseNew {
+      from { transform: scale(0.96); opacity: 0.9; }
+      to { transform: scale(1.05); opacity: 1; }
+    }
+
     .wardrobe-row-info, .shop-row-info {
       flex: 1;
       padding: 10px 12px;
@@ -498,7 +604,25 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      transition: all 0.2s ease;
     }
+    .bank-side-box.is-active-role {
+      border-color: rgba(230, 57, 86, 0.65);
+      background: linear-gradient(135deg, rgba(38, 14, 28, 0.9) 0%, rgba(22, 12, 26, 0.95) 100%);
+      box-shadow: 0 0 16px rgba(230, 57, 86, 0.25);
+    }
+    .role-active-indicator {
+      display: inline-block;
+      font-size: 8.5px;
+      font-weight: 800;
+      color: #FF8599;
+      background: rgba(230, 57, 86, 0.2);
+      border: 1px solid rgba(230, 57, 86, 0.4);
+      padding: 1px 5px;
+      border-radius: 6px;
+      margin-left: 4px;
+    }
+
     .bank-side-title { font-size: 11px; font-weight: 800; color: #fff; }
     .bank-side-chips { display: flex; flex-direction: column; gap: 4px; }
     .bank-sub-content { display: none; flex-direction: column; gap: 12px; overflow-y: auto; padding-bottom: 24px; }
@@ -723,6 +847,9 @@
 <body>
   <div class="app-container">
     
+    <!-- КОНТЕЙНЕР ВСПЛЫВАЮЩИХ УВЕДОМЛЕНИЙ -->
+    <div id="toast-container" class="toast-container"></div>
+
     <!-- ШАПКА -->
     <header class="app-header">
       <button class="role-badge" id="role-toggle-btn" onclick="toggleRole()">
@@ -734,7 +861,7 @@
 
       <div class="header-currencies-wrap" onclick="switchTab('tab-bank')" title="Открыть баланс">
         <div id="header-currencies-container" style="display: flex; gap: 4px;"></div>
-        <button class="converter-trigger-btn" onclick="event.stopPropagation(); switchTab('tab-bank')" title="Баланс & Обмен">💎</button>
+        <button class="converter-trigger-btn" onclick="event.stopPropagation(); switchTab('tab-bank')" title="Баланс & Обмен">💖</button>
       </div>
     </header>
 
@@ -760,16 +887,16 @@
 
           <!-- Сводка счетов партнеров -->
           <div class="bank-balances-summary">
-            <div class="bank-side-box">
-              <div class="bank-side-title">🗝️ Нижняя</div>
+            <div class="bank-side-box" id="bank-box-female">
+              <div class="bank-side-title" id="bank-title-female">🗝️ Нижняя</div>
               <div class="bank-side-chips">
                 <span class="curr-chip ptc">💜 <b id="bank-f-ptc">0</b></span>
                 <span class="curr-chip otc">🖤 <b id="bank-f-otc">0</b></span>
                 <span class="curr-chip stc">❤️ <b id="bank-f-stc">0</b></span>
               </div>
             </div>
-            <div class="bank-side-box">
-              <div class="bank-side-title">👑 Верхний</div>
+            <div class="bank-side-box" id="bank-box-male">
+              <div class="bank-side-title" id="bank-title-male">👑 Верхний</div>
               <div class="bank-side-chips">
                 <span class="curr-chip att">💙 <b id="bank-m-atc">0</b></span>
                 <span class="curr-chip care">💚 <b id="bank-m-ctc">0</b></span>
@@ -1105,7 +1232,7 @@
 
           <div class="insufficient-choice-grid">
             <div class="insufficient-option-card" onclick="goToEarnFromMaster()">
-              <div class="opt-icon">💎</div>
+              <div class="opt-icon">💖</div>
               <div class="opt-info">
                 <div class="opt-title">Заслужить в Балансе</div>
                 <div class="opt-desc">Выполни задачу, прояви заботу или получи перевод</div>
@@ -1130,7 +1257,7 @@
       </div>
     </div>
 
-    <!-- МОДАЛКА: КОНВЕРТЕР (ИЗ ШАПКИ / ВИДЖЕТА) -->
+    <!-- МОДАЛКА: КОНВЕРТЕР -->
     <div id="currency-converter-modal" class="modal-overlay" onclick="closeConverterModal()">
       <div class="modal-card" onclick="event.stopPropagation()">
         <div class="modal-header">
@@ -1188,7 +1315,7 @@
           </div>
 
           <div class="widget-catalog-card" onclick="createWidgetOnDesktop('widget-balance', 4)">
-            <div class="cat-icon">💎</div>
+            <div class="cat-icon">💖</div>
             <div class="cat-info">
               <div class="title">Баланс Очков</div>
               <div class="sub">Сердечные валюты и обмен</div>
@@ -1196,8 +1323,8 @@
             <button class="small-btn">+</button>
           </div>
 
-          <div class="widget-catalog-card" onclick="createTileOnDesktop('Баланс', '💎', 'tab-bank')">
-            <div class="cat-icon">💎</div>
+          <div class="widget-catalog-card" onclick="createTileOnDesktop('Баланс', '💖', 'tab-bank')">
+            <div class="cat-icon">💖</div>
             <div class="cat-info">
               <div class="title">Плитка Баланса</div>
               <div class="sub">Поощрения, штрафы и переводы</div>
@@ -1262,8 +1389,8 @@
       stc: 400
     };
 
-    // Автоматический сброс устаревшего кэша
-    if (localStorage.getItem('pact_single_ver') !== 'v21_balance_tabs_clean') {
+    // Авто-сброс кэша под механику уведомлений и бейджей
+    if (localStorage.getItem('pact_single_ver') !== 'v22_pink_heart_toasts_badges') {
       localStorage.removeItem('boutique_items');
       localStorage.removeItem('wardrobe_items');
       localStorage.removeItem('pact_selected_wardrobe_ids');
@@ -1271,7 +1398,7 @@
       localStorage.removeItem('pact_male_balances');
       localStorage.removeItem('pact_transactions_log');
       localStorage.removeItem('pact_desktop_items');
-      localStorage.setItem('pact_single_ver', 'v21_balance_tabs_clean');
+      localStorage.setItem('pact_single_ver', 'v22_pink_heart_toasts_badges');
     }
 
     // Лог истории операций
@@ -1282,7 +1409,31 @@
     ];
 
     /* ========================================================
-       2. ХЕЛПЕРЫ: СЕРДЦА, ПЕРЧИНКИ И ГРАДУС СТРАСТИ
+       2. СИСТЕМА ВСПЛЫВАЮЩИХ УВЕДОМЛЕНИЙ (TOASTS)
+       ======================================================== */
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      if (type === 'success') tg?.HapticFeedback?.notificationOccurred?.('success');
+      else if (type === 'penalty' || type === 'error') tg?.HapticFeedback?.notificationOccurred?.('warning');
+      else tg?.HapticFeedback?.impactOccurred?.('medium');
+
+      const toast = document.createElement('div');
+      toast.className = `app-toast toast-${type}`;
+      toast.innerHTML = `<div style="line-height: 1.45;">${message}</div>`;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => toast.classList.add('visible'));
+
+      setTimeout(() => {
+        toast.classList.remove('visible');
+        setTimeout(() => toast.remove(), 300);
+      }, 3400);
+    }
+
+    /* ========================================================
+       3. ХЕЛПЕРЫ: СЕРДЦА, ПЕРЧИНКИ И ГРАДУС СТРАСТИ
        ======================================================== */
     function getHeartByCurrency(curr) {
       if (curr === 'PTC') return '💜';
@@ -1345,7 +1496,7 @@
     }
 
     /* ========================================================
-       3. БАЗА ТОВАРОВ И ГАРДЕРОБ
+       4. БАЗА ТОВАРОВ И ГАРДЕРОБ С ПОДДЕРЖКОЙ NEW
        ======================================================== */
     let boutiqueItems = JSON.parse(localStorage.getItem('boutique_items')) || [
       {
@@ -1362,7 +1513,8 @@
           'https://images.unsplash.com/photo-1582533561751-ef6f6ab93a2e?w=900'
         ],
         desc: 'Полупрозрачный будуарный корсетный топ цвета слоновой кости с аккуратными пуговицами, французским кружевом и рюшами.',
-        status: 'available'
+        status: 'available',
+        seen: true
       },
       {
         id: 2,
@@ -1372,12 +1524,10 @@
         priceOtc: 340,
         peppers: 2,
         mainImg: 'wardrobe/b2.webp',
-        gallery: [
-          'wardrobe/b2.webp',
-          'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900'
-        ],
+        gallery: ['wardrobe/b2.webp'],
         desc: 'Культовый комплект из глубокого чёрного кружева с акцентным бархатным чокером, золотой фурнитурой, поясом и гартерами.',
-        status: 'available'
+        status: 'available',
+        seen: true
       },
       {
         id: 3,
@@ -1389,7 +1539,8 @@
         mainImg: 'wardrobe/b3.webp',
         gallery: ['wardrobe/b3.webp'],
         desc: 'Невесомый бралетт с фактурной цветочной вышивкой, глубоким декольте и двойными микро-стрепами.',
-        status: 'available'
+        status: 'available',
+        seen: true
       },
       {
         id: 4,
@@ -1401,7 +1552,8 @@
         mainImg: 'wardrobe/b4.webp',
         gallery: ['wardrobe/b4.webp'],
         desc: 'Экстремально откровенный белоснежный микро-сет с открытой линией груди и золотистыми соединительными кольцами.',
-        status: 'available'
+        status: 'available',
+        seen: false // Новинка
       },
       {
         id: 5,
@@ -1412,7 +1564,8 @@
         mainImg: 'https://images.unsplash.com/photo-1611042553365-9b101441c135?w=900',
         gallery: ['https://images.unsplash.com/photo-1611042553365-9b101441c135?w=900'],
         desc: 'Чёрный бархатный ошейник с позолоченным кольцом и съёмным тонким поводком для ритуалов послушания.',
-        status: 'available'
+        status: 'available',
+        seen: true
       },
       {
         id: 6,
@@ -1423,7 +1576,8 @@
         mainImg: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600',
         gallery: ['https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'],
         desc: 'Шелковая повязка для глаз и нежные ленты для фиксации кистей во время чувственной сессии.',
-        status: 'available'
+        status: 'available',
+        seen: true
       },
       {
         id: 7,
@@ -1434,7 +1588,8 @@
         mainImg: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900',
         gallery: ['https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900'],
         desc: 'Мягкие замшевые хвосты на эргономичной рукояти. Идеальный инструмент для осязаемых поощрений и горячих следов.',
-        status: 'available'
+        status: 'available',
+        seen: true
       },
       {
         id: 8,
@@ -1445,7 +1600,8 @@
         mainImg: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=900',
         gallery: ['https://images.unsplash.com/photo-1544816155-12df9643f363?w=900'],
         desc: 'Эргономичный стимулятор с 10 режимами глубокой пульсации для доведения до пика удовольствия.',
-        status: 'available'
+        status: 'available',
+        seen: false // Новинка
       }
     ];
 
@@ -1499,12 +1655,12 @@
     let activeDetailPhotoSrc = '';
 
     /* ========================================================
-       4. РАБОЧИЙ СТОЛ И НАВИГАЦИЯ
+       5. РАБОЧИЙ СТОЛ И НАВИГАЦИЯ
        ======================================================== */
     let desktopItems = JSON.parse(localStorage.getItem('pact_desktop_items')) || [
       { id: 'w-passion', type: 'widget', widgetKey: 'widget-passion', span: 4 },
       { id: 'w-balance', type: 'widget', widgetKey: 'widget-balance', span: 4 },
-      { id: 't-bank', type: 'tile', title: 'Баланс', icon: '💎', target: 'tab-bank' },
+      { id: 't-bank', type: 'tile', title: 'Баланс', icon: '💖', target: 'tab-bank' },
       { id: 't-wardrobe', type: 'tile', title: 'Гардероб', icon: '🩱', target: 'tab-wardrobe' },
       { id: 't-shop', type: 'tile', title: 'Бутик', icon: '🛍️', target: 'tab-shop' },
       { id: 't-cycle', type: 'tile', title: 'Календарь', icon: '🌸', target: 'tab-cycle' },
@@ -1542,6 +1698,7 @@
       updateRoleUI();
       renderDesktop();
       renderShopBalance();
+      renderBankScreen();
       if (document.getElementById('tab-product-detail').classList.contains('active')) {
         renderProductDetail(currentDetailItem);
       }
@@ -1566,11 +1723,17 @@
       if (!container) return;
 
       const passion = getPassionStatus();
+      const unseenShopCount = boutiqueItems.filter(p => !p.seen).length;
 
       container.innerHTML = desktopItems.map(item => {
         if (item.type === 'tile') {
+          // Индикатор непросмотренных новинок для Нижней на плитке Бутика
+          const showBadge = (item.target === 'tab-shop' && currentRole === 'female' && unseenShopCount > 0);
+          const badgeHtml = showBadge ? `<div class="tile-unread-badge">${unseenShopCount}</div>` : '';
+
           return `
             <div class="desktop-tile" onclick="switchTab('${item.target}')">
+              ${badgeHtml}
               <div class="tile-icon">${item.icon}</div>
               <div class="tile-title">${item.title}</div>
             </div>
@@ -1616,7 +1779,7 @@
             return `
               <div class="desktop-widget widget-span-4" onclick="switchTab('tab-bank')">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <div class="widget-title-lbl" style="margin: 0;">💎 Баланс Очков & Валют</div>
+                  <div class="widget-title-lbl" style="margin: 0;">💖 Баланс Очков & Валют</div>
                   <div style="font-size: 10px; color: var(--accent-pink); font-weight: 700;">Открыть ⚖️</div>
                 </div>
                 <div class="widget-balance-grid">
@@ -1640,7 +1803,7 @@
     }
 
     /* ========================================================
-       5. БУТИК & СЕКС-ШОП
+       6. БУТИК & СЕКС-ШОП
        ======================================================== */
     function setShopCategory(cat, btn) {
       shopFilterCat = cat;
@@ -1679,7 +1842,7 @@
             </div>
           </div>
           <button class="shop-bal-action-btn" onclick="switchTab('tab-bank')">
-            <span>💎</span> Баланс
+            <span>💖</span> Баланс
           </button>
         `;
       }
@@ -1717,10 +1880,14 @@
           priceHtml = `<div class="shop-price-badge stc">❤️ ${p.priceStc}</div>`;
         }
 
+        // Плашка NEW на карточке товара
+        const newBadgeHtml = (!p.seen && currentRole === 'female') ? `<div class="product-new-badge">NEW</div>` : '';
+
         return `
           <div class="shop-card-row" onclick="openProductDetail(${p.id})">
             <div class="shop-img-wrap" onclick="event.stopPropagation(); openFullscreenPhoto('${p.mainImg}')">
               <img class="shop-row-img" src="${p.mainImg}" alt="${p.title}" loading="lazy">
+              ${newBadgeHtml}
               <div class="shop-peppers-tag">${renderPeppers(p.peppers || 1)}</div>
             </div>
             <div class="shop-row-info">
@@ -1744,6 +1911,14 @@
     function openProductDetail(id) {
       const item = boutiqueItems.find(p => p.id === id);
       if (!item) return;
+
+      // Если товар был помечен как непросмотренный — снимаем метку NEW
+      if (!item.seen && currentRole === 'female') {
+        item.seen = true;
+        localStorage.setItem('boutique_items', JSON.stringify(boutiqueItems));
+        renderDesktop();
+        renderProducts();
+      }
 
       currentDetailItem = item;
       activeDetailPhotoSrc = item.mainImg;
@@ -1790,7 +1965,7 @@
           if (currentRole === 'female') {
             actionSlot.innerHTML = `<button class="shop-buy-btn" onclick="buyBoutiqueItem(${item.id})">Приобрести комплект • 💜 ${item.pricePtc} + 🖤 ${item.priceOtc}</button>`;
           } else {
-            actionSlot.innerHTML = `<button class="shop-buy-btn" style="background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.2); color: var(--text-muted); cursor: default;" onclick="alert('Бельё выбирает и приобретает Нижняя за 💜 и 🖤.')">👙 Бельё выбирает Нижняя</button>`;
+            actionSlot.innerHTML = `<button class="shop-buy-btn" style="background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.2); color: var(--text-muted); cursor: default;" onclick="showToast('Бельё выбирает и приобретает Нижняя за 💜 и 🖤.', 'info')">👙 Бельё выбирает Нижняя</button>`;
           }
         } else {
           const buyerRoleLabel = currentRole === 'female' ? '' : ' (Верхний)';
@@ -1834,7 +2009,7 @@
 
       if (item.category === 'Белье') {
         if (currentRole !== 'female') {
-          alert('Бельё за 💜 и 🖤 выбирает и приобретает Нижняя. Ты можешь покупать девайсы в Секс-шопе за ❤️!');
+          showToast('Бельё за 💜 и 🖤 выбирает и приобретает Нижняя. Ты можешь покупать девайсы в Секс-шопе за ❤️!', 'info');
           return;
         }
 
@@ -1880,7 +2055,7 @@
       updateRoleUI();
       renderShopBalance();
       renderProductDetail(item);
-      tg?.HapticFeedback?.notificationOccurred?.('success');
+      showToast(`🛍️ ${item.title} оформлен! Ожидает подтверждения получения.`, 'success');
     }
 
     function showInsufficientFundsModal(item, deficits) {
@@ -1955,12 +2130,11 @@
 
       renderProductDetail(item);
       renderWardrobe();
-      tg?.HapticFeedback?.notificationOccurred?.('success');
-      alert(`✨ Товар ${item.title} доставлен и добавлен в твой Гардероб!`);
+      showToast(`✨ Товар ${item.title} доставлен и добавлен в твой Гардероб!`, 'success');
     }
 
     /* ========================================================
-       6. ГАРДЕРОБ
+       7. ГАРДЕРОБ
        ======================================================== */
     function setWardrobeCategory(cat, btn) {
       wardrobeFilterCat = cat;
@@ -2047,7 +2221,7 @@
     }
 
     /* ========================================================
-       7. ЭКРАН «БАЛАНС»: 5 КНОПОК И ФУНКЦИЙ
+       8. ЭКРАН «БАЛАНС»: АДАПТИВНОСТЬ ПОД РОЛЬ
        ======================================================== */
     let rewardTarget = 'female';
     let rewardCurrency = 'PTC';
@@ -2124,7 +2298,10 @@
       const reasonInp = document.getElementById('reward-reason-input');
       const reason = reasonInp?.value.trim() || 'Поощрение за задачу';
 
-      if (amt <= 0) { alert('Введите число больше 0.'); return; }
+      if (amt <= 0) {
+        showToast('Введите количество очков больше 0.', 'error');
+        return;
+      }
       const key = rewardCurrency.toLowerCase();
 
       if (rewardTarget === 'female') {
@@ -2137,8 +2314,7 @@
 
       logTransaction('reward', rewardTarget, rewardCurrency, amt, reason);
       if (reasonInp) reasonInp.value = '';
-      tg?.HapticFeedback?.notificationOccurred?.('success');
-      alert(`✨ Начислено ${amt} ${getHeartByCurrency(rewardCurrency)} (${reason})!`);
+      showToast(`✨ Начислено ${amt} ${getHeartByCurrency(rewardCurrency)} (${reason})!`, 'success');
 
       updateRoleUI();
       renderDesktop();
@@ -2200,7 +2376,10 @@
       const reasonInp = document.getElementById('penalty-reason-input');
       const reason = reasonInp?.value.trim() || 'Штраф';
 
-      if (amt <= 0) { alert('Введите число больше 0.'); return; }
+      if (amt <= 0) {
+        showToast('Введите количество очков больше 0.', 'error');
+        return;
+      }
       const key = penaltyCurrency.toLowerCase();
 
       if (penaltyTarget === 'female') {
@@ -2213,8 +2392,7 @@
 
       logTransaction('penalty', penaltyTarget, penaltyCurrency, amt, reason);
       if (reasonInp) reasonInp.value = '';
-      tg?.HapticFeedback?.notificationOccurred?.('warning');
-      alert(`⚡ Списан штраф: ${amt} ${getHeartByCurrency(penaltyCurrency)} (${reason})!`);
+      showToast(`⚡ Списан штраф: ${amt} ${getHeartByCurrency(penaltyCurrency)} (${reason})!`, 'penalty');
 
       updateRoleUI();
       renderDesktop();
@@ -2262,14 +2440,13 @@
       let note = noteInput?.value.trim();
 
       if (amount <= 0) {
-        alert('Введите корректное число ❤️ для перевода.');
+        showToast('Введите корректное число ❤️ для перевода.', 'error');
         return;
       }
 
       if (transferDirection === 'f2m') {
         if (femaleBalances.stc < amount) {
-          tg?.HapticFeedback?.notificationOccurred?.('error');
-          alert(`У Нижней недостаточно ❤️! Доступно: ${femaleBalances.stc}`);
+          showToast(`У Нижней недостаточно ❤️! Доступно: ${femaleBalances.stc}`, 'error');
           return;
         }
 
@@ -2278,8 +2455,7 @@
         if (!note) note = 'Дань Верхнему 💋';
       } else {
         if (maleBalances.stc < amount) {
-          tg?.HapticFeedback?.notificationOccurred?.('error');
-          alert(`У Верхнего недостаточно ❤️! Доступно: ${maleBalances.stc}`);
+          showToast(`У Верхнего недостаточно ❤️! Доступно: ${maleBalances.stc}`, 'error');
           return;
         }
 
@@ -2294,13 +2470,12 @@
       const dirText = transferDirection === 'f2m' ? 'Нижняя ➔ Верхний' : 'Верхний ➔ Нижняя';
       logTransaction('reward', transferDirection === 'f2m' ? 'male' : 'female', 'STC', amount, `Перевод (${dirText}): ${note} 💌`);
 
-      tg?.HapticFeedback?.notificationOccurred?.('success');
       if (noteInput) noteInput.value = '';
       updateRoleUI();
       renderDesktop();
       renderBankScreen();
       renderShopBalance();
-      alert(`✨ Успешно переведено ${amount} ❤️ (${dirText})!`);
+      showToast(`💌 Успешно переведено ${amount} ❤️ (${dirText})!`, 'success');
     }
 
     /* ОБМЕН В БАЛАНСЕ */
@@ -2332,7 +2507,7 @@
       const toAmount = parseInt(document.getElementById('bank-conv-to-amount').value) || 0;
 
       if (fromAmount <= 0) {
-        alert('Введите корректную сумму для обмена.');
+        showToast('Введите корректную сумму для обмена.', 'error');
         return;
       }
 
@@ -2341,8 +2516,7 @@
       const toKey = keyMap[toCurr];
 
       if (femaleBalances[fromKey] < fromAmount) {
-        tg?.HapticFeedback?.notificationOccurred?.('error');
-        alert(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`);
+        showToast(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`, 'error');
         return;
       }
 
@@ -2352,12 +2526,11 @@
 
       logTransaction('reward', 'female', toCurr, toAmount, `Обмен ${fromAmount} ${getHeartByCurrency(fromCurr)} ➔ ${toAmount} ${getHeartByCurrency(toCurr)} 🔄`);
 
-      tg?.HapticFeedback?.notificationOccurred?.('success');
       updateRoleUI();
       renderDesktop();
       renderBankScreen();
       renderShopBalance();
-      alert(`Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`);
+      showToast(`🔄 Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`, 'success');
     }
 
     /* ИСТОРИЯ */
@@ -2399,14 +2572,13 @@
     }
 
     function clearBankHistory() {
-      if (confirm('Очистить историю операций?')) {
-        transactionsLog = [];
-        localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
-        renderBankHistory();
-        tg?.HapticFeedback?.impactOccurred?.('light');
-      }
+      transactionsLog = [];
+      localStorage.setItem('pact_transactions_log', JSON.stringify(transactionsLog));
+      renderBankHistory();
+      showToast('История операций очищена.', 'info');
     }
 
+    /* ОБНОВЛЕНИЕ ЭКРАНА БАЛАНСА ПОД АКТИВНУЮ РОЛЬ */
     function renderBankScreen() {
       const fPtc = document.getElementById('bank-f-ptc');
       const fOtc = document.getElementById('bank-f-otc');
@@ -2427,6 +2599,34 @@
       if (tfStc) tfStc.innerText = femaleBalances.stc;
       if (tmStc) tmStc.innerText = maleBalances.stc;
 
+      // Динамическая подсветка активной роли
+      const boxFemale = document.getElementById('bank-box-female');
+      const boxMale = document.getElementById('bank-box-male');
+      const titleFemale = document.getElementById('bank-title-female');
+      const titleMale = document.getElementById('bank-title-male');
+
+      if (currentRole === 'female') {
+        boxFemale?.classList.add('is-active-role');
+        boxMale?.classList.remove('is-active-role');
+        if (titleFemale) titleFemale.innerHTML = `🗝️ Нижняя <span class="role-active-indicator">(Ты)</span>`;
+        if (titleMale) titleMale.innerHTML = `👑 Верхний`;
+
+        // Авто-настройки направления
+        setTransferDirection('f2m');
+        setRewardTarget('male');
+        setPenaltyTarget('female');
+      } else {
+        boxMale?.classList.add('is-active-role');
+        boxFemale?.classList.remove('is-active-role');
+        if (titleMale) titleMale.innerHTML = `👑 Верхний <span class="role-active-indicator">(Ты)</span>`;
+        if (titleFemale) titleFemale.innerHTML = `🗝️ Нижняя`;
+
+        // Авто-настройки направления
+        setTransferDirection('m2f');
+        setRewardTarget('female');
+        setPenaltyTarget('female');
+      }
+
       renderRewardCurrencySelector();
       renderPenaltyCurrencySelector();
       updateRewardBtnText();
@@ -2437,7 +2637,7 @@
     }
 
     /* ========================================================
-       8. МОДАЛКА КОНВЕРТЕРА И ВИДЖЕТЫ РАБОЧЕГО СТОЛА
+       9. ОБЩИЙ КОНВЕРТЕР И МОДАЛКИ СТОЛА
        ======================================================== */
     function openConverterModal() {
       updateConverterUI();
@@ -2488,7 +2688,7 @@
 
     function executeCurrencyExchange() {
       if (currentRole !== 'female') {
-        alert('Обмен очков страсти и покорности доступен для Нижней.');
+        showToast('Обмен сердец страсти и покорности доступен для Нижней.', 'info');
         return;
       }
 
@@ -2498,7 +2698,7 @@
       const toAmount = parseInt(document.getElementById('conv-to-amount').value) || 0;
 
       if (fromAmount <= 0) {
-        alert('Введите корректное число для обмена.');
+        showToast('Введите корректное число для обмена.', 'error');
         return;
       }
 
@@ -2507,8 +2707,7 @@
       const toKey = keyMap[toCurr];
 
       if (femaleBalances[fromKey] < fromAmount) {
-        tg?.HapticFeedback?.notificationOccurred?.('error');
-        alert(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`);
+        showToast(`Недостаточно средств на балансе ${getHeartByCurrency(fromCurr)}! У вас: ${femaleBalances[fromKey]}`, 'error');
         return;
       }
 
@@ -2516,12 +2715,11 @@
       femaleBalances[toKey] += toAmount;
       localStorage.setItem('pact_female_balances', JSON.stringify(femaleBalances));
 
-      tg?.HapticFeedback?.notificationOccurred?.('success');
       updateRoleUI();
       updateConverterUI();
       renderDesktop();
       renderShopBalance();
-      alert(`Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`);
+      showToast(`🔄 Успешно обменяно ${fromAmount} ${getHeartByCurrency(fromCurr)} на ${toAmount} ${getHeartByCurrency(toCurr)}!`, 'success');
     }
 
     function openAddWidgetModal() {
