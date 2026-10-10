@@ -151,12 +151,12 @@
     .curr-chip {
       display: inline-flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border-subtle);
       border-radius: 10px;
-      padding: 4px 6px;
-      font-size: 10px;
+      padding: 5px 8px;
+      font-size: 10.5px;
       font-weight: 800;
       color: #fff;
       white-space: nowrap;
@@ -173,9 +173,33 @@
       border: 1px solid var(--border-subtle);
       border-radius: 10px;
       color: #fff;
-      padding: 4px 7px;
-      font-size: 11px;
+      padding: 5px 8px;
+      font-size: 12px;
       cursor: pointer;
+    }
+
+    /* КНОПКА ТУТОРИАЛА (?) */
+    .tutorial-help-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FF8599;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 8px rgba(230, 57, 86, 0.15);
+    }
+    .tutorial-help-btn:hover, .tutorial-help-btn:active {
+      background: rgba(230, 57, 86, 0.25);
+      border-color: var(--accent-pink);
+      color: #fff;
+      transform: scale(1.08);
     }
 
     /* ВКЛАДКИ */
@@ -231,12 +255,94 @@
       color: #FF8566;
     }
 
-    /* РАБОЧИЙ СТОЛ */
-    .desktop-grid {
+    /* ========================================================
+       РАБОЧИЙ СТОЛ: КАРОУСЕЛЬ ЭКРАНОВ И РЕЖИМ СМАРТФОНА
+       ======================================================== */
+    .desktop-top-control-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .desktop-edit-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+    .desktop-edit-toggle-btn.active {
+      background: rgba(230, 57, 86, 0.25);
+      border-color: var(--accent-pink);
+      color: #fff;
+    }
+
+    .desktop-page-label {
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #e5def0;
+      text-transform: uppercase;
+    }
+
+    .desktop-viewport {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      touch-action: pan-y;
+      padding: 4px 0 10px;
+    }
+
+    .desktop-pages-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+      will-change: transform;
+    }
+
+    .desktop-page {
+      min-width: 100%;
+      width: 100%;
+      flex-shrink: 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: min-content;
       gap: 10px;
+      min-height: 400px;
       align-content: start;
+      padding: 4px 2px 10px 2px;
+    }
+
+    .desktop-pagination-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+
+    .desktop-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .desktop-dot.active {
+      width: 18px;
+      border-radius: 10px;
+      background: var(--accent-pink);
+      box-shadow: 0 0 10px rgba(230, 57, 86, 0.7);
     }
 
     .desktop-tile {
@@ -252,37 +358,8 @@
       gap: 6px;
       cursor: pointer;
       position: relative;
+      user-select: none;
     }
-
-    /* БЕЙДЖ НОВИНОК (SMS) НА ПЛИТКЕ */
-    .tile-unread-badge {
-      position: absolute;
-      top: 6px;
-      right: 6px;
-      background: linear-gradient(135deg, #FF3366, #E63956);
-      color: #fff;
-      font-size: 9px;
-      font-weight: 900;
-      min-width: 17px;
-      height: 17px;
-      padding: 0 4px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 10px rgba(230, 57, 86, 0.8);
-      animation: pulseBadge 1.8s infinite;
-      z-index: 5;
-    }
-
-    @keyframes pulseBadge {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 86, 0.8); }
-      70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(230, 57, 86, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 86, 0); }
-    }
-
-    .tile-icon { font-size: 24px; }
-    .tile-title { font-size: 10.5px; font-weight: 700; color: #fff; }
 
     .desktop-widget {
       background: var(--bg-card);
@@ -293,6 +370,8 @@
       flex-direction: column;
       justify-content: center;
       cursor: pointer;
+      position: relative;
+      user-select: none;
     }
 
     .widget-span-4 { grid-column: span 4; min-height: 72px; }
@@ -360,7 +439,7 @@
       justify-content: space-between;
     }
 
-    .desktop-action-bar { margin-top: 14px; display: flex; justify-content: center; }
+    .desktop-action-bar { margin-top: 8px; display: flex; justify-content: center; }
     .add-tile-btn {
       background: transparent;
       border: 1px dashed rgba(255, 255, 255, 0.2);
@@ -373,7 +452,93 @@
       width: 100%;
     }
 
-    /* СПИСКИ КАРТОЧЕК */
+    /* ПОКАЧИВАНИЕ (JIGGLE) И УДАЛЕНИЕ */
+    @keyframes jiggle {
+      0% { transform: rotate(-1.2deg) scale(0.99); }
+      50% { transform: rotate(1.4deg) scale(1.01); }
+      100% { transform: rotate(-1.2deg) scale(0.99); }
+    }
+
+    .is-editing .desktop-tile,
+    .is-editing .desktop-widget {
+      animation: jiggle 0.28s infinite ease-in-out;
+      touch-action: none;
+    }
+
+    .is-editing .desktop-tile:nth-child(even),
+    .is-editing .desktop-widget:nth-child(even) {
+      animation-duration: 0.32s;
+      animation-delay: 0.05s;
+    }
+
+    .tile-delete-badge {
+      display: none;
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #E63956;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #0B0710;
+      box-shadow: 0 0 8px rgba(230, 57, 86, 0.8);
+      z-index: 20;
+      cursor: pointer;
+    }
+
+    .is-editing .tile-delete-badge {
+      display: flex;
+    }
+
+    .is-dragging {
+      opacity: 0.25 !important;
+      transform: scale(0.95) !important;
+    }
+
+    .drag-ghost {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%) scale(1.06);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(230, 57, 86, 0.6);
+      border-color: var(--accent-pink) !important;
+    }
+
+    .tile-unread-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: linear-gradient(135deg, #FF3366, #E63956);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(230, 57, 86, 0.8);
+      animation: pulseBadge 1.8s infinite;
+      z-index: 5;
+    }
+
+    @keyframes pulseBadge {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 86, 0.8); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(230, 57, 86, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 86, 0); }
+    }
+
+    .tile-icon { font-size: 24px; }
+    .tile-title { font-size: 10.5px; font-weight: 700; color: #fff; }
+
+    /* КАРТОЧКИ И СПИСКИ */
     .wardrobe-main-card, .shop-main-card, .bank-main-card {
       max-height: calc(100vh - 100px);
       display: flex;
@@ -443,7 +608,6 @@
     }
     .selected-badge.badge-toy { background: rgba(155, 81, 224, 0.95); }
 
-    /* ПЛАШКА NEW НА КАРТОЧКЕ */
     .product-new-badge {
       position: absolute;
       top: 6px;
@@ -567,7 +731,7 @@
     .shop-status-pill.bought { background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.35); }
     .shop-status-pill.owned { background: rgba(255, 255, 255, 0.06); color: var(--text-muted); border: 1px solid var(--border-subtle); }
 
-    /* ЭКРАН «БАЛАНС» (5 КНОПОК) */
+    /* ЭКРАН «БАЛАНС» */
     .balance-nav-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -624,7 +788,7 @@
     }
 
     .bank-side-title { font-size: 11px; font-weight: 800; color: #fff; }
-    .bank-side-chips { display: flex; flex-direction: column; gap: 4px; }
+    .bank-side-chips { display: flex; flex-direction: column; gap: 5px; }
     .bank-sub-content { display: none; flex-direction: column; gap: 12px; overflow-y: auto; padding-bottom: 24px; }
     .bank-sub-content.active { display: flex; }
 
@@ -778,6 +942,20 @@
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
     .modal-close-btn { font-size: 16px; cursor: pointer; color: var(--text-muted); }
 
+    /* МОДАЛКА ТУТОРИАЛА */
+    .tutorial-card {
+      border-top: 1px solid rgba(255, 133, 153, 0.5);
+      background: linear-gradient(180deg, #1F1026 0%, #110816 100%);
+      box-shadow: 0 -10px 30px rgba(230, 57, 86, 0.25);
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .tutorial-header-icon { font-size: 22px; }
+    .tutorial-body { display: flex; flex-direction: column; gap: 12px; line-height: 1.55; font-size: 11.5px; color: #D6CEDF; }
+    .tutorial-bullet-item { display: flex; gap: 8px; align-items: flex-start; }
+    .tutorial-bullet-icon { color: var(--accent-pink); font-weight: 900; }
+    .tutorial-highlight { color: #fff; font-weight: 700; }
+
     .converter-card-box { display: flex; flex-direction: column; gap: 12px; }
     .converter-rate-badge {
       background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 8px 10px; font-size: 10.5px; text-align: center; color: #dedede;
@@ -868,11 +1046,39 @@
     <!-- ВКЛАДКИ -->
     <main class="app-main">
       
-      <!-- 1. РАБОЧИЙ СТОЛ -->
+      <!-- 1. РАБОЧИЙ СТОЛ (3 ЭКРАНА С СВАЙПОМ, ПЕРЕМЕЩЕНИЕМ И НАСТРОЙКОЙ) -->
       <section id="tab-desktop" class="tab-content active">
-        <div class="desktop-grid" id="desktop-grid-container"></div>
+        
+        <!-- Верхняя панель управления экранами -->
+        <div class="desktop-top-control-bar">
+          <button class="desktop-edit-toggle-btn" id="desktop-edit-btn" onclick="toggleDesktopEditMode()">
+            <span id="desktop-edit-icon">✏️</span>
+            <span id="desktop-edit-text">Настроить</span>
+          </button>
+          
+          <div class="desktop-page-label" id="desktop-page-indicator-text">Стол 1 из 3</div>
+          
+          <button class="tutorial-help-btn" onclick="openTutorial('desktop')" title="Справка">?</button>
+        </div>
+
+        <!-- Видовой экран со свайпом (Track на 3 страницы) -->
+        <div class="desktop-viewport" id="desktop-viewport">
+          <div class="desktop-pages-track" id="desktop-pages-track">
+            <div class="desktop-page" id="desktop-page-0"></div>
+            <div class="desktop-page" id="desktop-page-1"></div>
+            <div class="desktop-page" id="desktop-page-2"></div>
+          </div>
+        </div>
+
+        <!-- Точки пагинации (как на iPhone / Android) -->
+        <div class="desktop-pagination-dots" id="desktop-dots-container">
+          <div class="desktop-dot active" onclick="goToDesktopPage(0)"></div>
+          <div class="desktop-dot" onclick="goToDesktopPage(1)"></div>
+          <div class="desktop-dot" onclick="goToDesktopPage(2)"></div>
+        </div>
+
         <div class="desktop-action-bar">
-          <button class="add-tile-btn" onclick="openAddWidgetModal()">+ Добавить на стол</button>
+          <button class="add-tile-btn" onclick="openAddWidgetModal()">+ Добавить на этот стол</button>
         </div>
       </section>
 
@@ -882,41 +1088,41 @@
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
             <div class="screen-title">БАЛАНС</div>
-            <div style="width: 48px;"></div>
+            <button class="tutorial-help-btn" onclick="openTutorial('bank')" title="Справка">?</button>
           </div>
 
-          <!-- Сводка счетов партнеров -->
+          <!-- Сводка счетов партнеров с полными названиями валют -->
           <div class="bank-balances-summary">
             <div class="bank-side-box" id="bank-box-female">
               <div class="bank-side-title" id="bank-title-female">🗝️ Нижняя</div>
               <div class="bank-side-chips">
-                <span class="curr-chip ptc">💜 <b id="bank-f-ptc">0</b></span>
-                <span class="curr-chip otc">🖤 <b id="bank-f-otc">0</b></span>
-                <span class="curr-chip stc">❤️ <b id="bank-f-stc">0</b></span>
+                <span class="curr-chip ptc">💜 Страсть: <b id="bank-f-ptc">0</b></span>
+                <span class="curr-chip otc">🖤 Покорность: <b id="bank-f-otc">0</b></span>
+                <span class="curr-chip stc">❤️ Секс-токены: <b id="bank-f-stc">0</b></span>
               </div>
             </div>
             <div class="bank-side-box" id="bank-box-male">
               <div class="bank-side-title" id="bank-title-male">👑 Верхний</div>
               <div class="bank-side-chips">
-                <span class="curr-chip att">💙 <b id="bank-m-atc">0</b></span>
-                <span class="curr-chip care">💚 <b id="bank-m-ctc">0</b></span>
-                <span class="curr-chip stc">❤️ <b id="bank-m-stc">0</b></span>
+                <span class="curr-chip att">💙 Внимание: <b id="bank-m-atc">0</b></span>
+                <span class="curr-chip care">💚 Забота: <b id="bank-m-ctc">0</b></span>
+                <span class="curr-chip stc">❤️ Секс-токены: <b id="bank-m-stc">0</b></span>
               </div>
             </div>
           </div>
 
-          <!-- 5 кнопок разделения функций -->
+          <!-- 5 кнопок разделения функций (скрываются адаптивно под роль) -->
           <div class="balance-nav-grid">
-            <button class="bal-tab-btn reward active" onclick="setBalanceTab('reward', this)">➕ Поощрение</button>
-            <button class="bal-tab-btn penalty" onclick="setBalanceTab('penalty', this)">➖ Штраф</button>
-            <button class="bal-tab-btn transfer" onclick="setBalanceTab('transfer', this)">💌 Перевод ❤️</button>
-            <button class="bal-tab-btn exchange" onclick="setBalanceTab('exchange', this)">🔄 Обмен</button>
-            <button class="bal-tab-btn history" onclick="setBalanceTab('history', this)">📜 История</button>
+            <button class="bal-tab-btn reward active" id="bal-tab-btn-reward" onclick="setBalanceTab('reward', this)">➕ Поощрение</button>
+            <button class="bal-tab-btn penalty" id="bal-tab-btn-penalty" onclick="setBalanceTab('penalty', this)">➖ Штраф</button>
+            <button class="bal-tab-btn transfer" id="bal-tab-btn-transfer" onclick="setBalanceTab('transfer', this)">💌 Перевод ❤️</button>
+            <button class="bal-tab-btn exchange" id="bal-tab-btn-exchange" onclick="setBalanceTab('exchange', this)">🔄 Обмен</button>
+            <button class="bal-tab-btn history" id="bal-tab-btn-history" onclick="setBalanceTab('history', this)">📜 История</button>
           </div>
 
           <!-- БЛОК 1: ПООЩРЕНИЕ -->
           <div id="bal-sec-reward" class="bank-sub-content active">
-            <div class="bank-field-group">
+            <div class="bank-field-group" id="reward-target-field-group">
               <label class="bank-field-label">Кому начислить:</label>
               <div class="bank-target-selector">
                 <button class="bank-target-btn active" id="btn-reward-target-f" onclick="setRewardTarget('female')">🗝️ Нижней</button>
@@ -957,9 +1163,9 @@
             </button>
           </div>
 
-          <!-- БЛОК 2: ШТРАФ -->
+          <!-- БЛОК 2: ШТРАФ (ДОСТУПЕН ТОЛЬКО ВЕРХНЕМУ) -->
           <div id="bal-sec-penalty" class="bank-sub-content">
-            <div class="bank-field-group">
+            <div class="bank-field-group" id="penalty-target-field-group">
               <label class="bank-field-label">Кого оштрафовать:</label>
               <div class="bank-target-selector">
                 <button class="bank-target-btn active" id="btn-penalty-target-f" onclick="setPenaltyTarget('female')">🗝️ Нижнюю</button>
@@ -1018,7 +1224,7 @@
                 </div>
               </div>
 
-              <div class="conv-row-group">
+              <div class="conv-row-group" id="transfer-direction-row">
                 <label>Направление перевода:</label>
                 <div class="bank-target-selector">
                   <button class="bank-target-btn active" id="btn-transfer-f2m" onclick="setTransferDirection('f2m')">🗝️ Нижняя ➔ 👑 Верхний</button>
@@ -1048,7 +1254,7 @@
             </div>
           </div>
 
-          <!-- БЛОК 4: ОБМЕН -->
+          <!-- БЛОК 4: ОБМЕН (ДОСТУПЕН НИЖНЕЙ) -->
           <div id="bal-sec-exchange" class="bank-sub-content">
             <div class="converter-card-box">
               <div class="converter-rate-badge">Курс обмена Нижней: <b>2 💜 / 2 🖤 = 1 ❤️</b></div>
@@ -1058,9 +1264,9 @@
                 <div class="conv-input-row">
                   <input type="number" id="bank-conv-from-amount" value="50" min="2" step="2" oninput="calculateBankConversion()">
                   <select id="bank-conv-from-currency" onchange="calculateBankConversion()">
-                    <option value="PTC">💜</option>
-                    <option value="OTC">🖤</option>
-                    <option value="STC">❤️</option>
+                    <option value="PTC">💜 Страсть</option>
+                    <option value="OTC">🖤 Покорность</option>
+                    <option value="STC">❤️ Секс-токен</option>
                   </select>
                 </div>
               </div>
@@ -1070,9 +1276,9 @@
                 <div class="conv-input-row">
                   <input type="text" id="bank-conv-to-amount" readonly value="25">
                   <select id="bank-conv-to-currency" onchange="calculateBankConversion()">
-                    <option value="STC">❤️</option>
-                    <option value="PTC">💜</option>
-                    <option value="OTC">🖤</option>
+                    <option value="STC">❤️ Секс-токен</option>
+                    <option value="PTC">💜 Страсть</option>
+                    <option value="OTC">🖤 Покорность</option>
                   </select>
                 </div>
               </div>
@@ -1097,7 +1303,7 @@
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
             <div class="screen-title">ГАРДЕРОБ</div>
-            <div style="width: 48px;"></div>
+            <button class="tutorial-help-btn" onclick="openTutorial('wardrobe')" title="Справка">?</button>
           </div>
 
           <div class="wardrobe-passion-banner" id="wardrobe-passion-summary"></div>
@@ -1117,7 +1323,7 @@
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
             <div class="screen-title">БУТИК & СЕКС-ШОП</div>
-            <div style="width: 48px;"></div>
+            <button class="tutorial-help-btn" onclick="openTutorial('shop')" title="Справка">?</button>
           </div>
 
           <!-- Слот баланса в магазине -->
@@ -1139,7 +1345,7 @@
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-shop')">← В Бутик</button>
             <div class="screen-title" id="detail-top-title">ТОВАР</div>
-            <div style="width: 48px;"></div>
+            <button class="tutorial-help-btn" onclick="openTutorial('product')" title="Справка">?</button>
           </div>
 
           <div class="detail-main-img-wrap" onclick="openCurrentFullscreen()">
@@ -1173,7 +1379,7 @@
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
             <div class="screen-title">ДОГОВОР</div>
-            <div style="width: 48px;"></div>
+            <button class="tutorial-help-btn" onclick="openTutorial('contract')" title="Справка">?</button>
           </div>
           <div style="text-align: center; padding: 20px 10px;">
             <div style="font-size: 14px; letter-spacing: 4px; color: var(--accent-gold); margin-bottom: 12px; font-weight: 800;">✦ PACT ✦</div>
@@ -1193,7 +1399,7 @@
           <div class="sub-screen-header">
             <button class="back-action-btn" onclick="switchTab('tab-desktop')">← Назад</button>
             <div class="screen-title">КАЛЕНДАРЬ</div>
-            <div style="width: 48px;"></div>
+            <button class="tutorial-help-btn" onclick="openTutorial('cycle')" title="Справка">?</button>
           </div>
           <div style="text-align: center; padding: 40px 10px;">
             <div style="font-size: 38px; margin-bottom: 8px;">🌸</div>
@@ -1210,6 +1416,50 @@
     <!-- МОДАЛКА: LIGHTBOX ДЛЯ ФОТО -->
     <div id="fullscreen-photo-modal" class="fullscreen-modal" onclick="closeFullscreenPhoto()">
       <img id="fullscreen-photo-elem" class="fullscreen-img" src="" alt="Fullscreen Image">
+    </div>
+
+    <!-- МОДАЛКА: ИНТЕРАКТИВНЫЙ ТУТОРИАЛ (?) -->
+    <div id="tutorial-modal" class="modal-overlay" onclick="closeTutorial()">
+      <div class="modal-card tutorial-card" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="tutorial-header-icon" id="tutorial-icon">💡</span>
+            <h3 id="tutorial-title" style="color: #fff; font-size: 14px; font-weight: 800;">Гид по разделу</h3>
+          </div>
+          <span class="modal-close-btn" onclick="closeTutorial()">✕</span>
+        </div>
+        <div class="tutorial-body" id="tutorial-content-slot"></div>
+        <button class="shop-buy-btn" style="margin-top: 14px;" onclick="closeTutorial()">Понятно ✨</button>
+      </div>
+    </div>
+
+    <!-- МОДАЛКА: МЕНЮ НАСТРОЙКИ И СМЕНЫ ИКОНКИ ПЛИТКИ -->
+    <div id="icon-picker-modal" class="modal-overlay" onclick="closeIconPickerModal()">
+      <div class="modal-card" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h3>⚙️ Настройка плитки</h3>
+          <span class="modal-close-btn" onclick="closeIconPickerModal()">✕</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="conv-row-group">
+            <label>Название плитки:</label>
+            <input type="text" id="tile-edit-title-input" class="bank-amount-input" placeholder="Название...">
+          </div>
+          <div class="conv-row-group">
+            <label>Выбери иконку:</label>
+            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; max-height: 140px; overflow-y: auto; padding: 4px;" id="icon-picker-grid"></div>
+          </div>
+          <div class="conv-row-group">
+            <label>Переместить на стол:</label>
+            <div class="bank-target-selector">
+              <button class="bank-target-btn active" id="btn-move-page-0" onclick="setTileTargetPage(0)">Стол 1</button>
+              <button class="bank-target-btn" id="btn-move-page-1" onclick="setTileTargetPage(1)">Стол 2</button>
+              <button class="bank-target-btn" id="btn-move-page-2" onclick="setTileTargetPage(2)">Стол 3</button>
+            </div>
+          </div>
+          <button class="shop-buy-btn" style="margin-top: 6px;" onclick="saveTileSettings()">Сохранить изменения</button>
+        </div>
+      </div>
     </div>
 
     <!-- МОДАЛКА: НЕ ХВАТАЕТ СЕРДЕЦ -->
@@ -1257,7 +1507,7 @@
       </div>
     </div>
 
-    <!-- МОДАЛКА: КОНВЕРТЕР -->
+    <!-- МОДАЛКА: КОНВЕРТЕР (ИЗ ШАПКИ / ВИДЖЕТА) -->
     <div id="currency-converter-modal" class="modal-overlay" onclick="closeConverterModal()">
       <div class="modal-card" onclick="event.stopPropagation()">
         <div class="modal-header">
@@ -1389,8 +1639,8 @@
       stc: 400
     };
 
-    // Авто-сброс кэша под механику уведомлений и бейджей
-    if (localStorage.getItem('pact_single_ver') !== 'v22_pink_heart_toasts_badges') {
+    // Авто-сброс устаревшего кэша под новые фичи
+    if (localStorage.getItem('pact_single_ver') !== 'v25_full_desktop_tutorial_stable') {
       localStorage.removeItem('boutique_items');
       localStorage.removeItem('wardrobe_items');
       localStorage.removeItem('pact_selected_wardrobe_ids');
@@ -1398,7 +1648,7 @@
       localStorage.removeItem('pact_male_balances');
       localStorage.removeItem('pact_transactions_log');
       localStorage.removeItem('pact_desktop_items');
-      localStorage.setItem('pact_single_ver', 'v22_pink_heart_toasts_badges');
+      localStorage.setItem('pact_single_ver', 'v25_full_desktop_tutorial_stable');
     }
 
     // Лог истории операций
@@ -1409,7 +1659,7 @@
     ];
 
     /* ========================================================
-       2. СИСТЕМА ВСПЛЫВАЮЩИХ УВЕДОМЛЕНИЙ (TOASTS)
+       2. ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ (TOASTS ВМЕСТО ALERT)
        ======================================================== */
     function showToast(message, type = 'info') {
       const container = document.getElementById('toast-container');
@@ -1433,7 +1683,7 @@
     }
 
     /* ========================================================
-       3. ХЕЛПЕРЫ: СЕРДЦА, ПЕРЧИНКИ И ГРАДУС СТРАСТИ
+       3. ХЕЛПЕРЫ ВАЛЮТ, ПЕРЧИНОК И ЗВАНИЙ СТРАСТИ
        ======================================================== */
     function getHeartByCurrency(curr) {
       if (curr === 'PTC') return '💜';
@@ -1496,7 +1746,474 @@
     }
 
     /* ========================================================
-       4. БАЗА ТОВАРОВ И ГАРДЕРОБ С ПОДДЕРЖКОЙ NEW
+       4. РАБОЧИЙ СТОЛ (3 СТОЛА, СВАЙП, DRAG & DROP, МЕНЮ)
+       ======================================================== */
+    let currentDesktopPage = 0;
+    let isEditMode = false;
+    let editingTileId = null;
+
+    // Начальный набор элементов, распределённый по 3 экранам
+    let desktopItems = JSON.parse(localStorage.getItem('pact_desktop_items')) || [
+      { id: 'w-passion', type: 'widget', widgetKey: 'widget-passion', span: 4, page: 0 },
+      { id: 'w-balance', type: 'widget', widgetKey: 'widget-balance', span: 4, page: 0 },
+      { id: 't-bank', type: 'tile', title: 'Баланс', icon: '💖', target: 'tab-bank', page: 0 },
+      { id: 't-wardrobe', type: 'tile', title: 'Гардероб', icon: '🩱', target: 'tab-wardrobe', page: 0 },
+      { id: 't-shop', type: 'tile', title: 'Бутик', icon: '🛍️', target: 'tab-shop', page: 0 },
+      { id: 't-cycle', type: 'tile', title: 'Календарь', icon: '🌸', target: 'tab-cycle', page: 0 },
+      { id: 'w-contract', type: 'widget', widgetKey: 'widget-contract', span: 4, page: 1 },
+      { id: 't-contract', type: 'tile', title: 'Договор', icon: '📜', target: 'tab-contract', page: 1 }
+    ];
+
+    function toggleDesktopEditMode() {
+      isEditMode = !isEditMode;
+      const desktopSec = document.getElementById('tab-desktop');
+      const editBtn = document.getElementById('desktop-edit-btn');
+      const iconSpan = document.getElementById('desktop-edit-icon');
+      const textSpan = document.getElementById('desktop-edit-text');
+
+      if (isEditMode) {
+        desktopSec?.classList.add('is-editing');
+        editBtn?.classList.add('active');
+        if (iconSpan) iconSpan.innerText = '✓';
+        if (textSpan) textSpan.innerText = 'Готово';
+        showToast('Режим настройки активен: нажми на плитку для смены иконки или ✖ для удаления.', 'info');
+      } else {
+        desktopSec?.classList.remove('is-editing');
+        editBtn?.classList.remove('active');
+        if (iconSpan) iconSpan.innerText = '✏️';
+        if (textSpan) textSpan.innerText = 'Настроить';
+      }
+      tg?.HapticFeedback?.impactOccurred?.('medium');
+      renderDesktop();
+    }
+
+    function goToDesktopPage(pageIdx) {
+      currentDesktopPage = Math.max(0, Math.min(2, pageIdx));
+      const track = document.getElementById('desktop-pages-track');
+      if (track) {
+        track.style.transform = `translateX(-${currentDesktopPage * 100}%)`;
+      }
+
+      // Обновление точек пагинации
+      const dots = document.querySelectorAll('.desktop-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentDesktopPage);
+      });
+
+      // Текстовый индикатор страницы
+      const indicator = document.getElementById('desktop-page-indicator-text');
+      if (indicator) {
+        indicator.innerText = `Стол ${currentDesktopPage + 1} из 3`;
+      }
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    // Обработка жестов свайпа пальцем (Touch Swipe)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchDeltaX = 0;
+    let isSwiping = false;
+
+    function initSwipeGestures() {
+      const viewport = document.getElementById('desktop-viewport');
+      if (!viewport) return;
+
+      viewport.addEventListener('touchstart', (e) => {
+        if (isEditMode) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchDeltaX = 0;
+        isSwiping = true;
+      }, { passive: true });
+
+      viewport.addEventListener('touchmove', (e) => {
+        if (!isSwiping || isEditMode) return;
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const diffX = currentX - touchStartX;
+        const diffY = currentY - touchStartY;
+
+        // Если скролл вертикальный — отменяем горизонтальный свайп
+        if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 12) {
+          isSwiping = false;
+          return;
+        }
+        touchDeltaX = diffX;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', () => {
+        if (!isSwiping || isEditMode) return;
+        isSwiping = false;
+        const threshold = 45;
+        if (touchDeltaX < -threshold && currentDesktopPage < 2) {
+          goToDesktopPage(currentDesktopPage + 1);
+        } else if (touchDeltaX > threshold && currentDesktopPage > 0) {
+          goToDesktopPage(currentDesktopPage - 1);
+        }
+      });
+    }
+
+    function renderDesktop() {
+      const pages = [
+        document.getElementById('desktop-page-0'),
+        document.getElementById('desktop-page-1'),
+        document.getElementById('desktop-page-2')
+      ];
+
+      if (!pages[0] || !pages[1] || !pages[2]) return;
+
+      pages.forEach(p => p.innerHTML = '');
+      const passion = getPassionStatus();
+      const unseenShopCount = boutiqueItems.filter(p => !p.seen).length;
+
+      desktopItems.forEach(item => {
+        const itemPage = item.page !== undefined ? item.page : 0;
+        const targetContainer = pages[itemPage] || pages[0];
+
+        if (item.type === 'tile') {
+          const showBadge = (item.target === 'tab-shop' && currentRole === 'female' && unseenShopCount > 0);
+          const badgeHtml = showBadge ? `<div class="tile-unread-badge">${unseenShopCount}</div>` : '';
+
+          const tileEl = document.createElement('div');
+          tileEl.className = 'desktop-tile';
+          tileEl.setAttribute('data-id', item.id);
+          tileEl.innerHTML = `
+            <div class="tile-delete-badge" onclick="event.stopPropagation(); deleteDesktopItem('${item.id}')">✕</div>
+            ${badgeHtml}
+            <div class="tile-icon">${item.icon}</div>
+            <div class="tile-title">${item.title}</div>
+          `;
+
+          tileEl.onclick = () => {
+            if (isEditMode) {
+              openIconPickerModal(item.id);
+            } else {
+              switchTab(item.target);
+            }
+          };
+
+          // Долгое нажатие для входа в режим редактирования
+          let pressTimer;
+          tileEl.addEventListener('touchstart', () => {
+            pressTimer = setTimeout(() => {
+              if (!isEditMode) toggleDesktopEditMode();
+            }, 650);
+          }, { passive: true });
+          tileEl.addEventListener('touchend', () => clearTimeout(pressTimer));
+
+          targetContainer.appendChild(tileEl);
+        }
+
+        if (item.type === 'widget') {
+          const widgetEl = document.createElement('div');
+          widgetEl.className = `desktop-widget widget-span-4 ${item.widgetKey === 'widget-passion' ? 'widget-passion-box' : ''}`;
+          widgetEl.setAttribute('data-id', item.id);
+
+          let innerContent = '';
+          if (item.widgetKey === 'widget-passion') {
+            innerContent = `
+              <div class="tile-delete-badge" onclick="event.stopPropagation(); deleteDesktopItem('${item.id}')">✕</div>
+              <div class="passion-top-row">
+                <div class="widget-title-lbl" style="color: #FF8566; margin: 0;">🌶️ Градус Страсти & Звание</div>
+                <div class="passion-peppers-badge">${passion.total} 🌶️</div>
+              </div>
+              <div class="passion-rank-title">${passion.title}</div>
+              <div class="passion-progress-bg">
+                <div class="passion-progress-fill" style="width: ${passion.progressPercent}%;"></div>
+              </div>
+              <div class="passion-status-desc">
+                <span>${passion.desc}</span>
+                <span style="color: var(--accent-pink); font-weight: 700;">В гардероб →</span>
+              </div>
+            `;
+            widgetEl.onclick = () => { if (!isEditMode) switchTab('tab-wardrobe'); };
+          } else if (item.widgetKey === 'widget-balance') {
+            let balanceHtml = '';
+            if (currentRole === 'female') {
+              balanceHtml = `
+                <div class="curr-chip ptc">💜 ${femaleBalances.ptc}</div>
+                <div class="curr-chip otc">🖤 ${femaleBalances.otc}</div>
+                <div class="curr-chip stc">❤️ ${femaleBalances.stc}</div>
+              `;
+            } else {
+              balanceHtml = `
+                <div class="curr-chip att">💙 ${maleBalances.atc}</div>
+                <div class="curr-chip care">💚 ${maleBalances.ctc}</div>
+                <div class="curr-chip stc">❤️ ${maleBalances.stc}</div>
+              `;
+            }
+
+            innerContent = `
+              <div class="tile-delete-badge" onclick="event.stopPropagation(); deleteDesktopItem('${item.id}')">✕</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="widget-title-lbl" style="margin: 0;">💖 Баланс Очков & Валют</div>
+                <div style="font-size: 10px; color: var(--accent-pink); font-weight: 700;">Открыть ⚖️</div>
+              </div>
+              <div class="widget-balance-grid">
+                ${balanceHtml}
+              </div>
+            `;
+            widgetEl.onclick = () => { if (!isEditMode) switchTab('tab-bank'); };
+          } else if (item.widgetKey === 'widget-contract') {
+            innerContent = `
+              <div class="tile-delete-badge" onclick="event.stopPropagation(); deleteDesktopItem('${item.id}')">✕</div>
+              <div class="widget-title-lbl">📜 Обет Дня</div>
+              <div style="font-size: 10.5px; color: var(--text-muted);">Договор активен • Нажмите для просмотра</div>
+            `;
+            widgetEl.onclick = () => { if (!isEditMode) switchTab('tab-contract'); };
+          }
+
+          widgetEl.innerHTML = innerContent;
+          targetContainer.appendChild(widgetEl);
+        }
+      });
+
+      // Показываем заглушку, если текущая страница пуста
+      pages.forEach((p, idx) => {
+        if (p.children.length === 0) {
+          p.innerHTML = `
+            <div style="grid-column: span 4; text-align: center; color: var(--text-muted); font-size: 11px; padding: 60px 10px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 16px;">
+              Стол ${idx + 1} пока пуст.<br>Нажми «+ Добавить на этот стол» ниже.
+            </div>
+          `;
+        }
+      });
+    }
+
+    function deleteDesktopItem(id) {
+      desktopItems = desktopItems.filter(item => item.id !== id);
+      localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
+      tg?.HapticFeedback?.notificationOccurred?.('warning');
+      showToast('Элемент удален с рабочего стола.', 'info');
+      renderDesktop();
+    }
+
+    /* ========================================================
+       5. МЕНЮ НАСТРОЙКИ ПЛИТКИ (СМЕНА ИКОНКИ / ПЕРЕНОС)
+       ======================================================== */
+    const availableIconsList = [
+      '💖', '⚖️', '🩱', '🛍️', '🌸', '📜', '🌶️', '💎',
+      '👑', '🗝️', '🎀', '⛓️', '🍷', '💋', '🧸', '🔥',
+      '✨', '☕', '🛌', '🕯️', '🔒', '🖤', '💜', '❤️'
+    ];
+    let selectedTileIcon = '💖';
+    let selectedTileTargetPage = 0;
+
+    function openIconPickerModal(tileId) {
+      const tile = desktopItems.find(i => i.id === tileId);
+      if (!tile || tile.type !== 'tile') return;
+
+      editingTileId = tileId;
+      selectedTileIcon = tile.icon || '💖';
+      selectedTileTargetPage = tile.page !== undefined ? tile.page : currentDesktopPage;
+
+      const titleInput = document.getElementById('tile-edit-title-input');
+      if (titleInput) titleInput.value = tile.title;
+
+      const grid = document.getElementById('icon-picker-grid');
+      if (grid) {
+        grid.innerHTML = availableIconsList.map(ico => `
+          <div style="font-size: 22px; text-align: center; padding: 6px; border-radius: 10px; cursor: pointer; background: ${ico === selectedTileIcon ? 'rgba(230,57,86,0.3)' : 'rgba(255,255,255,0.05)'}; border: 1px solid ${ico === selectedTileIcon ? 'var(--accent-pink)' : 'var(--border-subtle)'};" onclick="selectPickerIcon('${ico}', this)">
+            ${ico}
+          </div>
+        `).join('');
+      }
+
+      setTileTargetPage(selectedTileTargetPage);
+      document.getElementById('icon-picker-modal')?.classList.add('active');
+    }
+
+    function selectPickerIcon(ico, el) {
+      selectedTileIcon = ico;
+      document.querySelectorAll('#icon-picker-grid > div').forEach(d => {
+        d.style.background = 'rgba(255,255,255,0.05)';
+        d.style.borderColor = 'var(--border-subtle)';
+      });
+      el.style.background = 'rgba(230,57,86,0.3)';
+      el.style.borderColor = 'var(--accent-pink)';
+      tg?.HapticFeedback?.selectionChanged?.();
+    }
+
+    function setTileTargetPage(pIdx) {
+      selectedTileTargetPage = pIdx;
+      [0, 1, 2].forEach(idx => {
+        document.getElementById(`btn-move-page-${idx}`)?.classList.toggle('active', idx === pIdx);
+      });
+    }
+
+    function closeIconPickerModal() {
+      document.getElementById('icon-picker-modal')?.classList.remove('active');
+      editingTileId = null;
+    }
+
+    function saveTileSettings() {
+      if (!editingTileId) return;
+      const tile = desktopItems.find(i => i.id === editingTileId);
+      if (tile) {
+        const titleInput = document.getElementById('tile-edit-title-input');
+        if (titleInput && titleInput.value.trim()) {
+          tile.title = titleInput.value.trim();
+        }
+        tile.icon = selectedTileIcon;
+        tile.page = selectedTileTargetPage;
+        localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
+        showToast('Плитка обновлена!', 'success');
+      }
+      closeIconPickerModal();
+      renderDesktop();
+    }
+
+    /* ========================================================
+       6. ИНТЕРАКТИВНЫЙ ТУТОРИАЛ (?)
+       ======================================================== */
+    const tutorialsData = {
+      desktop: {
+        icon: '📱',
+        title: 'Рабочий стол смартфона',
+        bullets: [
+          '<b>3 независимых экрана:</b> свайпай пальцем влево или вправо по экрану, чтобы переключаться между столами.',
+          '<b>Настройка и иконки:</b> кнопка «✏️ Настроить» (или зажатие пальцем) включает режим редактирования. Нажимай на плитку, чтобы сменить значок, имя или перенести её на другой стол.',
+          '<b>Крестик ✖:</b> в режиме настройки позволяет мгновенно удалить ненужный виджет или иконку.',
+          '<b>Градус Страсти 🌶️:</b> виджет автоматически считает сумму перчинок надетого белья и девайсов, определяя ранг вечера.'
+        ]
+      },
+      bank: {
+        icon: '💖',
+        title: 'Баланс & Сердечные валюты',
+        bullets: [
+          '<b>Валюты Нижней:</b> 💜 Страсть (за чувственность), 🖤 Покорность (за послушание и скромность), ❤️ Секс-токены (универсальная валюта).',
+          '<b>Валюты Верхнего:</b> 💙 Внимание и 💚 Забота.',
+          '<b>➕ Поощрение:</b> начисление очков партнеру за бытовую помощь, кофе, массаж или выполненные задачи.',
+          '<b>➖ Штраф (только Верхний):</b> дисциплинарное списание баллов с Нижней за дерзкий тон, опоздания или капризы.',
+          '<b>💌 Перевод ❤️:</b> прямая пересылка секс-токенов между партнерами с нежными посланиями.',
+          '<b>🔄 Обмен (для Нижней):</b> конвертация накопленных 💜 и 🖤 в универсальные ❤️ по курсу казны 2 к 1.'
+        ]
+      },
+      wardrobe: {
+        icon: '🩱',
+        title: 'Гардероб и примерка',
+        bullets: [
+          '<b>Выбор на вечер:</b> тапай по комплектам белья и игрушкам, чтобы отметить, что будет надето или использовано этой ночью.',
+          '<b>Шкала Перчинок 🌶️:</b> каждая вещь имеет от 1 до 3 перчинок откровенности. Сумма перчинок меняет ваш статус — от «Скромной девочки» до «Развратной богини».',
+          '<b>Секс-девайсы:</b> выбранные игрушки получают отметку «Будет использовано ⚡».'
+        ]
+      },
+      shop: {
+        icon: '🛍️',
+        title: 'Бутик & Секс-шоп',
+        bullets: [
+          '<b>Бельё за 💜 и 🖤:</b> комплекты выбирает и приобретает только Нижняя за баллы страсти и покорности.',
+          '<b>Секс-шоп за ❤️:</b> девайсы и игрушки доступны для покупки как Верхнему, так и Нижней за секс-токены.',
+          '<b>Бейдж NEW:</b> загорается на новых товарах и на плитке стола до тех пор, пока Нижняя не откроет карточку.',
+          '<b>Доставка:</b> купленная вещь переходит в статус «Ожидает» и по кнопке подтверждения попадает в Гардероб.'
+        ]
+      },
+      contract: {
+        icon: '📜',
+        title: 'Договор пары',
+        bullets: [
+          '<b>Закон отношений:</b> добровольное согласие, стоп-слова, взаимные обязательства и нерушимые табу.',
+          '<b>Слово Верхнего — закон,</b> желание Нижней — священно.'
+        ]
+      },
+      cycle: {
+        icon: '🌸',
+        title: 'Женский календарь',
+        bullets: [
+          '<b>Фазы цикла:</b> отражает дни повышенной чувственности, романтики или отдыха.',
+          '<b>Подсказка Верхнему:</b> помогает ориентироваться в настроении Нижней и регулировать допустимую строгость.'
+        ]
+      },
+      product: {
+        icon: '🔍',
+        title: 'Карточка товара',
+        bullets: [
+          '<b>Галерея:</b> нажимай на миниатюры или на главное фото, чтобы открыть фото во весь экран.',
+          '<b>Перчинки 🌶️:</b> показывают степень провокационности конкретного комплекта или игрушки.'
+        ]
+      }
+    };
+
+    function openTutorial(sectionKey) {
+      const data = tutorialsData[sectionKey] || tutorialsData.desktop;
+      document.getElementById('tutorial-icon').innerText = data.icon;
+      document.getElementById('tutorial-title').innerText = data.title;
+
+      const slot = document.getElementById('tutorial-content-slot');
+      if (slot) {
+        slot.innerHTML = data.bullets.map(b => `
+          <div class="tutorial-bullet-item">
+            <span class="tutorial-bullet-icon">✦</span>
+            <div>${b}</div>
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('tutorial-modal')?.classList.add('active');
+      tg?.HapticFeedback?.impactOccurred?.('light');
+    }
+
+    function closeTutorial() {
+      document.getElementById('tutorial-modal')?.classList.remove('active');
+    }
+
+    /* ========================================================
+       7. УПРАВЛЕНИЕ РОЛЯМИ И НАВИГАЦИЯ
+       ======================================================== */
+    function updateRoleUI() {
+      const roleName = document.getElementById('role-name');
+      const roleIcon = document.getElementById('role-icon');
+      const currContainer = document.getElementById('header-currencies-container');
+
+      if (currentRole === 'male') {
+        roleName.innerText = 'Верхний';
+        roleIcon.innerText = '👑';
+        currContainer.innerHTML = `
+          <div class="curr-chip att" title="Внимание">💙 ${maleBalances.atc}</div>
+          <div class="curr-chip care" title="Забота">💚 ${maleBalances.ctc}</div>
+          <div class="curr-chip stc" title="Секс-валюта">❤️ ${maleBalances.stc}</div>
+        `;
+      } else {
+        roleName.innerText = 'Нижняя';
+        roleIcon.innerText = '🗝️';
+        currContainer.innerHTML = `
+          <div class="curr-chip ptc" title="Очки Страсти">💜 ${femaleBalances.ptc}</div>
+          <div class="curr-chip otc" title="Очки Покорности">🖤 ${femaleBalances.otc}</div>
+          <div class="curr-chip stc" title="Секс-валюта">❤️ ${femaleBalances.stc}</div>
+        `;
+      }
+      localStorage.setItem('pact_user_role', currentRole);
+    }
+
+    function toggleRole() {
+      currentRole = currentRole === 'male' ? 'female' : 'male';
+      tg?.HapticFeedback?.selectionChanged?.();
+      updateRoleUI();
+      renderDesktop();
+      renderShopBalance();
+      renderBankScreen();
+      if (document.getElementById('tab-product-detail').classList.contains('active')) {
+        renderProductDetail(currentDetailItem);
+      }
+      showToast(`Роль переключена: ${currentRole === 'male' ? '👑 Верхний' : '🗝️ Нижняя'}`, 'info');
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      const target = document.getElementById(tabId);
+      if (target) {
+        target.classList.add('active');
+        tg?.HapticFeedback?.impactOccurred?.('light');
+      }
+
+      if (tabId === 'tab-desktop') renderDesktop();
+      if (tabId === 'tab-bank') renderBankScreen();
+      if (tabId === 'tab-wardrobe') renderWardrobe();
+      if (tabId === 'tab-shop') renderProducts();
+    }
+
+    /* ========================================================
+       8. БУТИК & СЕКС-ШОП С ПЛАШКОЙ NEW
        ======================================================== */
     let boutiqueItems = JSON.parse(localStorage.getItem('boutique_items')) || [
       {
@@ -1553,7 +2270,7 @@
         gallery: ['wardrobe/b4.webp'],
         desc: 'Экстремально откровенный белоснежный микро-сет с открытой линией груди и золотистыми соединительными кольцами.',
         status: 'available',
-        seen: false // Новинка
+        seen: false
       },
       {
         id: 5,
@@ -1601,210 +2318,14 @@
         gallery: ['https://images.unsplash.com/photo-1544816155-12df9643f363?w=900'],
         desc: 'Эргономичный стимулятор с 10 режимами глубокой пульсации для доведения до пика удовольствия.',
         status: 'available',
-        seen: false // Новинка
+        seen: false
       }
     ];
 
-    let wardrobeItems = JSON.parse(localStorage.getItem('wardrobe_items')) || [
-      {
-        id: 1,
-        title: '«Винтажная Муза»',
-        desc: 'Полупрозрачный будуарный корсетный топ цвета слоновой кости',
-        category: 'Белье',
-        peppers: 1,
-        mainImg: 'wardrobe/b1.webp'
-      },
-      {
-        id: 2,
-        title: '«Тёмная Покорность»',
-        desc: 'Чёрное кружево, чокер, пояс с гартерами и портупея',
-        category: 'Белье',
-        peppers: 2,
-        mainImg: 'wardrobe/b2.webp'
-      },
-      {
-        id: 3,
-        title: '«Цветение Айвори»',
-        desc: 'Цветочная вышивка, глубокий вырез и двойные бретели',
-        category: 'Белье',
-        peppers: 2,
-        mainImg: 'wardrobe/b3.webp'
-      },
-      {
-        id: 4,
-        title: '«Чистый Соблазн»',
-        desc: 'Белоснежный открытый бра с кольцами и микро-стринги',
-        category: 'Белье',
-        peppers: 3,
-        mainImg: 'wardrobe/b4.webp'
-      },
-      {
-        id: 6,
-        title: '«Атласные Ленты & Повязка»',
-        desc: 'Для ограничения зрения и депривации чувств во время сессии',
-        category: 'Игрушки',
-        peppers: 1,
-        mainImg: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'
-      }
-    ];
-
-    let wardrobeFilterCat = 'Белье';
-    let selectedWardrobeIds = JSON.parse(localStorage.getItem('pact_selected_wardrobe_ids')) || [1, 2];
     let shopFilterCat = 'Все';
     let currentDetailItem = null;
     let activeDetailPhotoSrc = '';
 
-    /* ========================================================
-       5. РАБОЧИЙ СТОЛ И НАВИГАЦИЯ
-       ======================================================== */
-    let desktopItems = JSON.parse(localStorage.getItem('pact_desktop_items')) || [
-      { id: 'w-passion', type: 'widget', widgetKey: 'widget-passion', span: 4 },
-      { id: 'w-balance', type: 'widget', widgetKey: 'widget-balance', span: 4 },
-      { id: 't-bank', type: 'tile', title: 'Баланс', icon: '💖', target: 'tab-bank' },
-      { id: 't-wardrobe', type: 'tile', title: 'Гардероб', icon: '🩱', target: 'tab-wardrobe' },
-      { id: 't-shop', type: 'tile', title: 'Бутик', icon: '🛍️', target: 'tab-shop' },
-      { id: 't-cycle', type: 'tile', title: 'Календарь', icon: '🌸', target: 'tab-cycle' },
-      { id: 'w-contract', type: 'widget', widgetKey: 'widget-contract', span: 4 }
-    ];
-
-    function updateRoleUI() {
-      const roleName = document.getElementById('role-name');
-      const roleIcon = document.getElementById('role-icon');
-      const currContainer = document.getElementById('header-currencies-container');
-
-      if (currentRole === 'male') {
-        roleName.innerText = 'Верхний';
-        roleIcon.innerText = '👑';
-        currContainer.innerHTML = `
-          <div class="curr-chip att" title="Внимание">💙 ${maleBalances.atc}</div>
-          <div class="curr-chip care" title="Забота">💚 ${maleBalances.ctc}</div>
-          <div class="curr-chip stc" title="Секс-валюта">❤️ ${maleBalances.stc}</div>
-        `;
-      } else {
-        roleName.innerText = 'Нижняя';
-        roleIcon.innerText = '🗝️';
-        currContainer.innerHTML = `
-          <div class="curr-chip ptc" title="Очки Страсти">💜 ${femaleBalances.ptc}</div>
-          <div class="curr-chip otc" title="Очки Покорности">🖤 ${femaleBalances.otc}</div>
-          <div class="curr-chip stc" title="Секс-валюта">❤️ ${femaleBalances.stc}</div>
-        `;
-      }
-      localStorage.setItem('pact_user_role', currentRole);
-    }
-
-    function toggleRole() {
-      currentRole = currentRole === 'male' ? 'female' : 'male';
-      tg?.HapticFeedback?.selectionChanged?.();
-      updateRoleUI();
-      renderDesktop();
-      renderShopBalance();
-      renderBankScreen();
-      if (document.getElementById('tab-product-detail').classList.contains('active')) {
-        renderProductDetail(currentDetailItem);
-      }
-    }
-
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-      const target = document.getElementById(tabId);
-      if (target) {
-        target.classList.add('active');
-        tg?.HapticFeedback?.impactOccurred?.('light');
-      }
-
-      if (tabId === 'tab-desktop') renderDesktop();
-      if (tabId === 'tab-bank') renderBankScreen();
-      if (tabId === 'tab-wardrobe') renderWardrobe();
-      if (tabId === 'tab-shop') renderProducts();
-    }
-
-    function renderDesktop() {
-      const container = document.getElementById('desktop-grid-container');
-      if (!container) return;
-
-      const passion = getPassionStatus();
-      const unseenShopCount = boutiqueItems.filter(p => !p.seen).length;
-
-      container.innerHTML = desktopItems.map(item => {
-        if (item.type === 'tile') {
-          // Индикатор непросмотренных новинок для Нижней на плитке Бутика
-          const showBadge = (item.target === 'tab-shop' && currentRole === 'female' && unseenShopCount > 0);
-          const badgeHtml = showBadge ? `<div class="tile-unread-badge">${unseenShopCount}</div>` : '';
-
-          return `
-            <div class="desktop-tile" onclick="switchTab('${item.target}')">
-              ${badgeHtml}
-              <div class="tile-icon">${item.icon}</div>
-              <div class="tile-title">${item.title}</div>
-            </div>
-          `;
-        }
-
-        if (item.type === 'widget') {
-          if (item.widgetKey === 'widget-passion') {
-            return `
-              <div class="desktop-widget widget-span-4 widget-passion-box" onclick="switchTab('tab-wardrobe')">
-                <div class="passion-top-row">
-                  <div class="widget-title-lbl" style="color: #FF8566; margin: 0;">🌶️ Градус Страсти & Звание</div>
-                  <div class="passion-peppers-badge">${passion.total} 🌶️</div>
-                </div>
-                <div class="passion-rank-title">${passion.title}</div>
-                <div class="passion-progress-bg">
-                  <div class="passion-progress-fill" style="width: ${passion.progressPercent}%;"></div>
-                </div>
-                <div class="passion-status-desc">
-                  <span>${passion.desc}</span>
-                  <span style="color: var(--accent-pink); font-weight: 700;">В гардероб →</span>
-                </div>
-              </div>
-            `;
-          }
-
-          if (item.widgetKey === 'widget-balance') {
-            let balanceHtml = '';
-            if (currentRole === 'female') {
-              balanceHtml = `
-                <div class="curr-chip ptc">💜 ${femaleBalances.ptc}</div>
-                <div class="curr-chip otc">🖤 ${femaleBalances.otc}</div>
-                <div class="curr-chip stc">❤️ ${femaleBalances.stc}</div>
-              `;
-            } else {
-              balanceHtml = `
-                <div class="curr-chip att">💙 ${maleBalances.atc}</div>
-                <div class="curr-chip care">💚 ${maleBalances.ctc}</div>
-                <div class="curr-chip stc">❤️ ${maleBalances.stc}</div>
-              `;
-            }
-
-            return `
-              <div class="desktop-widget widget-span-4" onclick="switchTab('tab-bank')">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <div class="widget-title-lbl" style="margin: 0;">💖 Баланс Очков & Валют</div>
-                  <div style="font-size: 10px; color: var(--accent-pink); font-weight: 700;">Открыть ⚖️</div>
-                </div>
-                <div class="widget-balance-grid">
-                  ${balanceHtml}
-                </div>
-              </div>
-            `;
-          }
-
-          if (item.widgetKey === 'widget-contract') {
-            return `
-              <div class="desktop-widget widget-span-4" onclick="switchTab('tab-contract')">
-                <div class="widget-title-lbl">📜 Обет Дня</div>
-                <div style="font-size: 10.5px; color: var(--text-muted);">Договор активен • Нажмите для просмотра</div>
-              </div>
-            `;
-          }
-        }
-        return '';
-      }).join('');
-    }
-
-    /* ========================================================
-       6. БУТИК & СЕКС-ШОП
-       ======================================================== */
     function setShopCategory(cat, btn) {
       shopFilterCat = cat;
       document.querySelectorAll('#tab-shop .chip-btn').forEach(b => b.classList.remove('active'));
@@ -1880,7 +2401,6 @@
           priceHtml = `<div class="shop-price-badge stc">❤️ ${p.priceStc}</div>`;
         }
 
-        // Плашка NEW на карточке товара
         const newBadgeHtml = (!p.seen && currentRole === 'female') ? `<div class="product-new-badge">NEW</div>` : '';
 
         return `
@@ -1912,7 +2432,7 @@
       const item = boutiqueItems.find(p => p.id === id);
       if (!item) return;
 
-      // Если товар был помечен как непросмотренный — снимаем метку NEW
+      // Если товар был новым — снимаем флаг после первого просмотра
       if (!item.seen && currentRole === 'female') {
         item.seen = true;
         localStorage.setItem('boutique_items', JSON.stringify(boutiqueItems));
@@ -2134,8 +2654,54 @@
     }
 
     /* ========================================================
-       7. ГАРДЕРОБ
+       9. ГАРДЕРОБ
        ======================================================== */
+    let wardrobeItems = JSON.parse(localStorage.getItem('wardrobe_items')) || [
+      {
+        id: 1,
+        title: '«Винтажная Муза»',
+        desc: 'Полупрозрачный будуарный корсетный топ цвета слоновой кости',
+        category: 'Белье',
+        peppers: 1,
+        mainImg: 'wardrobe/b1.webp'
+      },
+      {
+        id: 2,
+        title: '«Тёмная Покорность»',
+        desc: 'Чёрное кружево, чокер, пояс с гартерами и портупея',
+        category: 'Белье',
+        peppers: 2,
+        mainImg: 'wardrobe/b2.webp'
+      },
+      {
+        id: 3,
+        title: '«Цветение Айвори»',
+        desc: 'Цветочная вышивка, глубокий вырез и двойные бретели',
+        category: 'Белье',
+        peppers: 2,
+        mainImg: 'wardrobe/b3.webp'
+      },
+      {
+        id: 4,
+        title: '«Чистый Соблазн»',
+        desc: 'Белоснежный открытый бра с кольцами и микро-стринги',
+        category: 'Белье',
+        peppers: 3,
+        mainImg: 'wardrobe/b4.webp'
+      },
+      {
+        id: 6,
+        title: '«Атласные Ленты & Повязка»',
+        desc: 'Для ограничения зрения и депривации чувств во время сессии',
+        category: 'Игрушки',
+        peppers: 1,
+        mainImg: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'
+      }
+    ];
+
+    let wardrobeFilterCat = 'Белье';
+    let selectedWardrobeIds = JSON.parse(localStorage.getItem('pact_selected_wardrobe_ids')) || [1, 2];
+
     function setWardrobeCategory(cat, btn) {
       wardrobeFilterCat = cat;
       document.querySelectorAll('#tab-wardrobe .chip-btn').forEach(b => b.classList.remove('active'));
@@ -2221,7 +2787,7 @@
     }
 
     /* ========================================================
-       8. ЭКРАН «БАЛАНС»: АДАПТИВНОСТЬ ПОД РОЛЬ
+       10. ЭКРАН «БАЛАНС»: АДАПТИВНОСТЬ ПОД РОЛЬ
        ======================================================== */
     let rewardTarget = 'female';
     let rewardCurrency = 'PTC';
@@ -2259,8 +2825,8 @@
       const slot = document.getElementById('reward-curr-pills-slot');
       if (!slot) return;
       const list = rewardTarget === 'female'
-        ? [{ code: 'PTC', label: '💜' }, { code: 'OTC', label: '🖤' }, { code: 'STC', label: '❤️' }]
-        : [{ code: 'ATC', label: '💙' }, { code: 'CTC', label: '💚' }, { code: 'STC', label: '❤️' }];
+        ? [{ code: 'PTC', label: '💜 Страсть' }, { code: 'OTC', label: '🖤 Покорность' }, { code: 'STC', label: '❤️ Секс-токен' }]
+        : [{ code: 'ATC', label: '💙 Внимание' }, { code: 'CTC', label: '💚 Забота' }, { code: 'STC', label: '❤️ Секс-токен' }];
 
       slot.innerHTML = list.map(c => `
         <button class="bank-curr-pill ${c.code === rewardCurrency ? 'active' : ''}" onclick="selectRewardCurrency('${c.code}')">${c.label}</button>
@@ -2337,8 +2903,8 @@
       const slot = document.getElementById('penalty-curr-pills-slot');
       if (!slot) return;
       const list = penaltyTarget === 'female'
-        ? [{ code: 'OTC', label: '🖤' }, { code: 'PTC', label: '💜' }, { code: 'STC', label: '❤️' }]
-        : [{ code: 'CTC', label: '💚' }, { code: 'ATC', label: '💙' }, { code: 'STC', label: '❤️' }];
+        ? [{ code: 'OTC', label: '🖤 Покорность' }, { code: 'PTC', label: '💜 Страсть' }, { code: 'STC', label: '❤️ Секс-токен' }]
+        : [{ code: 'CTC', label: '💚 Забота' }, { code: 'ATC', label: '💙 Внимание' }, { code: 'STC', label: '❤️ Секс-токен' }];
 
       slot.innerHTML = list.map(c => `
         <button class="bank-curr-pill ${c.code === penaltyCurrency ? 'active' : ''}" onclick="selectPenaltyCurrency('${c.code}')">${c.label}</button>
@@ -2599,11 +3165,17 @@
       if (tfStc) tfStc.innerText = femaleBalances.stc;
       if (tmStc) tmStc.innerText = maleBalances.stc;
 
-      // Динамическая подсветка активной роли
       const boxFemale = document.getElementById('bank-box-female');
       const boxMale = document.getElementById('bank-box-male');
       const titleFemale = document.getElementById('bank-title-female');
       const titleMale = document.getElementById('bank-title-male');
+
+      const btnPenaltyTab = document.getElementById('bal-tab-btn-penalty');
+      const btnExchangeTab = document.getElementById('bal-tab-btn-exchange');
+      const clearHistoryBtn = document.querySelector('.clear-history-btn');
+      const transferDirBlock = document.getElementById('transfer-direction-row');
+      const rewardTargetBlock = document.getElementById('reward-target-field-group');
+      const penaltyTargetBlock = document.getElementById('penalty-target-field-group');
 
       if (currentRole === 'female') {
         boxFemale?.classList.add('is-active-role');
@@ -2611,20 +3183,46 @@
         if (titleFemale) titleFemale.innerHTML = `🗝️ Нижняя <span class="role-active-indicator">(Ты)</span>`;
         if (titleMale) titleMale.innerHTML = `👑 Верхний`;
 
-        // Авто-настройки направления
+        // Нижняя: скрываем Штраф и очистку истории, показываем Обмен
+        if (btnPenaltyTab) btnPenaltyTab.style.display = 'none';
+        if (btnExchangeTab) btnExchangeTab.style.display = 'block';
+        if (clearHistoryBtn) clearHistoryBtn.style.display = 'none';
+
+        if (document.getElementById('bal-sec-penalty')?.classList.contains('active')) {
+          setBalanceTab('reward', document.getElementById('bal-tab-btn-reward'));
+        }
+
+        // Фиксация переводов: только Нижняя -> Верхний
         setTransferDirection('f2m');
+        if (transferDirBlock) transferDirBlock.style.display = 'none';
+
+        // Поощрение: Нижняя может поощрить только Верхнего (Внимание / Забота)
         setRewardTarget('male');
-        setPenaltyTarget('female');
+        if (rewardTargetBlock) rewardTargetBlock.style.display = 'none';
       } else {
         boxMale?.classList.add('is-active-role');
         boxFemale?.classList.remove('is-active-role');
         if (titleMale) titleMale.innerHTML = `👑 Верхний <span class="role-active-indicator">(Ты)</span>`;
         if (titleFemale) titleFemale.innerHTML = `🗝️ Нижняя`;
 
-        // Авто-настройки направления
+        // Верхний: скрываем Обмен, показываем Штраф и очистку истории
+        if (btnPenaltyTab) btnPenaltyTab.style.display = 'block';
+        if (btnExchangeTab) btnExchangeTab.style.display = 'none';
+        if (clearHistoryBtn) clearHistoryBtn.style.display = 'block';
+
+        if (document.getElementById('bal-sec-exchange')?.classList.contains('active')) {
+          setBalanceTab('reward', document.getElementById('bal-tab-btn-reward'));
+        }
+
+        // Фиксация переводов: только Верхний -> Нижняя
         setTransferDirection('m2f');
+        if (transferDirBlock) transferDirBlock.style.display = 'none';
+
+        // Поощрение и штрафы: применяются к Нижней
         setRewardTarget('female');
         setPenaltyTarget('female');
+        if (rewardTargetBlock) rewardTargetBlock.style.display = 'none';
+        if (penaltyTargetBlock) penaltyTargetBlock.style.display = 'none';
       }
 
       renderRewardCurrencySelector();
@@ -2637,7 +3235,7 @@
     }
 
     /* ========================================================
-       9. ОБЩИЙ КОНВЕРТЕР И МОДАЛКИ СТОЛА
+       11. МОДАЛКА КОНВЕРТЕРА И ВИДЖЕТЫ
        ======================================================== */
     function openConverterModal() {
       updateConverterUI();
@@ -2731,27 +3329,46 @@
     }
 
     function createWidgetOnDesktop(widgetKey, span) {
-      desktopItems.push({ id: 'w-' + Date.now(), type: 'widget', widgetKey, span });
+      desktopItems.push({
+        id: 'w-' + Date.now(),
+        type: 'widget',
+        widgetKey,
+        span,
+        page: currentDesktopPage
+      });
       localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
       closeAddWidgetModal();
       renderDesktop();
+      showToast(`Виджет добавлен на Стол ${currentDesktopPage + 1}!`, 'success');
     }
 
     function createTileOnDesktop(title, icon, target) {
-      desktopItems.push({ id: 't-' + Date.now(), type: 'tile', title, icon, target });
+      desktopItems.push({
+        id: 't-' + Date.now(),
+        type: 'tile',
+        title,
+        icon,
+        target,
+        page: currentDesktopPage
+      });
       localStorage.setItem('pact_desktop_items', JSON.stringify(desktopItems));
       closeAddWidgetModal();
       renderDesktop();
+      showToast(`Плитка «${title}» добавлена на Стол ${currentDesktopPage + 1}!`, 'success');
     }
 
-    /* СТАРТ ПРИЛОЖЕНИЯ */
+    /* ========================================================
+       12. СТАРТ ПРИЛОЖЕНИЯ
+       ======================================================== */
     window.addEventListener('DOMContentLoaded', () => {
       updateRoleUI();
       renderDesktop();
       renderWardrobe();
       renderProducts();
       renderBankScreen();
+      initSwipeGestures();
     });
   </script>
 </body>
 </html>
+  
